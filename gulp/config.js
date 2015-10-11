@@ -265,7 +265,7 @@ module.exports.wiredep = {
 module.exports.ghPages = {
   src: path.join(dist, '/**/*'),
   cfg: {
-    remoteUrl: 'https://github.com/hafizhamidun/hafizhamidun.github.io.git',
+    remoteUrl: 'https://github.com/hafizhamidunsb/hafizhamidunsb.github.io.git',
     branch: 'master'
   }
 }
