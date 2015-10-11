@@ -262,7 +262,7 @@ module.exports.wiredep = {
 
 // Github Pages task config
 module.exports.ghPages = {
-  src: path.join(dist, '/**/*.*'),
+  src: path.join(dist, '/**/*'),
   cname: 'hafizhamidun.com',
   cfg: {
     remoteUrl: 'https://github.com/hafizhamidunsb/hafizhamidunsb.github.io.git',
