@@ -1,0 +1,71 @@
+include modules/_header
+include modules/_footer
+
+extends layouts/_default
+
+block vars
+  - var pageTitle = 'Contact'
+  - var bodyClass = 'contact';
+
+block content
+  +header(class="bg-header transparent-light", data-pages-header="autoresize", data-pages-resize-class="light-solid")
+
+  // BEGIN HERO WITH PARALLAX
+  section.hero.bg-primary
+    .container-xs-height.full-height
+      .col-xs-height.col-middle.text-center
+        .col-sm-12
+          h1.text-white.inner
+            | Let's 
+            b collaborate
+  // END HERO WITH PARALLAX
+  // START CONTACT SECTION
+  section.p-t-70.p-b-100.sm-p-b-30.bg-primary-darker
+    .container
+      .row
+        .col-md-6
+          .p-r-40.sm-p-r-0
+            form#contact-form.m-t-15
+              div
+                .form-group.form-group-default.required
+                  label Name
+                  input.form-control(type="text", placeholder="What is your name?", name="name", required="")
+                .form-group.form-group-default.required
+                  label Email
+                  input.form-control(type="email", placeholder="We promise we won't spam you.", name="_replyto", required="")
+                .form-group.form-group-default.required
+                  label Message
+                  textarea.form-control(placeholder="Opinions? Suggestions? Write your thoughts here.", name="message", style="height:100px", required="")
+              .m-t-10.m-b-10.clearfix.xs-text-center
+                p.pull-left.xs-pull-reset.small.hint-text.no-margin.col-middle.text-white(style="line-height:35px")
+                  | I hereby certify that the information above is true and accurate.
+                input.hidden(type="text", name="_gotcha")
+                button.btn.btn-primary.font-montserrat.all-caps.fs-12.pull-right.xs-pull-reset Submit
+              .clearfix
+
+        .col-md-6.contact-info
+          .p-l-40.sm-p-l-0.sm-p-t-10.sm-p-b-20.sm-p-t-50.text-white.sm-text-center
+            h3
+              | Hafiz Hamidun is exclusively represented by 
+              a(href="//arteffects.international", target="_blank") Arteffects International.
+            p.m-t-20
+              | To reach Hafiz Hamidun regarding any business ventures, music productions, performances, or just about anything, feel free to use the contact form on the left, call/leave a message at the numbers below, or drop a line in the email.
+            .row
+              .col-sm-12
+                h5.contact-title.block-title
+                  | Hotline
+                p.contact-details
+                  a(href="callto:+60122251297") +6012 225 1297
+                  br
+                  a(href="callto:+60377331297") +603 7733 1297
+
+                h5.contact-title.block-title
+                  | Email
+                p.contact-details
+                  a(href="mailto:newmedia@hafizhamidun.com") newmedia@hafizhamidun.com
+  // END CONTACT SECION
+
+  +footer
+  
+block scripts
+  script(src="https://maps.googleapis.com/maps/api/js?v=3.exp")

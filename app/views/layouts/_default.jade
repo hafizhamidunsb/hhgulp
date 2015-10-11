@@ -1,0 +1,124 @@
+include ../helpers/_language
+
+- var bodyClass = '';
+- var pageTitle = '';
+block vars
+
+doctype html
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9 ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10 ie9"> <![endif]-->
+<!--[if gt IE 9]>      <html class="no-js gt-ie9"> <![endif]-->
+<!--[if !IE] <![IGNORE[--><!--[IGNORE[]]--> <html class="no-js noie">
+head
+  meta(http-equiv="content-type", content="text/html;charset=UTF-8")
+  meta(charset="utf-8")
+
+  title
+    != pageTitle ? pageTitle + " &middot; " : ""
+    | Hafiz Hamidun
+
+  meta(name="description", content="The official website of Hafiz Hamidun.")
+  meta(name="keywords", content="Hafiz Hamidun, Hafiz, Hamidun, Arteffects International, Arteffects, International, Jubah, Jubah Lelaki, Jubah Islam")
+  meta(name="author", content="@wansaleh")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+
+  link(rel="apple-touch-icon", sizes="57x57", href="/assets/icons/apple-touch-icon-57x57.png")
+  link(rel="apple-touch-icon", sizes="60x60", href="/assets/icons/apple-touch-icon-60x60.png")
+  link(rel="apple-touch-icon", sizes="72x72", href="/assets/icons/apple-touch-icon-72x72.png")
+  link(rel="apple-touch-icon", sizes="76x76", href="/assets/icons/apple-touch-icon-76x76.png")
+  link(rel="apple-touch-icon", sizes="114x114", href="/assets/icons/apple-touch-icon-114x114.png")
+  link(rel="apple-touch-icon", sizes="120x120", href="/assets/icons/apple-touch-icon-120x120.png")
+  link(rel="apple-touch-icon", sizes="144x144", href="/assets/icons/apple-touch-icon-144x144.png")
+  link(rel="apple-touch-icon", sizes="152x152", href="/assets/icons/apple-touch-icon-152x152.png")
+  link(rel="apple-touch-icon", sizes="180x180", href="/assets/icons/apple-touch-icon-180x180.png")
+  link(rel="icon", type="image/png", href="/assets/icons/favicon-32x32.png", sizes="32x32")
+  link(rel="icon", type="image/png", href="/assets/icons/android-chrome-192x192.png", sizes="192x192")
+  link(rel="icon", type="image/png", href="/assets/icons/favicon-96x96.png", sizes="96x96")
+  link(rel="icon", type="image/png", href="/assets/icons/favicon-16x16.png", sizes="16x16")
+  link(rel="manifest", href="/assets/icons/manifest.json")
+  link(rel="shortcut icon", href="/assets/icons/favicon.ico")
+  meta(name="msapplication-TileColor", content="#2b5797")
+  meta(name="msapplication-TileImage", content="/assets/icons/mstile-144x144.png")
+  meta(name="msapplication-config", content="/assets/icons/browserconfig.xml")
+  meta(name="theme-color", content="#ffffff")
+  meta(name="apple-mobile-web-app-capable", content="yes")
+  meta(name="apple-touch-fullscreen", content="yes")
+  meta(name="apple-mobile-web-app-status-bar-style", content="default")
+
+  //- PACE
+  //- build:js /assets/scripts/pace.min.js -->
+  script(type="text/javascript", src="/assets/scripts/plugins/pace.js")
+  //- endbuild -->
+  //- build:css({.tmp,app}) /assets/styles/pace.min.css -->
+  link(href="/assets/styles/pace.css", rel="stylesheet")
+  //- endbuild -->
+
+  //- FONTS
+  link(href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300,700,800|Libre+Baskerville:400italic|Playfair+Display:400italic", rel="stylesheet")
+  //- build:css /assets/styles/fonts.min.css -->
+  link(href="/assets/styles/fonts/helvetica-neue-lite.css", rel="stylesheet")
+  link(href="/assets/styles/fonts/gotham-lite.css", rel="stylesheet")
+  link(href="/assets/styles/fonts/pages-icons.css", rel="stylesheet")
+  link(href="/assets/styles/fonts/font-icons.css", rel="stylesheet")
+  link(href="/assets/styles/fonts/themify-icons.css", rel="stylesheet")
+  //- endbuild -->
+
+  //- build:css /assets/styles/vendor.min.css -->
+  // bower:css
+  // endbower
+  link(href="/assets/scripts/plugins/font-awesome/css/font-awesome.css", rel="stylesheet")
+  link(href="/assets/scripts/plugins/swiper/css/swiper.css", rel="stylesheet", media="screen")
+  link(href="/assets/scripts/plugins/text-rotate/simpletextrotator.css", rel="stylesheet", media="screen")
+  //- endbuild -->
+  
+  //- build:css({.tmp,app}) /assets/styles/main.min.css -->
+  link(href="/assets/styles/main.css", rel="stylesheet")
+  //- endbuild -->
+
+  //- build:js(.tmp) /assets/scripts/modernizr.min.js -->
+  script(src="/assets/scripts/plugins/modernizr.js")
+  //- endbuild -->
+  
+body(class=bodyClass)
+
+  block content
+  
+  .pace-overlay
+  
+  block scripts
+
+  //- build:js(./app/) /assets/scripts/vendor.min.js -->
+  // bower:js
+  script(src='../bower_components/jquery/dist/jquery.js')
+  script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js')
+  script(src='../bower_components/jquery.fitvids/jquery.fitvids.js')
+  script(src='../bower_components/velocity/velocity.js')
+  script(src='../bower_components/velocity/velocity.ui.js')
+  script(src='../bower_components/jquery-unveil/jquery.unveil.js')
+  script(src='../bower_components/jquery_appear/jquery.appear.js')
+  script(src='../bower_components/waitForImages/src/jquery.waitforimages.js')
+  script(src='../bower_components/isotope/dist/isotope.pkgd.js')
+  script(src='../bower_components/jquery-unorphanize/unorphanize.jquery.js')
+  script(src='../bower_components/jquery-validation/dist/jquery.validate.js')
+  script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
+  // endbower
+  
+  script(src="/assets/scripts/plugins/swiper/js/swiper.jquery.js")
+  script(src="/assets/scripts/plugins/text-rotate/jquery.simple-text-rotator.js")
+  script(src="/assets/scripts/plugins/animateNumber/jquery.animateNumbers.js")
+  //- endbuild -->
+
+  //- build:js(.tmp) /assets/scripts/main.min.js -->
+  script(src="/assets/scripts/pages/pages.image.loader.js")
+  script(src="/assets/scripts/pages/pages.frontend.js")
+  script(src="/assets/scripts/pages/pages.social.js")
+  script(src="/assets/scripts/pages/ui/float.js")
+  script(src="/assets/scripts/pages/ui/header.js")
+  script(src="/assets/scripts/pages/ui/parallax.js")
+  script(src="/assets/scripts/main.js")
+  script(src="/assets/scripts/maps.js")
+  //- endbuild -->
+
+| </html>

@@ -1,0 +1,142 @@
+include modules/_header
+include modules/_footer
+
+extends layouts/_default
+
+block vars
+  - var bodyClass = 'index';
+  
+block content
+  +header(class="bg-header transparent-light", data-pages-header="autoresize", data-pages-resize-class="light-solid")
+
+  // BEGIN JUMBOTRON
+  section.jumbotron.full-vh(data-pages='parallax')
+    .inner.full-vh
+      // BEGIN SLIDER
+      #hero.swiper-container
+        .swiper-wrapper
+          // BEGIN SLIDE
+          .swiper-slide.fit.bg-info
+            // BEGIN IMAGE PARRALAX
+            .slider-wrapper
+              .background-wrapper(data-swiper-parallax='20%')
+                .background.bg-position-center.hidden-xs.hidden-sm(data-pages-bg-image='/assets/images/hero/hh1.jpg', data-bg-overlay-class='bg-primary-darker', data-overlay-opacity='0.5', draggable='false')
+                .background.bg-position-left.visible-xs.visible-sm(data-pages-bg-image='/assets/images/hero/hh3.jpg', data-bg-overlay-class='bg-primary-darker', data-overlay-opacity='0.5', draggable='false')
+            // END IMAGE PARRALAX
+            // BEGIN CONTENT
+            .content-layer
+              .inner.full-height
+                .container-xs-height.full-height
+                  .col-xs-height.col-middle
+                    .container.text-center
+                      h1.no-orphan.text-white.text-left(data-pages-animation='standard', data-delay='1100', data-type='transition.slideDownIn')
+                        | Discover the 
+                        b(data-pages-init='text-rotate', data-speed='3000', data-animation='flipUp') Insight,Music,Apparel,Work
+            // END CONTENT
+          // END SLIDE
+
+          // BEGIN SLIDE
+          // data-pages-header="alternate"
+          .swiper-slide.fit.bg-primary-dark
+            // BEGIN IMAGE PARRALAX
+            .slider-wrapper
+            // END IMAGE PARRALAX
+            // BEGIN CONTENT
+            .content-layer
+              .inner.full-height
+                .container-xs-height.full-height
+                  .col-xs-height.col-middle
+                    // VIDEO
+                    div.
+                      <div id="fb-root"></div><script>(function(d, s, id) {  var js, fjs = d.getElementsByTagName(s)[0];  if (d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";  fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script><div class="fb-video" data-allowfullscreen="1" data-href="/HafizHamidun/videos/vb.27365242512/10153104753712513/?type=1"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/HafizHamidun/videos/10153104753712513/"><a href="https://www.facebook.com/HafizHamidun/videos/10153104753712513/">Hafiz Hamidun - Penyelamat (Official Music Video)</a><p>Selawat dan salam ke atas Rasulullah SAW.Terimalah video eksklusif Penyelamat dari album saya &#039;I Love Rasulullah&#039;Terbitan Arteffects InternationalEdaran bersama Sony Music Malaysia#Penyelamat</p>Posted by <a href="https://www.facebook.com/HafizHamidun">Hafiz Hamidun</a> on Sunday, September 20, 2015</blockquote></div></div>
+            // END CONTENT
+          // END SLIDE
+        // BEGIN ANIMATED MOUSE
+        .mouse-wrapper
+          .mouse
+            .mouse-scroll
+        // Add Navigation
+        .swiper-navigation.swiper-rounded.swiper-white-solid.swiper-button-prev.auto-reveal
+        .swiper-navigation.swiper-rounded.swiper-white-solid.swiper-button-next.auto-reveal
+    // END SLIDER
+  // END JUMBOTRON
+  // BEGIN CONTENT SECTION
+  section.bg-master-darkest.text-white
+    .container
+      .row
+        .col-sm-8.col-sm-offset-2.p-t-100.p-b-100.xs-padding-50.text-center
+          h5.block-title Meet Hafiz Hamidun
+          h2.m-t-10.no-orphan
+            b Selamat datang. Welcome. 
+            i Bienvenue. Willkommen.
+          h4.m-t-20.m-b-20
+            | This is the home of Hafiz Hamidun in the world wide web; all information regarding albums, singles, shows, concerts and the fashion line can be found here.
+
+  section.p-t-60.p-b-60.bg-master(data-pages='parallax', data-pages-bg-image='/assets/images/hero/hh4-2.jpg', data-bg-overlay-class='bg-master-dark', data-overlay-opacity='0.8')
+    .container
+      .row
+        .col-sm-12
+          .social-count
+            .col-sm-4
+              a.margin-10.c-facebook(href='https://www.facebook.com/hafizhamidun', target='_blank')
+                .progress-circle-indeterminate.progress-circle-white
+                span.wrapper
+                  i.icon-facebook
+                  h3.count
+                  p likes
+            .col-sm-4
+              a.margin-10.c-twitter(href='https://twitter.com/hafizhamidun', target='_blank')
+                .progress-circle-indeterminate.progress-circle-white
+                span.wrapper
+                  i.icon-twitter
+                  h3.count
+                  p followers
+            .col-sm-4
+              a.margin-10.c-instagram(href='https://instagram.com/hafizhamidun', target='_blank')
+                .progress-circle-indeterminate.progress-circle-white
+                span.wrapper
+                  i.icon-instagram
+                  h3.count
+                  p followers
+            .col-sm-4
+              a.margin-10.c-youtube(href='https://youtube.com/user/ArteffectsSdnBhd', target='_blank')
+                .progress-circle-indeterminate.progress-circle-white
+                span.wrapper
+                  i.icon-youtube
+                  h3.count
+                  p subscribers
+            .col-sm-4
+              a.margin-10.c-spotify(href='https://open.spotify.com/artist/6DgMaXR0c070BQWs9VyuNB', target='_blank')
+                .progress-circle-indeterminate.progress-circle-white
+                span.wrapper
+                  i.icon-spotify
+                  h3.count
+                  p followers
+            .col-sm-4
+              a.margin-10.c-soundcloud(href='https://www.soundcloud.com/hafizhamidun', target='_blank')
+                .progress-circle-indeterminate.progress-circle-white
+                span.wrapper
+                  i.icon-soundcloud
+                  h3.count
+                  p followers
+  // END CONTENT SECTION
+
+  // BEGIN BANNER FOOTER
+  section.p-b-50.p-t-50.bg-master-darkest.text-white
+    .container.p-b-50.p-t-50
+      .col-md-8.col-md-offset-2
+        .col-middle
+          .text-center
+            h1.text-primary-light.m-b-10.xs-m-b-20
+              b Sound is divine.
+              | 
+              i Music is man-made.
+            h6.margin-0.m-b-30.text-master-lighter.block-title That's how art connects to our spirituality.
+            a.btn.btn-lg.btn-primary.btn-cons.btn-rounded.font-montserrat.all-caps(href='/music') Explore
+  // END  BANNER FOOTER SMALL
+  
+  section.instagram-feed.bg-master
+    .instagram-isotope
+      .grid-sizer
+
+  +footer

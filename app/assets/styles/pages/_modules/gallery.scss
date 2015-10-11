@@ -1,0 +1,241 @@
+/*------------------------------------------------------------------
+[17. Gallery]
+*/
+.gallery {
+  margin: auto;
+  margin: 5px;
+
+  .grid-sizer {
+    width: 25%;
+  }
+
+  .grid {
+    overflow: hidden;
+    cursor: default;
+    // background-color: #000;
+    position: relative;
+
+    padding: 5px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &[data-width="1"] {
+      width: 25%;
+    }
+
+    &[data-width="2"] {
+      width: 50%;
+    }
+
+    @media (max-width: 991px) {
+      &[data-width="1"] {
+        width: 50%;
+      }
+
+      &[data-width="2"] {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 479px) {
+      &[data-width="1"] {
+        width: 100%;
+      }
+    }
+
+    & > img {
+      opacity: 1;
+      -webkit-transition: opacity .35s;
+      transition: opacity .35s;
+    }
+
+    & > .live-tile {
+      & img {
+        opacity: 1;
+        -webkit-transition: opacity .35s;
+        transition: opacity .35s;
+      }
+    }
+
+    .rating {
+      margin-top: -5px;
+      color: rgba(#fff, .3);
+
+      & > .rated {
+        color: rgba(#fff, 1);
+      }
+    }
+
+    .item-info {
+      -webkit-transform: translate3d(0, 40%, 0);
+      transform: translate3d(0, 40%, 0);
+      -webkit-transition: -webkit-transform .35s, color .35s;
+      transition: transform .35s, color .35s;
+
+      &.more-content {
+        -webkit-transform: translate3d(0, 32%, 0);
+        transform: translate3d(0, 32%, 0);
+      }
+    }
+
+    &:hover {
+      .item-info {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+      & >img {
+        opacity: .6;
+      }
+
+      & > .live-tile {
+        & img {
+          opacity: .6;
+        }
+      }
+    }
+
+    &:active {
+      .item-info {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+      & > img {
+        opacity: .6;
+      }
+    }
+  }
+}
+
+/* Aspect ratio */
+.ar-1-1,
+.ar-2-1,
+.ar-1-2,
+.ar-3-2,
+.ar-2-3 {
+  .panel {
+    margin: 0;
+  }
+
+  [data-pages-bg-image] {
+    box-shadow: inset 0 0 100px rgba(#000, .2);
+  }
+}
+
+.ar-1-1 {
+  position: relative;
+  width: 100%;
+  /* desired width */
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+    /* initial ratio of 1:1*/
+  }
+
+  & > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.ar-2-1 {
+  position: relative;
+  width: 100%;
+  /* desired width */
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: calc(50% - 5px);
+    /* initial ratio of 1:1*/
+  }
+
+  & > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  [data-width="1"] &:before {
+    padding-top: calc(50% - 10px);
+  }
+}
+
+.ar-1-2 {
+  position: relative;
+  width: 100%;
+  /* desired width */
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 150%;
+    // padding-top: calc(200% + 9px);
+    /* initial ratio of 1:1*/
+  }
+
+  & > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.ar-3-2 {
+  position: relative;
+  width: 100%;
+  /* desired width */
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 75%;
+    /* initial ratio of 1:1*/
+  }
+
+  & > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.ar-2-3 {
+  position: relative;
+  width: 100%;
+  /* desired width */
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 125%;
+    /* initial ratio of 1:1*/
+  }
+
+  & > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}

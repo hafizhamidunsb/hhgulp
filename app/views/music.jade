@@ -1,0 +1,77 @@
+include modules/_header
+include modules/_footer
+
+extends layouts/_default
+
+block vars
+  - var pageTitle = 'Music';
+  - var bodyClass = 'music';
+  
+block content
+  +header(class="bg-header transparent-light", data-pages-header="autoresize", data-pages-resize-class="light-solid")
+
+  // BEGIN HERO WITH PARALLAX
+  section.hero.bg-primary
+    .container-xs-height.full-height
+      .col-xs-height.col-middle.text-center
+        .col-sm-12
+          h1.text-white.inner
+            | Discover the 
+            b music
+  // END HERO WITH PARALLAX
+  // BEGIN PORTFOLIO SECTION
+  section.bg-primary-darker
+    .container.p-t-80.p-b-80
+      .gallery.text-white
+        .grid-sizer
+        // START GALLERY ITEM
+        .grid.hover-zoom(data-width="2")
+          .inner.bottom-left.bottom-right.padding-30
+            h5.block-title.fs-18.no-margin Mikraj Cinta
+            h6.block-title.fs-14.hint-text.m-t-5.m-b-0 May 2015
+            p.fs-12.hint-text.m-t-5.m-b-0 Single by Dato' Siti Nurhaliza
+          .ar-2-1
+            .bg-position-top(data-bg-overlay-class="bg-black", data-overlay-opacity="0.5", data-pages-bg-image="/assets/images/music/siti-mc.jpg")
+        // END GALLERY ITEM
+        // START GALLERY ITEM
+        .grid.hover-zoom(data-width="1")
+          .inner.bottom-left.bottom-right.padding-30
+            h5.block-title.fs-18.no-margin
+              | I 
+              i.fa.fa-heart
+              |  Rasulullah
+            h6.block-title.fs-14.hint-text.m-t-5.m-b-0 January 2015
+            p.fs-12.hint-text.m-t-5.m-b-0 Studio album, Zikr &#38; Salawat
+          .ar-1-1
+            div(data-bg-overlay-class="bg-black", data-overlay-opacity="0.5", data-pages-bg-image="/assets/images/music/hh-ilr.jpg", style="background-position: 20% center;")
+        // END GALLERY ITEM
+        // START GALLERY ITEM
+        .grid.hover-zoom(data-width="1")
+          .inner.bottom-left.bottom-right.padding-30
+            h5.block-title.fs-18.no-margin Zikir Terapi Diri 1
+            h6.block-title.fs-14.hint-text.m-t-5.m-b-0 Nov 2011
+            p.fs-12.hint-text.m-t-5.m-b-0 Studio album, Zikr, Therapy
+          .ar-1-1
+            .bg-position-top(data-bg-overlay-class="bg-black", data-overlay-opacity="0.5", data-pages-bg-image="/assets/images/music/hh-ztd1.jpg")
+        // END GALLERY ITEM
+        // START GALLERY ITEM
+        .grid.hover-zoom(data-width="1")
+          .inner.bottom-left.bottom-right.padding-30
+            h5.block-title.fs-18.no-margin Zikir Terapi Diri 2
+            h6.block-title.fs-14.hint-text.m-t-5.m-b-0 June 2013
+            p.fs-12.hint-text.m-t-5.m-b-0 Studio album, Zikr, Therapy
+          .ar-1-1
+            .bg-position-top(data-bg-overlay-class="bg-black", data-overlay-opacity="0.5", data-pages-bg-image="/assets/images/music/hh-ztd2.jpg")
+        // END GALLERY ITEM
+        // START GALLERY ITEM
+        .grid.hover-zoom(data-width="1")
+          .inner.bottom-left.bottom-right.padding-30
+            h5.block-title.fs-18.no-margin Zikir Terapi Diri 3
+            h6.block-title.fs-14.hint-text.m-t-5.m-b-0 June 2014
+            p.fs-12.hint-text.m-t-5.m-b-0 Studio album, Zikr, Therapy
+          .ar-1-1
+            .bg-position-top(data-bg-overlay-class="bg-black", data-overlay-opacity="0.5", data-pages-bg-image="/assets/images/music/hh-ztd3.jpg")
+        // END GALLERY ITEM
+  // END PORTFOLIO SECTION
+
+  +footer

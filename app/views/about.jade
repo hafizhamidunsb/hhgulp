@@ -1,0 +1,45 @@
+include modules/_header
+include modules/_footer
+
+extends layouts/_default
+
+block vars
+  - var pageTitle = 'About'
+  - var bodyClass = 'about';
+
+block content
+  +header(class="bg-header transparent-light", data-pages-header="autoresize", data-pages-resize-class="light-solid")
+
+  // BEGIN HERO WITH PARALLAX
+  section.hero.bg-primary
+    .container-xs-height.full-height
+      .col-xs-height.col-middle.text-center
+        .col-sm-12
+          h1.inner.text-white
+            | Follow the 
+            b journey
+  // END HERO WITH PARALLAX
+  // BEGIN CONTENT SECTION
+  section.p-b-70.p-t-70.bg-white
+    .container
+      .row
+        .col-sm-8.col-sm-offset-2
+          h5.block-title.hint-text.no-margin Finding Ways
+          p.m-t-30
+            | There&#8217;s an African proverb that says, "If you want to go fast, go alone. If you want to go far, go together." &#8212;
+            | But he want to go fast and far.
+  section.bg-master-lightest
+    .container
+      .row
+        .col-sm-7
+          p.m-t-70.m-b-70(data-orphan="")
+            | His latest album, 
+            span.font-gotham.all-caps.fw-700(style="letter-spacing:-0.05em") I Love Rasulullah
+            |  which hit record-breaking sales of 10,000 units within a month garnered a platinum award a few weeks ago. The first nasheed singer in the country to also have a
+            a(href="https://youtube.com/hafizhamidunvevo", target="_blank") Vevo Youtube
+            | account, Hafiz has opened doors of Arteffects International; his brainchild company to Egypt, Germany and soon to come, to the United States to cater to the east and west markets.
+        .col-sm-5
+          img.img-responsive(src="/assets/images/music/hh-ilr.jpg", alt="")
+  // END CONTENT SECTION
+
+  +footer

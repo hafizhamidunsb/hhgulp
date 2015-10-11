@@ -1,0 +1,14 @@
+{
+  "generator-lb": {
+    "name": "hhgulp",
+    "features": [
+      "includeFEFramework",
+      "includejQuery",
+      "includeLightingFly"
+    ],
+    "jQuery": "includejQuery2",
+    "feFramework": "includeBootstrap",
+    "sassCompilator": "libSass",
+    "multiLanguage": true
+  }
+}

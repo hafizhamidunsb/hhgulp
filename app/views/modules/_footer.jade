@@ -1,0 +1,52 @@
+mixin footer
+  // START FOOTER
+  footer.p-b-50.p-t-50.bg-master.text-white()&attributes(attributes)
+    .container
+      .row
+        .col-sm-4.text-center.links
+          h5.text-white.muted.block-title Quicklinks
+          .m-t-20.m-b-20
+            ul
+              li
+                a(href='/') Home
+              li
+                a(href='/music') Music
+              li
+                a(href='/about') About
+              li
+                a(href='/contact') Contact
+              li
+                a(href='http://arteffects.international', target='_blank') Arteffects International
+
+        .col-sm-4.text-center.b-l.b-r
+          h5.text-white.muted.block-title Get Social
+          .m-t-20.m-b-20
+            ul.social-links.no-margin
+              li
+                a.social-icon.si-borderless.si-small.si-facebook(href="https://www.facebook.com/hafizhamidun", target="_blank", title="Facebook")
+                  i.icon-facebook
+              li
+                a.social-icon.si-borderless.si-small.si-twitter(href="https://twitter.com/hafizhamidun", target="_blank", title="Twitter")
+                  i.icon-twitter
+              li
+                a.social-icon.si-borderless.si-small.si-instagram(href="https://instagram.com/hafizhamidun", target="_blank", title="Instagram")
+                  i.icon-instagram
+              li
+                a.social-icon.si-borderless.si-small.si-youtube(href="https://www.youtube.com/hafizhamidun", target="_blank", title="Youtube")
+                  i.icon-youtube
+              //- li
+              //-   a.social-icon.si-borderless.si-small.si-itunes(href="https://itunes.apple.com/my/artist/hafiz-hamidun/id525310678", target="_blank", title="Youtube")
+              //-     i.icon-itunes
+              //- li
+              //-   a.social-icon.si-borderless.si-small.si-spotify(href="https://open.spotify.com/artist/6DgMaXR0c070BQWs9VyuNB", target="_blank", title="Youtube")
+              //-     i.icon-spotify
+              //- li
+              //-   a.social-icon.si-borderless.si-small.si-soundcloud(href="https://www.soundcloud.com/hafizhamidun", target="_blank", title="Soundcloud")
+              //-     i.icon-soundcloud
+
+        .col-sm-4.text-center.copyright
+          h5.text-white.muted.block-title HafizHamidun.com
+          .m-t-20.m-b-20
+            p.margin-0.hint-text Copyright &#169; 2015.
+            p.margin-0.muted All Rights Reserved.
+  // END FOOTER

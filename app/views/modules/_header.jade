@@ -1,0 +1,63 @@
+mixin header
+  // BEGIN HEADER
+  nav.header(data-pages="header")&attributes(attributes)
+    .container.relative
+      // BEGIN LEFT CONTENT
+      .pull-left.z-index-10
+        // BEGIN HEADER TOGGLE FOR MOBILE
+        .visible-sm-inline.visible-xs-inline.menu-toggler.pull-right(data-pages-element='#header', data-pages='header-toggle')
+          .one
+          .two
+          .three
+      // BEGIN CENTER CONTENT
+      .pull-center
+        .pull-center-inner
+          .header-inner.logo-wrapper
+            a(href='/')
+              // BEGIN LOGO
+              img.alt(alt='', data-src-retina='/assets/images/logo/hh-black.svg', src='/assets/images/logo/hh-black.svg', style='height:40px;')
+              img.logo(alt='', data-src-retina='/assets/images/logo/hh-white.svg', src='/assets/images/logo/hh-white.svg', style='height:40px;')
+      // END CENTER CONTENT
+      // BEGIN MENU
+      #header.menu-content.clearfix(data-pages-direction='slideLeft', data-pages='menu-content')
+        // BEGIN HEADER CLOSE TOGGLE FOR MOBILE
+        .pull-left
+          a.text-black.link.padding-10.visible-xs-inline.visible-sm-inline.pull-right.m-t-10.m-b-10.m-r-10(data-pages-element='#header', data-pages='header-toggle', href='#')
+            i.pg-close_line
+        .pull-left.sm-full-width
+          .header-inner
+            // BEGIN MENU ITEMS
+            ul.menu
+              li
+                a(data-body='index', data-text='Home', href='/') Home
+              //- li.classic
+              //-   a(data-body='apparel', data-text='Apparel', href='javascript:;')
+              //-     | Apparel
+              //-     i.pg-arrow_minimize.m-l-5
+              //-   nav.classic
+              //-     span.arrow
+              //-     ul
+              //-       li
+              //-         a(href='#') Thobe ثَوب‎
+              //-       li
+              //-         a(href='#') Shirt
+              //-       li
+              //-         a(href='#') Accessories
+              li
+                a(data-body='music', data-text='Music', href='/music') Music
+            // END MENU ITEMS
+        .pull-right.sm-full-width
+          .header-inner
+            // BEGIN MENU ITEMS
+            ul.menu
+              li
+                a(data-body='about', data-text='About', href='/about') About
+              li
+                a(data-body='contact', data-text='Contact', href='/contact') Contact
+            // END MENU ITEMS
+            // BEGIN COPYRIGHT FOR MOBILE
+            .font-lato.m-l-35.m-r-35.m-b-20.m-t-20.visible-sm.visible-xs
+              p.fs-11.muted Copyright © 2015 Hafiz Hamidun
+            // END COPYRIGHT FOR MOBILE
+      // END MENU
+  // END HEADER
