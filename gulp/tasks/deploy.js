@@ -14,6 +14,8 @@ var shell = require('gulp-shell');
 
 var cdnify = require('gulp-cdnify');
 
+var file = require('gulp-file');
+
 // Deploying via rsync/sftp
 // Credentials are stored in .env file
 
@@ -32,7 +34,7 @@ var cdnify = require('gulp-cdnify');
 // });
 
 gulp.task('cdnify', function () {
-  if (config.cdnify) {
+  if (config.cdnify.run) {
     return gulp.src(config.cdnify.src)
       .pipe(cdnify(config.cdnify.cfg))
       .pipe(gulp.dest(config.templates.destBuild));
@@ -44,6 +46,7 @@ gulp.task('cdnify', function () {
 
 gulp.task('ghpages', 'Deploy to Github Pages', function() {
   return gulp.src(config.ghPages.src)
+    .pipe(file('CNAME', config.ghPages.cname))
     .pipe(ghPages(config.ghPages.cfg));
 });
 

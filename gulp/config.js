@@ -9,7 +9,6 @@ module.exports.cacheBust = process.env.CACHEBUST || true;
 module.exports.optimizeImages = process.env.OPTIMIZEIMAGES || true;
 module.exports.lintJs = process.env.LINTJS || false;
 module.exports.prettyUrl = false;
-module.exports.cdnify = false;
 
 // Default paths
 var app = 'app';
@@ -263,7 +262,8 @@ module.exports.wiredep = {
 
 // Github Pages task config
 module.exports.ghPages = {
-  src: path.join(dist, '/**/*'),
+  src: path.join(dist, '/**/*.*'),
+  cname: 'hafizhamidun.com',
   cfg: {
     remoteUrl: 'https://github.com/hafizhamidunsb/hafizhamidunsb.github.io.git',
     branch: 'master'
@@ -272,6 +272,7 @@ module.exports.ghPages = {
 
 // Cdnify task config
 module.exports.cdnify = {
+  run: false,
   src: path.join(dist, '/**/*.{css,html}'),
   cfg: {
     base: 'http://seagateglobal.github.io',

@@ -23,6 +23,7 @@
     "gulp-data": "~1.2.0",
     "gulp-eslint": "~1.0.0",
     "gulp-extend": "~0.2.0",
+    "gulp-file": "^0.2.0",
     "gulp-filter": "~3.0.1",
     "gulp-gh-pages": "^0.5.2",
     "gulp-help": "~1.6.0",
@@ -61,5 +62,6 @@
   "scripts": {
     "build": "gulp build",
     "serve": "gulp serve"
-  }
+  },
+  "dependencies": {}
 }
