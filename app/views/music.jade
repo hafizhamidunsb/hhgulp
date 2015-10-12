@@ -42,7 +42,7 @@ block content
       .grid-sizer
       
       each item in music
-        .grid(class=tagClasess(item.labels), data-released=moment(item.released).toISOString())
+        .grid(class=tagClasess(item.labels), data-released=item.released)
           if item.links
             .links
               .inner
@@ -56,7 +56,7 @@ block content
             h2.title.no-margin
               | !{item.title}
             h4.released.hint-text.m-t-5.m-b-0
-              = item.released
+              = moment(item.released).format("MMMM YYYY")
             .labels.m-t-10
               each label in item.labels
                 span.label= label
