@@ -14,7 +14,8 @@
     "jquery-unorphanize": "~1.0.1",
     "jquery-validation": "~1.14.0",
     "bootstrap": "~3.3.5",
-    "color-thief": "~2.0.1"
+    "color-thief": "~2.0.1",
+    "moment": "~2.10.6"
   },
   "overrides": {
     "isotope": {

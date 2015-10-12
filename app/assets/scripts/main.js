@@ -66,93 +66,187 @@
   };
 
   SITE.prototype.initMusicIsotope = function() {
-    var $gallery = $(".music-isotope");
-    var applyIsotope = function() {
-      $gallery.isotope({
-        itemSelector: ".grid",
-        percentPosition: true,
-        layoutMode: 'masonry',
-        masonry: {
-          columnWidth: ".grid-sizer"
-        }
-      });
-      setTimeout(function () {
-        $gallery.isotope("layout");
-      });
-    }
+    $(".music-isotope").each(function() {
+      var $this = $(this);
 
-    function rgba(color, alpha) {
-      if (typeof alpha === 'undefined') {
-        alpha = 1;
+      function applyIsotope() {
+        $this.isotope({
+          itemSelector: ".grid",
+          percentPosition: true,
+          layoutMode: "masonry",
+          masonry: {
+            columnWidth: ".grid-sizer"
+          },
+          getSortData: {
+            title: '.title',
+            released: '[data-released]'
+          },
+          sortBy: 'released',
+          sortAscending: false
+        });
+        setTimeout(function() {
+          $this.isotope("layout");
+        });
+
+        $('.sort-button-group').on('click', 'button', function() {
+          var sortValue = $(this).data('sortValue');
+          $this.isotope({ sortBy: sortValue });
+        });
+
+        $('.sort-button-group').each( function( i, buttonGroup ) {
+          var $buttonGroup = $( buttonGroup );
+          $buttonGroup.on( 'click', 'button', function() {
+            $buttonGroup.find('.is-checked').removeClass('is-checked');
+            $( this ).addClass('is-checked');
+          });
+        });
+
+        $('.filter-button-group').on('click', 'button', function() {
+          var filterValue = $(this).data('filterValue');
+          $this.isotope({ filter: filterValue });
+        });
+
+        $('.filter-button-group').each( function( i, buttonGroup ) {
+          var $buttonGroup = $( buttonGroup );
+          $buttonGroup.on( 'click', 'button', function() {
+            $buttonGroup.find('.is-checked').removeClass('is-checked');
+            $( this ).addClass('is-checked');
+          });
+        });
       }
 
-      return 'rgba(' + color[0] + ', ' + color[1] + ', ' + color[2] + ', ' + alpha + ')'
-    }
+      function rgba(color, alpha) {
+        if (typeof alpha === "undefined") {
+          alpha = 1;
+        }
 
-    function yiq(color) {
-      var rgb = rgba(color).match(/\d+/g);
-      return ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
-    }
+        return "rgba(" + color[0] + ", " + color[1] + ", " + color[2] + ", " + alpha + ")"
+      }
 
-    var colorThief = new ColorThief();
-    $gallery.waitForImages(true).done(function() {
-      applyIsotope();
-      $gallery.find('.grid').each(function () {
-        var $img = $(this).find('img');
-        var imgSrc = $img.attr('src');
+      function yiq(color) {
+        var rgb = rgba(color).match(/\d+/g);
+        return ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
+      }
 
-        var $inner = $(this).find('.inner');
-        var $label = $inner.find('.label');
-        var $bg = $(this).find('.bg');
-
-        var color = colorThief.getColor($img[0]);
-        var palette = colorThief.getPalette($img[0]);
-        $img.remove();
-
-        $inner.css('background-color', rgba(color, .8));
-        $label.css({
-          'color': yiq(palette[0]) >= 128 ? '#000' : '#fff',
-          'background': rgba(palette[0])
+      function getDarkestColor(palette) {
+        var darkestColor = palette[0], darkestLuma = 255, luma;
+        $.each(palette, function(index, color) {
+          luma = yiq(color);
+          if (luma < darkestLuma) {
+            darkestColor = color;
+            darkestLuma = luma;
+          }
         });
-        $bg.css('background-image', 'url(' + imgSrc + ')');
+
+        return darkestColor;
+      }
+
+      function getLightestColor(palette) {
+        var lightestColor = palette[0], lightestLuma = 0, luma;
+        $.each(palette, function(index, color) {
+          luma = yiq(color);
+          if (luma > lightestLuma) {
+            lightestColor = color;
+            lightestLuma = luma;
+          }
+        });
+
+        return lightestColor;
+      }
+
+      function lightDarkClass(el, color) {
+        if (yiq(color) >= 128) {
+          el.removeClass('dark').addClass('light');
+        } else {
+          el.removeClass('light').addClass('dark');
+        }
+      }
+
+      function isDark(color) {
+        return yiq(color) <= 128;
+      }
+
+      var colorThief = new ColorThief();
+      $this.waitForImages(true).done(function() {
+        applyIsotope();
+        $this.find(".grid").each(function () {
+          var $img = $(this).find("img");
+          var imgSrc = $img.attr("src");
+
+          var $bg = $(this).find(".bg");
+          $bg.css("background-image", "url(" + imgSrc + ")");
+          $img.remove();
+
+          var $info = $(this).find(".info");
+          var $label = $info.find(".label");
+
+          var color = colorThief.getColor($img[0]);
+          var palette = colorThief.getPalette($img[0]);
+
+          $info.css("background-color", rgba(color, .8));
+
+          var darkestColor = getDarkestColor(palette);
+          var lightestColor = getLightestColor(palette);
+
+          $info.css("color", rgba(isDark(color) ? lightestColor : darkestColor));
+          $label.css({
+            "background-color": rgba(isDark(color) ? lightestColor : darkestColor),
+            "color": rgba(color)
+          });
+
+          var $links = $(this).find(".links");
+          var $btn = $links.find(".btn");
+
+          $links.css({
+            "background-color": rgba(lightestColor, .8),
+            "color": rgba(darkestColor)
+          });
+
+          $btn.css({
+            "background-color": rgba(darkestColor),
+            "color": rgba(lightestColor)
+          });
+
+        });
       });
     });
   };
 
-  SITE.prototype.initInstagramFeed = function() {
-    var $insta = $(".instagram-isotope");
+  SITE.prototype.initInstagramIsotope = function() {
+     $(".instagram-isotope").each(function () {
+      var $this = $(this);
 
-    $insta.isotope({
-      itemSelector: ".grid",
-      percentPosition: true,
-      masonry: {
-        columnWidth: ".grid-sizer",
-        gutter: 0
-      }
-    });
-
-    $.getJSON('http://wms-api.herokuapp.com/instagram/feed?callback=?', function(data) {
-      $(data.data).each(function (index, feed) {
-        if (index < 4) {
-          var item = $('\
-            <div class="grid">\
-              <a href="' + feed.link + '" target="_blank">\
-                <img src="' + feed.images.standard_resolution.url + '" alt="">\
-                <span class="likes"><i class="fa fa-heart"></i> ' + feed.likes.count + '</span>\
-                <span class="caption">' + feed.caption.text + '</span>\
-              </a>\
-            </div>');
-          $insta.append(item);
-          setTimeout(function () {
-            $insta.isotope( 'appended', item );
-          }, 100);
+      $this.isotope({
+        itemSelector: ".grid",
+        percentPosition: true,
+        masonry: {
+          columnWidth: ".grid-sizer",
+          gutter: 0
         }
       });
-      setTimeout(function () {
-        $insta.isotope( 'layout' );
-      }, 250);
-    });
 
+      $.getJSON('http://wms-api.herokuapp.com/instagram/feed?callback=?', function(data) {
+        $(data.data).each(function (index, feed) {
+          if (index < 4) {
+            var item = $('\
+              <div class="grid">\
+                <a href="' + feed.link + '" target="_blank">\
+                  <img src="' + feed.images.standard_resolution.url + '" alt="">\
+                  <span class="likes"><i class="fa fa-heart"></i> ' + feed.likes.count + '</span>\
+                  <span class="caption">' + feed.caption.text + '</span>\
+                </a>\
+              </div>');
+            $this.append(item);
+            setTimeout(function () {
+              $this.isotope( 'appended', item );
+            }, 100);
+          }
+        });
+        setTimeout(function () {
+          $this.isotope( 'layout' );
+        }, 250);
+      });
+    });
   };
 
   SITE.prototype.initForm = function() {
@@ -203,44 +297,56 @@
       return num;
     };
 
-    $.getJSON('http://wms-api.herokuapp.com/facebook?callback=?', function(data) {
-      $('.c-facebook .count').html(nFormatter(data.likes, 1));
-      $('.c-facebook').addClass('loaded');
+    $('.c-facebook').each(function () {
+      $.getJSON('http://wms-api.herokuapp.com/facebook?callback=?', function(data) {
+        $('.count', this).html(nFormatter(data.likes, 1));
+        $(this).addClass('loaded');
+      }.bind(this));
     });
 
-    $.getJSON('http://wms-api.herokuapp.com/twitter?callback=?', function(data) {
-      $('.c-twitter .count').html(nFormatter(data.followers_count, 1));
-      $('.c-twitter').addClass('loaded');
+    $('.c-twitter').each(function () {
+      $.getJSON('http://wms-api.herokuapp.com/twitter?callback=?', function(data) {
+        $('.count', this).html(nFormatter(data.followers_count, 1));
+        $(this).addClass('loaded');
+      }.bind(this));
     });
 
-    $.getJSON('http://wms-api.herokuapp.com/instagram?callback=?', function(data) {
-      $('.c-instagram .count').html(nFormatter(data.data.counts.followed_by, 1));
-      $('.c-instagram').addClass('loaded');
+    $('.c-instagram').each(function () {
+      $.getJSON('http://wms-api.herokuapp.com/instagram?callback=?', function(data) {
+        $('.count', this).html(nFormatter(data.data.counts.followed_by, 1));
+        $(this).addClass('loaded');
+      }.bind(this));
     });
 
-    $.getJSON('http://wms-api.herokuapp.com/youtube?callback=?', function(data) {
-      $('.c-youtube .count').html(nFormatter(data.items[0].statistics.subscriberCount, 1));
-      $('.c-youtube').addClass('loaded');
+    $('.c-youtube').each(function () {
+      $.getJSON('http://wms-api.herokuapp.com/youtube?callback=?', function(data) {
+        $('.count', this).html(nFormatter(data.items[0].statistics.subscriberCount, 1));
+        $(this).addClass('loaded');
+      }.bind(this));
     });
 
-    $.getJSON('http://wms-api.herokuapp.com/spotify?callback=?', function(data) {
-      $('.c-spotify .count').html(nFormatter(data.followers.total, 1));
-      $('.c-spotify').addClass('loaded');
+    $('.c-spotify').each(function () {
+      $.getJSON('http://wms-api.herokuapp.com/spotify?callback=?', function(data) {
+        $('.count', this).html(nFormatter(data.followers.total, 1));
+        $(this).addClass('loaded');
+      }.bind(this));
     });
 
-    $.getJSON('http://wms-api.herokuapp.com/soundcloud?callback=?', function(data) {
-      $('.c-soundcloud .count').html(nFormatter(data.followers_count, 1));
-      $('.c-soundcloud').addClass('loaded');
+    $('.c-soundcloud').each(function () {
+      $.getJSON('http://wms-api.herokuapp.com/soundcloud?callback=?', function(data) {
+        $('.count', this).html(nFormatter(data.followers_count, 1));
+        $(this).addClass('loaded');
+      }.bind(this));
     });
   };
 
   SITE.prototype.init = function() {
     this.initMisc();
     this.initSlider();
+    this.initSocial();
+    this.initInstagramIsotope();
     this.initMusicIsotope();
     this.initForm();
-    this.initSocial();
-    this.initInstagramFeed();
   };
 
   $.Pages.SITE = new SITE();

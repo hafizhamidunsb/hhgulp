@@ -22,6 +22,17 @@ var config = require('./../config.js');
 var handleError = require('./../utils/handleError.js');
 var build = require('./../utils/buildHelper.js');
 
+var _ = require('lodash');
+
+// Helper Functions
+
+var helperFunctions = {
+  tagClasess: function(tags) {
+    return tags.map(function(tag) { return "tag-" + _.kebabCase(tag); }).join(" ");
+  },
+  moment: require('moment')
+}
+
 // Compile jade to html
 
 gulp.task('templates', 'Compile templates', ['templates:prepareData', 'useref'], function() {
@@ -36,6 +47,9 @@ gulp.task('templates', 'Compile templates', ['templates:prepareData', 'useref'],
         json.language = lang;
         json.primaryLanguage = config.templates.languages.primary;
         return json;
+      }))
+      .pipe(data(function() {
+        return helperFunctions;
       }))
       .pipe(jade(config.templates.cfg))
       .pipe(gulpif(config.prettyUrl, prettyUrl()))

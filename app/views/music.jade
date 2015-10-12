@@ -6,11 +6,10 @@ extends layouts/_default
 block vars
   - var pageTitle = 'Music';
   - var bodyClass = 'music';
-  
+
 block content
   +header(class="bg-header transparent-light", data-pages-header="autoresize", data-pages-resize-class="light-solid")
 
-  // BEGIN HERO WITH PARALLAX
   section.hero.bg-primary
     .container-xs-height.full-height
       .col-xs-height.col-middle.text-center
@@ -18,79 +17,51 @@ block content
           h1.text-white.inner
             | Discover the 
             b music
-  // END HERO WITH PARALLAX
-  // BEGIN PORTFOLIO SECTION
-  section.bg-white
-    .container.p-t-80.p-b-80
-      .music-isotope.text-white
-        .grid-sizer
-        // START GALLERY ITEM
-        .grid
-          .inner
-            h3.no-margin Mikraj Cinta
-            h4.hint-text.m-t-5.m-b-0 May 2015
+
+  section.filter.bg-primary-darker
+    .container.p-t-80.p-b-80.text-white.text-center
+      .row
+        .col-sm-4
+          h4.block-title.text-primary-light
+            | Sort
+          .sort-button-group
+            button.btn(data-sort-value="title") Title
+            button.btn.is-checked(data-sort-value="released") Released
+        .col-sm-8.sm-p-t-40
+          h4.block-title.text-primary-light
+            | Filter
+          .filter-button-group
+            button.btn(data-filter-value="*") All
+            button.btn(data-filter-value=".tag-produced") Produced
+            button.btn(data-filter-value=".tag-studio-album") Studio Albums
+            button.btn(data-filter-value=".tag-single") Singles
+            button.btn(data-filter-value=".tag-zikir-salawat") Zikir &amp; Salawat
+
+  section.bg-primary-darker
+    .music-isotope.text-white
+      .grid-sizer
+      
+      each item in music
+        .grid(class=tagClasess(item.labels), data-released=moment(item.released).toISOString())
+          if item.links
+            .links
+              .inner
+                if item.links.cdnasyid
+                  a.btn.btn-rounded(href=item.links.cdnasyid, target="_blank") CDNasyid
+                if item.links.itunes
+                  a.btn.btn-rounded(href=item.links.itunes, target="_blank") iTunes
+                if item.links.youtube
+                  a.btn.btn-rounded(href=item.links.youtube, target="_blank") Youtube
+          .info
+            h2.title.no-margin
+              | !{item.title}
+            h4.released.hint-text.m-t-5.m-b-0
+              = item.released
             .labels.m-t-10
-              .label Single
-              .label Dato' Siti Nurhaliza
+              each label in item.labels
+                span.label= label
           .ar-1-1
           .bg
-          img(src="/assets/images/music/siti-mc.jpg", alt="")
-        // END GALLERY ITEM
-        // START GALLERY ITEM
-        .grid
-          .inner
-            h3.no-margin
-              | I 
-              i.fa.fa-heart
-              |  Rasulullah
-            h4.hint-text.m-t-5.m-b-0 January 2015
-            .labels.m-t-10
-              .label Studio Album
-              .label Zikir
-              .label Salawat
-          .ar-1-1
-          .bg
-          img(src="/assets/images/music/hh-ilr.jpg", alt="")
-        // END GALLERY ITEM
-        // START GALLERY ITEM
-        .grid
-          .inner
-            h3.no-margin Zikir Terapi Diri 1
-            h4.hint-text.m-t-5.m-b-0 Nov 2011
-            .labels.m-t-10
-              .label Studio Album
-              .label Zikir
-              .label Therapy
-          .ar-1-1
-          .bg
-          img(src="/assets/images/music/hh-ztd1.jpg", alt="")
-        // END GALLERY ITEM
-        // START GALLERY ITEM
-        .grid
-          .inner
-            h3.no-margin Zikir Terapi Diri 2
-            h4.hint-text.m-t-5.m-b-0 June 2013
-            .labels.m-t-10
-              .label Studio Album
-              .label Zikir
-              .label Therapy
-          .ar-1-1
-          .bg
-          img(src="/assets/images/music/hh-ztd2.jpg", alt="")
-        // END GALLERY ITEM
-        // START GALLERY ITEM
-        .grid
-          .inner
-            h3.no-margin Zikir Terapi Diri 3
-            h4.hint-text.m-t-5.m-b-0 June 2014
-            .labels.m-t-10
-              .label Studio Album
-              .label Zikir
-              .label Therapy
-          .ar-1-1
-          .bg
-          img(src="/assets/images/music/hh-ztd3.jpg", alt="")
-        // END GALLERY ITEM
-  // END PORTFOLIO SECTION
+          img(src="/assets/images/music/#{item.img}", alt="")
 
   +footer
