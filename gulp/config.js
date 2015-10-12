@@ -275,7 +275,7 @@ module.exports.cdnify = {
   run: false,
   src: path.join(dist, '/**/*.{css,html}'),
   cfg: {
-    base: 'http://seagateglobal.github.io',
+    base: 'http://hafizhamidunsb.github.io',
     html: {
       'link[rel="shortcut icon"]': 'href',
       'link[rel="apple-touch-icon"]': 'href',

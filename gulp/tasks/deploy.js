@@ -46,7 +46,7 @@ gulp.task('cdnify', function () {
 
 gulp.task('ghpages', 'Deploy to Github Pages', function() {
   return gulp.src(config.ghPages.src)
-    // .pipe(file('CNAME', config.ghPages.cname))
+    .pipe(file('CNAME', config.ghPages.cname))
     .pipe(ghPages(config.ghPages.cfg));
 });
 
