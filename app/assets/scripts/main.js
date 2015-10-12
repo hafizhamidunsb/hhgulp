@@ -65,16 +65,15 @@
     });
   };
 
-  SITE.prototype.initIsotope = function() {
-    var $gallery = $(".gallery");
+  SITE.prototype.initMusicIsotope = function() {
+    var $gallery = $(".music-isotope");
     var applyIsotope = function() {
       $gallery.isotope({
         itemSelector: ".grid",
         percentPosition: true,
-        layoutMode: 'fitRows',
-        fitRows: {
-          columnWidth: ".grid-sizer",
-          gutter: 0
+        layoutMode: 'masonry',
+        masonry: {
+          columnWidth: ".grid-sizer"
         }
       });
       setTimeout(function () {
@@ -82,8 +81,41 @@
       });
     }
 
+    function rgba(color, alpha) {
+      if (typeof alpha === 'undefined') {
+        alpha = 1;
+      }
+
+      return 'rgba(' + color[0] + ', ' + color[1] + ', ' + color[2] + ', ' + alpha + ')'
+    }
+
+    function yiq(color) {
+      var rgb = rgba(color).match(/\d+/g);
+      return ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
+    }
+
+    var colorThief = new ColorThief();
     $gallery.waitForImages(true).done(function() {
       applyIsotope();
+      $gallery.find('.grid').each(function () {
+        var $img = $(this).find('img');
+        var imgSrc = $img.attr('src');
+
+        var $inner = $(this).find('.inner');
+        var $label = $inner.find('.label');
+        var $bg = $(this).find('.bg');
+
+        var color = colorThief.getColor($img[0]);
+        var palette = colorThief.getPalette($img[0]);
+        $img.remove();
+
+        $inner.css('background-color', rgba(color, .8));
+        $label.css({
+          'color': yiq(palette[0]) >= 128 ? '#000' : '#fff',
+          'background': rgba(palette[0])
+        });
+        $bg.css('background-image', 'url(' + imgSrc + ')');
+      });
     });
   };
 
@@ -101,7 +133,7 @@
 
     $.getJSON('http://wms-api.herokuapp.com/instagram/feed?callback=?', function(data) {
       $(data.data).each(function (index, feed) {
-        if (index < 5) {
+        if (index < 4) {
           var item = $('\
             <div class="grid">\
               <a href="' + feed.link + '" target="_blank">\
@@ -116,6 +148,9 @@
           }, 100);
         }
       });
+      setTimeout(function () {
+        $insta.isotope( 'layout' );
+      }, 250);
     });
 
   };
@@ -202,7 +237,7 @@
   SITE.prototype.init = function() {
     this.initMisc();
     this.initSlider();
-    this.initIsotope();
+    this.initMusicIsotope();
     this.initForm();
     this.initSocial();
     this.initInstagramFeed();

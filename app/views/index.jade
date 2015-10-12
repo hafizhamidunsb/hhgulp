@@ -16,12 +16,12 @@ block content
       #hero.swiper-container
         .swiper-wrapper
           // BEGIN SLIDE
-          .swiper-slide.fit.bg-info
+          .swiper-slide.fit
             // BEGIN IMAGE PARRALAX
-            .slider-wrapper
+            .slider-wrapper.bg-master-dark
               .background-wrapper(data-swiper-parallax='20%')
-                .background.bg-position-center.hidden-xs.hidden-sm(data-pages-bg-image='/assets/images/hero/hh1.jpg', data-bg-overlay-class='bg-primary-darker', data-overlay-opacity='0.5', draggable='false')
-                .background.bg-position-left.visible-xs.visible-sm(data-pages-bg-image='/assets/images/hero/hh3.jpg', data-bg-overlay-class='bg-primary-darker', data-overlay-opacity='0.5', draggable='false')
+                .background.bg-position-center.hidden-xs.hidden-sm(data-pages-bg-image='/assets/images/hero/hh1.jpg', data-bg-overlay-class='bg-master-dark', data-overlay-opacity='0.5', draggable='false')
+                .background.bg-position-left.visible-xs.visible-sm(data-pages-bg-image='/assets/images/hero/hh3.jpg', data-bg-overlay-class='bg-master-dark', data-overlay-opacity='0.5', draggable='false')
             // END IMAGE PARRALAX
             // BEGIN CONTENT
             .content-layer
@@ -37,7 +37,7 @@ block content
 
           // BEGIN SLIDE
           // data-pages-header="alternate"
-          .swiper-slide.fit.bg-primary-dark
+          .swiper-slide.fit.bg-master-dark
             // BEGIN IMAGE PARRALAX
             .slider-wrapper
             // END IMAGE PARRALAX
