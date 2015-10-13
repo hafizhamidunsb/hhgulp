@@ -92,6 +92,19 @@ p {
 }
 
 // ======================================================
+// Header
+// ======================================================
+
+.header.transparent-dark {
+  .alt {
+    display: inline-block;
+  }
+  .logo {
+    display: none;
+  }
+}
+
+// ======================================================
 // Hero
 // ======================================================
 
@@ -358,6 +371,29 @@ ol.ol {
 // ======================================================
 // Index
 // ======================================================
+
+.watchvid {
+  display: inline-block;
+  position: relative;
+
+  &::after {
+    font-family: "themify";
+    content: "\e661";
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    transform: translateX(0);
+    transition: all .3s ease;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+      transform: translateX(30px);
+    }
+  }
+}
 
 .social-count {
   bottom: 0;

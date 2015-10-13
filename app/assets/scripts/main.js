@@ -63,6 +63,11 @@
       parallax: true,
       speed: 1000
     });
+
+    $('.watchvid').click(function (ev) {
+      ev.preventDefault();
+      slider.slideNext();
+    });
   };
 
   SITE.prototype.initMusicIsotope = function() {
@@ -82,7 +87,10 @@
             released: '[data-released]'
           },
           sortBy: 'released',
-          sortAscending: false
+          sortAscending: {
+            title: true,
+            released: false
+          }
         });
         setTimeout(function() {
           $this.isotope("layout");

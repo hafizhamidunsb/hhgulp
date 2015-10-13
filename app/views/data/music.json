@@ -23,6 +23,7 @@
       "released":  "2011-11-01T00:00:00+0800",
       "labels": ["Studio Album", "Zikir & Salawat"],
       "links": {
+        "youtube": "https://www.youtube.com/watch?v=04Y8NHTf1p8",
         "itunes": "https://itunes.apple.com/my/album/zikir-terapi-diri/id545997161",
         "cdnasyid": "http://www.cdnasyid.com/hafizhamidun-zikirterapidiri"
       }
@@ -48,8 +49,9 @@
       "released":  "2013-06-01T00:00:00+0800",
       "labels": ["Single", "Compilation"],
       "links": {
-        "youtube": "www.youtube.com/watch?v=8JwCLCtUEM0",
-        "itunes": "https://itunes.apple.com/my/album/kasih-padamu-single/id593244578"
+        "youtube": "https://www.youtube.com/watch?v=8JwCLCtUEM0",
+        "itunes": "https://itunes.apple.com/my/album/kasih-padamu-single/id593244578",
+        "cdnasyid": "http://www.cdnasyid.com/hafizhamidun-kasihpadamu"
       }
     }, {
       "img":   "hh-jb.jpg",
@@ -57,17 +59,8 @@
       "released":  "2013-12-01T00:00:00+0800",
       "labels": ["Single"],
       "links": {
-        "youtube": "www.youtube.com/watch?v=-L4NL9JcAeo",
+        "youtube": "https://www.youtube.com/watch?v=-L4NL9JcAeo",
         "itunes": "https://itunes.apple.com/sg/album/jodoh-berdua-single/id763820542"
-      }
-    }, {
-      "img":   "hh-r4bia.jpg",
-      "title": "R4bia Syria",
-      "released":  "2013-10-01T00:00:00+0800",
-      "labels": ["Single"],
-      "links": {
-        "youtube": "www.youtube.com/watch?v=N56ptxePllk",
-        "itunes": "https://itunes.apple.com/my/album/r4bia-syria-single/id714867606"
       }
     }
   ]
