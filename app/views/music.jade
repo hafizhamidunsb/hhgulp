@@ -8,36 +8,39 @@ block vars
   - var bodyClass = 'music';
 
 block content
-  +header(class="bg-header transparent-dark", data-pages-header="autoresize", data-pages-resize-class="light-solid")
+  +header(class="bg-header transparent-light", data-pages-header="autoresize", data-pages-resize-class="light-solid")
 
-  section.hero.bg-white.text-primary-darker
+  section.hero.bg-primary(data-pages="parallax", data-pages-bg-image="/assets/images/hero/speaker.jpg", data-bg-overlay-class="bg-master-darker", data-overlay-opacity="0.5")
     .container-xs-height.full-height
       .col-xs-height.col-middle.text-center
-        .col-sm-12
+        .col-sm-12.inner
           h1.inner
             | Discover the 
             b music
 
-  section.filter.bg-primary-darker
+  section.filter.bg-master-darkest
     .container.p-t-80.p-b-80.text-white.text-center
       .row
         .col-sm-4
           h4.block-title.text-primary-light
-            | Sort
+            i.fa.fa-sort
+            |  Sort
           .sort-button-group
             button.btn(data-sort-value="title") Title
             button.btn.is-checked(data-sort-value="released") Released
         .col-sm-8.sm-p-t-40
           h4.block-title.text-primary-light
-            | Filter
+            i.fa.fa-filter
+            |  Filter
           .filter-button-group
             button.btn(data-filter-value="*") All
             button.btn(data-filter-value=".tag-produced") Produced
+            button.btn(data-filter-value=".tag-soundtrack") Soundtracks
             button.btn(data-filter-value=".tag-studio-album") Studio Albums
             button.btn(data-filter-value=".tag-single") Singles
             button.btn(data-filter-value=".tag-zikir-salawat") Zikir &amp; Salawat
 
-  section.bg-primary-darker
+  section.bg-master-darkest
     .music-isotope.text-white
       .grid-sizer
       
@@ -62,6 +65,6 @@ block content
                 span.label= label
           .ar-1-1
           .bg
-          img(src="/assets/images/music/#{item.img}", alt="")
+          img(src="/assets/images/works/#{item.img}", alt="")
 
   +footer

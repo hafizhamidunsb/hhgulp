@@ -53,21 +53,39 @@
     });
   };
 
-  SITE.prototype.initSlider = function() {
+  SITE.prototype.initSwiper = function() {
+    var $vimeo = $('#penyelamat');
+
     //Intialize Slider
-    var slider = new Swiper('#hero', {
+    var swiper = new Swiper('#hero', {
       pagination: '.swiper-pagination',
       paginationClickable: true,
       nextButton: '.swiper-button-next',
       prevButton: '.swiper-button-prev',
       parallax: true,
-      speed: 1000
+      speed: 1000,
+      onSlideChangeStart: function(sw) {
+        if (sw.activeIndex === 1) {
+          $vimeo.vimeo('play');
+        }
+        else {
+          $vimeo.vimeo('pause');
+        }
+      }
     });
 
-    $('.watchvid').click(function (ev) {
+    $('.watchvid').click(function(ev) {
       ev.preventDefault();
-      slider.slideNext();
+      swiper.slideTo(1);
     });
+
+    // $vimeo.appear();
+    // $vimeo.on('appear', function() {
+    //   $vimeo.vimeo('play');
+    // });
+    // $vimeo.on('disappear', function() {
+    //   $vimeo.vimeo('pause');
+    // });
   };
 
   SITE.prototype.initMusicIsotope = function() {
@@ -233,7 +251,7 @@
         }
       });
 
-      $.getJSON('http://wms-api.herokuapp.com/instagram/feed?callback=?', function(data) {
+      $.getJSON('http://wms-api.herokuapp.com/hh/instagram/feed?callback=?', function(data) {
         $(data.data).each(function (index, feed) {
           if (index < 4) {
             var item = $('\
@@ -306,42 +324,42 @@
     };
 
     $('.c-facebook').each(function () {
-      $.getJSON('http://wms-api.herokuapp.com/facebook?callback=?', function(data) {
+      $.getJSON('http://wms-api.herokuapp.com/hh/facebook?callback=?', function(data) {
         $('.count', this).html(nFormatter(data.likes, 1));
         $(this).addClass('loaded');
       }.bind(this));
     });
 
     $('.c-twitter').each(function () {
-      $.getJSON('http://wms-api.herokuapp.com/twitter?callback=?', function(data) {
+      $.getJSON('http://wms-api.herokuapp.com/hh/twitter?callback=?', function(data) {
         $('.count', this).html(nFormatter(data.followers_count, 1));
         $(this).addClass('loaded');
       }.bind(this));
     });
 
     $('.c-instagram').each(function () {
-      $.getJSON('http://wms-api.herokuapp.com/instagram?callback=?', function(data) {
+      $.getJSON('http://wms-api.herokuapp.com/hh/instagram?callback=?', function(data) {
         $('.count', this).html(nFormatter(data.data.counts.followed_by, 1));
         $(this).addClass('loaded');
       }.bind(this));
     });
 
     $('.c-youtube').each(function () {
-      $.getJSON('http://wms-api.herokuapp.com/youtube?callback=?', function(data) {
+      $.getJSON('http://wms-api.herokuapp.com/hh/youtube?callback=?', function(data) {
         $('.count', this).html(nFormatter(data.items[0].statistics.subscriberCount, 1));
         $(this).addClass('loaded');
       }.bind(this));
     });
 
     $('.c-spotify').each(function () {
-      $.getJSON('http://wms-api.herokuapp.com/spotify?callback=?', function(data) {
+      $.getJSON('http://wms-api.herokuapp.com/hh/spotify?callback=?', function(data) {
         $('.count', this).html(nFormatter(data.followers.total, 1));
         $(this).addClass('loaded');
       }.bind(this));
     });
 
     $('.c-soundcloud').each(function () {
-      $.getJSON('http://wms-api.herokuapp.com/soundcloud?callback=?', function(data) {
+      $.getJSON('http://wms-api.herokuapp.com/hh/soundcloud?callback=?', function(data) {
         $('.count', this).html(nFormatter(data.followers_count, 1));
         $(this).addClass('loaded');
       }.bind(this));
@@ -350,7 +368,7 @@
 
   SITE.prototype.init = function() {
     this.initMisc();
-    this.initSlider();
+    this.initSwiper();
     this.initSocial();
     this.initInstagramIsotope();
     this.initMusicIsotope();

@@ -13,7 +13,7 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 @import 'pages/pages';
 
 // PRELOAD
-body::before {
+body:before {
   content: url('#{$base-img-url}/black.svg') url('#{$base-img-url}/white.svg');
   display: none;
 }
@@ -36,6 +36,27 @@ h6 {
     font-family: $font-gotham;
     text-transform: uppercase;
     font-weight: 900;
+  }
+
+  &.divider {
+    margin-bottom: 40px !important;
+    text-align: center;
+
+    &:after {
+      content: '';
+      display: block;
+      margin: 30px auto 0;
+      width: 40px;
+      border-top: 2px solid $color-master-darker;
+    }
+
+    &.text-white:after {
+      border-color: #fff;
+    }
+
+    &.muted:after {
+      opacity: .5;
+    }
   }
 }
 
@@ -111,11 +132,11 @@ p {
 .jumbotron h1,
 .hero h1 {
   display: inline-block !important;
-  font-size: 80px;
+  font-size: 5rem;
   font-weight: 200;
   letter-spacing: -.02em;
   line-height: 1;
-  // transition: all .1s;
+  color: inherit;
 
   .lead {
     display: block;
@@ -137,13 +158,31 @@ p {
   }
 
   @media (max-width: 991px) {
-    font-size: 65px;
-    // padding: 0 1em;
+    font-size: 4rem;
   }
 
   @media (max-width: 767px) {
-    font-size: 50px;
-    // padding: 0;
+    font-size: 3rem;
+  }
+}
+
+.jumbotron h3 {
+  display: inline-block;
+  position: relative;
+  font-size: 1.1rem !important;
+  font-family: $font-montserrat;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+
+  &:hover {
+    &:after {
+      opacity: 1;
+      transform: translateX(30px);
+    }
+  }
+
+  @media (max-width: 767px) {
+    font-size: 1rem !important;
   }
 }
 
@@ -160,7 +199,7 @@ p {
 [data-pages-bg-image] {
   background-size: cover;
   background-position: center center;
-  box-shadow: inset 0 0 200px rgba(#000, .8);
+  // box-shadow: inset 0 0 200px rgba(#000, .8);
 }
 
 [data-fitvids] {
@@ -199,7 +238,7 @@ footer {
       line-height: 1;
     }
 
-    li + li::before {
+    li + li:before {
       content: " / ";
       opacity: .4;
     }
@@ -248,31 +287,6 @@ ol.ol {
   li {
     line-height: 1.8;
     padding-bottom: 1em;
-  }
-}
-
-// ======================================================
-// HEADING DIVIDER
-// ======================================================
-
-.divider {
-  margin-bottom: 30px !important;
-  text-align: center;
-
-  &:after {
-    content: '';
-    display: block;
-    margin: 30px auto 0;
-    width: 40px;
-    border-top: 2px solid #444;
-  }
-
-  &.text-white:after {
-    border-color: #fff;
-  }
-
-  &.muted:after {
-    opacity: .5;
   }
 }
 
@@ -369,31 +383,8 @@ ol.ol {
 }
 
 // ======================================================
-// Index
+// INDEX
 // ======================================================
-
-.watchvid {
-  display: inline-block;
-  position: relative;
-
-  &::after {
-    font-family: "themify";
-    content: "\e661";
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    opacity: 0;
-    transform: translateX(0);
-    transition: all .3s ease;
-  }
-
-  &:hover {
-    &::after {
-      opacity: 1;
-      transform: translateX(30px);
-    }
-  }
-}
 
 .social-count {
   bottom: 0;
@@ -561,40 +552,75 @@ ol.ol {
 }
 
 // ======================================================
-// CONTACT
+// MUSIC
 // ======================================================
 
 .filter .btn {
+  display: inline-block;
+  position: relative;
   font-family: $font-montserrat;
-  font-size: 1.3em;
-  border: 0;
+  font-size: 1.2em;
   border-radius: 0;
+  border: 0;
+  // border-bottom: 3px solid transparent;
   background: none;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -.05em;
   padding: 8px 15px;
+  transition: all .3s ease !important;
 
-  &:hover {
-    border: 0;
+  &:after {
+    content: "";
+    display: block;
+    // position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    margin-top: 5px;
     background: #fff;
-    color: $color-primary-darker;
+    transition: all .3s $easeOutExpo;
   }
 
+  &:hover,
   &.is-checked {
-    background: #fff;
-    color: $color-primary-darker;
+    border: 0;
+    // border-bottom: 3px solid #fff;
+    // background: #fff;
+    // color: $color-master-darkest;
+
+    &:after {
+      width: 100%;
+    }
   }
 }
 
 .music-isotope {
-  transition: all .5s ease-in-out;
+  transition: all .5s ease;
 
   .grid-sizer,
   .grid {
-    width: 33.33%;
     overflow: hidden;
     background: #000;
+
+    // width
+    width: 20%;
+
+    @media all and (max-width: 1920px) {
+      width: 25%;
+    }
+
+    @media all and (max-width: 1280px) {
+      width: 33.33%;
+    }
+
+    @media all and (max-width: 767px) {
+      width: 50%;
+    }
+
+    @media all and (max-width: 479px) {
+      width: 100%;
+    }
 
     .bg {
       position: absolute;
@@ -608,7 +634,7 @@ ol.ol {
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
-      transition: all .3s ease-in-out;
+      transition: all .3s ease;
     }
 
     .info {
@@ -619,28 +645,14 @@ ol.ol {
       padding: 30px;
       z-index: 10;
       background: $color-master-darkest;
-
-      transition: all .3s ease-in-out;
-
-      &.dark {
-        color: #fff;
-      }
-      &.light {
-        color: #000;
-      }
+      transition: all .3s ease;
 
       .label {
         display: inline-block;
         text-transform: uppercase;
         background: rgba(#fff, .5);
         margin-right: 5px;
-
-        &.dark {
-          color: #fff;
-        }
-        &.light {
-          color: #000;
-        }
+        transition: all .3s ease;
       }
     }
 
@@ -652,7 +664,7 @@ ol.ol {
       z-index: 10;
       background: rgba(#fff, .8);
       opacity: 0;
-      transition: all .3s ease-in-out;
+      transition: all .3s ease;
       transform: scale(.8);
 
       .inner {
@@ -665,7 +677,7 @@ ol.ol {
         a.btn {
           line-height: 1;
           font-family: $font-montserrat;
-          font-size: 1.3rem;
+          font-size: 1.1rem;
           border: 0;
           background: #000;
           color: #fff;
@@ -696,14 +708,6 @@ ol.ol {
         transform: scale(1);
         opacity: 1;
       }
-    }
-
-    @media all and (max-width: 767px) {
-      width: 50%;
-    }
-
-    @media all and (max-width: 479px) {
-      width: 100%;
     }
   }
 }

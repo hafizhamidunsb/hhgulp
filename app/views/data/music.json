@@ -1,14 +1,15 @@
 {
   "music": [
     {
-      "img":   "siti-mc.jpg",
+      "img":   "siti-up.jpg",
       "title": "Mikraj Cinta",
       "released":  "2015-05-01T00:00:00+0800",
       "labels": ["Single", "Dato' Siti Nurhaliza", "Produced"],
       "links": {
         "youtube": "https://www.youtube.com/watch?v=r4yl2Dn_dw0"
       }
-    }, {
+    },
+    {
       "img":   "hh-ilr.jpg",
       "title": "I <i class='fa fa-heart'></i> Rasulullah",
       "released":  "2015-01-01T00:00:00+0800",
@@ -17,7 +18,8 @@
         "itunes": "https://itunes.apple.com/my/album/i-love-rasulullah/id978251972",
         "cdnasyid": "http://www.cdnasyid.com/hafizhamidun-iloverasulullah"
       }
-    }, {
+    },
+    {
       "img":   "hh-ztd1.jpg",
       "title": "Zikir Terapi Diri 1",
       "released":  "2011-11-01T00:00:00+0800",
@@ -27,7 +29,8 @@
         "itunes": "https://itunes.apple.com/my/album/zikir-terapi-diri/id545997161",
         "cdnasyid": "http://www.cdnasyid.com/hafizhamidun-zikirterapidiri"
       }
-    }, {
+    },
+    {
       "img":   "hh-ztd2.jpg",
       "title": "Zikir Terapi Diri 2",
       "released":  "2013-06-01T00:00:00+0800",
@@ -35,7 +38,8 @@
       "links": {
         "cdnasyid": "http://www.cdnasyid.com/hafizhamidun-zikirterapidiri2"
       }
-    }, {
+    },
+    {
       "img":   "hh-ztd3.jpg",
       "title": "Zikir Terapi Diri 3",
       "released":  "2014-06-01T00:00:00+0800",
@@ -43,17 +47,25 @@
       "links": {
         "cdnasyid": "http://www.cdnasyid.com/hafizhamidun-zikirterapidiri3"
       }
-    }, {
+    },
+    {
+      "img":   "hh-sy.jpg",
+      "title": "Syukran",
+      "released":  "2009-09-01T00:00:00+0800",
+      "labels": ["Studio Album"]
+    },
+    {
       "img":   "hh-kp.jpg",
       "title": "Kasih Padamu",
-      "released":  "2013-06-01T00:00:00+0800",
+      "released":  "2013-10-01T00:00:00+0800",
       "labels": ["Single", "Compilation"],
       "links": {
         "youtube": "https://www.youtube.com/watch?v=8JwCLCtUEM0",
         "itunes": "https://itunes.apple.com/my/album/kasih-padamu-single/id593244578",
         "cdnasyid": "http://www.cdnasyid.com/hafizhamidun-kasihpadamu"
       }
-    }, {
+    },
+    {
       "img":   "hh-jb.jpg",
       "title": "Jodoh Berdua",
       "released":  "2013-12-01T00:00:00+0800",
@@ -62,6 +74,30 @@
         "youtube": "https://www.youtube.com/watch?v=-L4NL9JcAeo",
         "itunes": "https://itunes.apple.com/sg/album/jodoh-berdua-single/id763820542"
       }
+    },
+    {
+      "img":   "juvana.jpg",
+      "title": "Juvana",
+      "released":  "2013-01-24T00:00:00+0800",
+      "labels": ["Soundtrack"]
+    },
+    {
+      "img":   "nur-kasih.jpg",
+      "title": "Nur Kasih The Movie",
+      "released":  "2011-05-19T00:00:00+0800",
+      "labels": ["Soundtrack"]
+    },
+    {
+      "img":   "kl-gangster.jpg",
+      "title": "KL Gangster",
+      "released":  "2011-09-11T00:00:00+0800",
+      "labels": ["Soundtrack"]
+    },
+    {
+      "img":   "kl-gangster-2.jpg",
+      "title": "KL Gangster 2",
+      "released":  "2013-10-03T00:00:00+0800",
+      "labels": ["Soundtrack"]
     }
   ]
 }

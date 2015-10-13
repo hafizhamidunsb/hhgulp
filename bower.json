@@ -15,11 +15,16 @@
     "jquery-validation": "~1.14.0",
     "bootstrap": "~3.3.5",
     "color-thief": "~2.0.1",
-    "moment": "~2.10.6"
+    "moment": "~2.10.6",
+    "vimeo-jquery-api": "~0.10.1"
   },
   "overrides": {
     "isotope": {
       "main": "dist/isotope.pkgd.js",
+      "dependencies": {}
+    },
+    "vimeo-jquery-api": {
+      "main": "dist/jquery.vimeo.api.js",
       "dependencies": {}
     }
   }
