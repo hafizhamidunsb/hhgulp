@@ -10,7 +10,7 @@ block vars
 block content
   +header(class="bg-header transparent-light", data-pages-header="autoresize", data-pages-resize-class="light-solid")
 
-  section.hero.bg-primary(data-pages="parallax", data-pages-bg-image="/assets/images/hero/speaker.jpg", data-bg-overlay-class="bg-master-darker", data-overlay-opacity="0.5")
+  section.hero.bg-primary(data-pages="parallax", data-pages-bg-image="/assets/images/hero/speaker.jpg", data-bg-overlay-class="bg-master-dark", data-overlay-opacity="0.5")
     .container-xs-height.full-height
       .col-xs-height.col-middle.text-center
         .col-sm-12.inner
@@ -21,50 +21,67 @@ block content
   section.filter.bg-master-darkest
     .container.p-t-80.p-b-80.text-white.text-center
       .row
-        .col-sm-4
+        .col-sm-3
           h4.block-title.text-primary-light
             i.fa.fa-sort
             |  Sort
           .sort-button-group
             button.btn(data-sort-value="title") Title
             button.btn.is-checked(data-sort-value="released") Released
-        .col-sm-8.sm-p-t-40
+        .col-sm-9.sm-p-t-40
           h4.block-title.text-primary-light
             i.fa.fa-filter
             |  Filter
           .filter-button-group
-            button.btn(data-filter-value="*") All
-            button.btn(data-filter-value=".tag-produced") Produced
-            button.btn(data-filter-value=".tag-soundtrack") Soundtracks
+            button.btn.is-checked(data-filter-value="*") All
             button.btn(data-filter-value=".tag-studio-album") Studio Albums
             button.btn(data-filter-value=".tag-single") Singles
             button.btn(data-filter-value=".tag-zikir-salawat") Zikir &amp; Salawat
+            button.btn(data-filter-value=".tag-soundtrack") Soundtracks
+            button.btn(data-filter-value=".tag-produced") Produced
 
-  section.bg-master-darkest
-    .music-isotope.text-white
-      .grid-sizer
-      
-      each item in music
-        .grid(class=tagClasess(item.labels), data-released=item.released)
-          if item.links
-            .links
-              .inner
-                if item.links.cdnasyid
-                  a.btn.btn-rounded(href=item.links.cdnasyid, target="_blank") CDNasyid
-                if item.links.itunes
-                  a.btn.btn-rounded(href=item.links.itunes, target="_blank") iTunes
-                if item.links.youtube
-                  a.btn.btn-rounded(href=item.links.youtube, target="_blank") Youtube
-          .info
-            h2.title.no-margin
-              | !{item.title}
-            h4.released.hint-text.m-t-5.m-b-0
-              = moment(item.released).format("MMMM YYYY")
-            .labels.m-t-10
-              each label in item.labels
-                span.label= label
-          .ar-1-1
-          .bg
-          img(src="/assets/images/works/#{item.img}", alt="")
+  section.bg-white
+    .container-fluid.padding-10
+      .music-isotope.text-white
+        .grid-sizer
+        
+        each item in music
+          .grid(class=tagClasess(item.labels), data-released=item.released)
+            .grid-wrapper
+              img(src="/assets/images/works/#{item.img}", alt="")
+              .info
+                .info-bg
+                .info-wrapper
+                  h2.title.no-margin
+                    | !{item.title}
+                  h4.released.hint-text.m-t-5.m-b-0
+                    = moment(item.released).format("MMMM YYYY")
+                  .labels.m-t-10
+                    each label in item.labels
+                      span.label= label
+                  if item.links
+                    .links.m-t-10
+                      if item.links.cdnasyid
+                        a.btn(href=item.links.cdnasyid, target="_blank")
+                          i.icon-cart
+                          | &nbsp;&nbsp;CDNasyid
+                      if item.links.itunes
+                        a.btn(href=item.links.itunes, target="_blank")
+                          i.icon-itunes
+                          | &nbsp;&nbsp;iTunes
+                      if item.links.youtube
+                        a.btn(href=item.links.youtube, target="_blank", data-youtube-embed=item.links.youtube_embed)
+                          i.icon-youtube-play
+                          | &nbsp;&nbsp;Youtube
+                      if item.links.trailer
+                        a.btn(href=item.links.trailer, target="_blank", data-youtube-embed=item.links.trailer_embed)
+                          i.icon-youtube-play
+                          | &nbsp;&nbsp;Trailer
 
   +footer
+
+  .video-lightbox.bg-black
+    .container-xs-height.full-vh
+      .col-xs-height.col-middle
+        .video
+          .progress-circle-indeterminate.progress-circle-white

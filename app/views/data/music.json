@@ -6,7 +6,8 @@
       "released":  "2015-05-01T00:00:00+0800",
       "labels": ["Single", "Dato' Siti Nurhaliza", "Produced"],
       "links": {
-        "youtube": "https://www.youtube.com/watch?v=r4yl2Dn_dw0"
+        "youtube": "https://www.youtube.com/watch?v=r4yl2Dn_dw0",
+        "youtube_embed": "https://www.youtube.com/embed/r4yl2Dn_dw0"
       }
     },
     {
@@ -26,6 +27,7 @@
       "labels": ["Studio Album", "Zikir & Salawat"],
       "links": {
         "youtube": "https://www.youtube.com/watch?v=04Y8NHTf1p8",
+        "youtube_embed": "https://www.youtube.com/embed/04Y8NHTf1p8",
         "itunes": "https://itunes.apple.com/my/album/zikir-terapi-diri/id545997161",
         "cdnasyid": "http://www.cdnasyid.com/hafizhamidun-zikirterapidiri"
       }
@@ -61,6 +63,7 @@
       "labels": ["Single", "Compilation"],
       "links": {
         "youtube": "https://www.youtube.com/watch?v=8JwCLCtUEM0",
+        "youtube_embed": "https://www.youtube.com/embed/8JwCLCtUEM0",
         "itunes": "https://itunes.apple.com/my/album/kasih-padamu-single/id593244578",
         "cdnasyid": "http://www.cdnasyid.com/hafizhamidun-kasihpadamu"
       }
@@ -72,6 +75,7 @@
       "labels": ["Single"],
       "links": {
         "youtube": "https://www.youtube.com/watch?v=-L4NL9JcAeo",
+        "youtube_embed": "https://www.youtube.com/embed/-L4NL9JcAeo",
         "itunes": "https://itunes.apple.com/sg/album/jodoh-berdua-single/id763820542"
       }
     },
@@ -79,25 +83,61 @@
       "img":   "juvana.jpg",
       "title": "Juvana",
       "released":  "2013-01-24T00:00:00+0800",
-      "labels": ["Soundtrack"]
+      "labels": ["Soundtrack"],
+      "links": {
+        "trailer": "https://www.youtube.com/watch?v=Hn9XXNFSt0Y",
+        "trailer_embed": "https://www.youtube.com/embed/Hn9XXNFSt0Y"
+      }
     },
     {
       "img":   "nur-kasih.jpg",
       "title": "Nur Kasih The Movie",
       "released":  "2011-05-19T00:00:00+0800",
-      "labels": ["Soundtrack"]
-    },
-    {
-      "img":   "kl-gangster.jpg",
-      "title": "KL Gangster",
-      "released":  "2011-09-11T00:00:00+0800",
-      "labels": ["Soundtrack"]
+      "labels": ["Soundtrack"],
+      "links": {
+        "trailer": "https://www.youtube.com/watch?v=RQucfjwWBcg",
+        "trailer_embed": "https://www.youtube.com/embed/RQucfjwWBcg"
+      }
     },
     {
       "img":   "kl-gangster-2.jpg",
       "title": "KL Gangster 2",
       "released":  "2013-10-03T00:00:00+0800",
-      "labels": ["Soundtrack"]
+      "labels": ["Soundtrack"],
+      "links": {
+        "trailer": "https://www.youtube.com/watch?v=J_SmpTSRMwc",
+        "trailer_embed": "https://www.youtube.com/embed/J_SmpTSRMwc"
+      }
+    },
+    {
+      "img":   "syt.jpg",
+      "title": "Sesuatu Yang Tertinggal",
+      "released":  "2012-01-05T00:00:00+0800",
+      "labels": ["Soundtrack"],
+      "links": {
+        "trailer": "https://www.youtube.com/watch?v=8nWWf-RF9QQ",
+        "trailer_embed": "https://www.youtube.com/embed/8nWWf-RF9QQ"
+      }
+    },
+    {
+      "img":   "saa.jpg",
+      "title": "Sembunyi Amukan Azazil",
+      "released":  "2013-03-28T00:00:00+0800",
+      "labels": ["Soundtrack"],
+      "links": {
+        "trailer": "https://www.youtube.com/watch?v=VhqCDNPq1pc",
+        "trailer_embed": "https://www.youtube.com/embed/VhqCDNPq1pc"
+      }
+    },
+    {
+      "img":   "gb.jpg",
+      "title": "Gila Baby",
+      "released":  "2014-12-04T00:00:00+0800",
+      "labels": ["Soundtrack"],
+      "links": {
+        "trailer": "https://www.youtube.com/watch?v=hvxGEjpA-vE",
+        "trailer_embed": "https://www.youtube.com/embed/hvxGEjpA-vE"
+      }
     }
   ]
 }

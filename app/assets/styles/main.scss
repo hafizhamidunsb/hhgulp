@@ -46,8 +46,8 @@ h6 {
       content: '';
       display: block;
       margin: 30px auto 0;
-      width: 40px;
-      border-top: 2px solid $color-master-darker;
+      width: 60px;
+      border-top: 2px solid $color-master-dark;
     }
 
     &.text-white:after {
@@ -61,14 +61,20 @@ h6 {
 }
 
 .excerpt {
-  font-family: $font-gotham;
-  font-weight: 700;
-  letter-spacing: -.07em;
+  font-weight: 200;
+  letter-spacing: -.02em;
 }
 
-p {
-  line-height: 1.8;
+section p {
+  font-size: 1.3rem;
+  font-weight: 200;
+  line-height: 1.3;
   margin: 1.5em 0;
+}
+
+section p.excerpt {
+  font-size: 2.2em;
+  line-height: 1.1;
 }
 
 i:not(.fa):not([class^="pg-"]):not([class^="icon-"]):not([class^="ti-"]),
@@ -585,9 +591,6 @@ ol.ol {
   &:hover,
   &.is-checked {
     border: 0;
-    // border-bottom: 3px solid #fff;
-    // background: #fff;
-    // color: $color-master-darkest;
 
     &:after {
       width: 100%;
@@ -596,13 +599,16 @@ ol.ol {
 }
 
 .music-isotope {
-  transition: all .5s ease;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 1s $easeOutExpo;
+
+  &.loaded {
+    opacity: 1;
+  }
 
   .grid-sizer,
   .grid {
-    overflow: hidden;
-    background: #000;
-
     // width
     width: 20%;
 
@@ -622,96 +628,95 @@ ol.ol {
       width: 100%;
     }
 
-    .bg {
-      position: absolute;
+    .grid-wrapper {
+      position: relative;
+      margin: 10px;
+      overflow: hidden;
+    }
+
+    img {
+      position: relative;
       width: 100%;
-      height: 100%;
       top: 0;
-      bottom: 0;
       left: 0;
-      right: 0;
       z-index: 5;
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
       transition: all .3s ease;
     }
 
     .info {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 30px;
+      padding: 20px;
       z-index: 10;
-      background: $color-master-darkest;
       transition: all .3s ease;
+
+      .info-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 0;
+        opacity: 1;
+        transition: all .3s ease;
+      }
+
+      .info-wrapper {
+        position: relative;
+        z-index: 10;
+      }
 
       .label {
         display: inline-block;
         text-transform: uppercase;
-        background: rgba(#fff, .5);
+        background: none;
+        border: 1px solid #fff;
+        color: #fff;
         margin-right: 5px;
+        margin-bottom: 5px;
         transition: all .3s ease;
       }
     }
 
     .links {
-      position: absolute;
-      width: calc(100% - 60px);
-      height: calc(100% - 60px);
-      margin: 30px;
-      z-index: 10;
-      background: rgba(#fff, .8);
-      opacity: 0;
-      transition: all .3s ease;
-      transform: scale(.8);
+      a.btn {
+        line-height: 1;
+        font-family: $font-montserrat;
+        font-size: 1rem;
+        border: 0;
+        background: #000;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: -.05em;
+        padding: 5px 10px 4px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        opacity: 1;
+        transition: all .3s;
 
-      .inner {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate3d(-50%, -50%, 0);
-        text-align: center;
-
-        a.btn {
-          line-height: 1;
-          font-family: $font-montserrat;
-          font-size: 1.1rem;
+        &:hover {
           border: 0;
-          background: #000;
-          color: #fff;
-          text-transform: uppercase;
-          letter-spacing: -.05em;
-          padding: 8px 15px;
-          margin: 2.5px;
           opacity: .6;
-          transition: all .3s;
-
-          &:hover {
-            border: 0;
-            opacity: 1;
-          }
         }
-      }
-    }
-
-    &:hover {
-      .bg {
-        transform: scale(1.2);
-      }
-      .info {
-        transform: translateY(100%);
-        opacity: 1;
-      }
-      .links {
-        transform: scale(1);
-        opacity: 1;
       }
     }
   }
 }
 
+.video-lightbox {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateX(100%);
+  transition: all .5s ease;
+
+  &.vlb-visible {
+    transform: translateX(0);
+  }
+}
 
 // ======================================================
 // CONTACT
