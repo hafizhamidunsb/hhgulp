@@ -8,7 +8,12 @@ var config = require('./../config.js');
 // Lean Modernizr build
 
 gulp.task('modernizr', 'Create modernizr lean build', function () {
-  return gulp.src(config.modernizr.src)
-    .pipe(modernizr(config.modernizr.cfg))
-    .pipe(gulp.dest(config.modernizr.dest));
+  if (config.modernizr.enabled) {
+    return gulp.src(config.modernizr.src)
+      .pipe(modernizr(config.modernizr.cfg))
+      .pipe(gulp.dest(config.modernizr.dest));
+  }
+  else {
+    return;
+  }
 });

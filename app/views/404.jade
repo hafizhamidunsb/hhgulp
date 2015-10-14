@@ -1,0 +1,29 @@
+include modules/_header
+include modules/_footer
+
+extends layouts/_default
+
+block vars
+  - var pageTitle = 'Page Not Found';
+  - var bodyClass = '404';
+  
+block content
+  section.full-vh.text-white
+    .container-xs-height.full-height
+      .col-xs-height.col-middle
+        .container.text-center.xs-text-left
+          .col-sm-4.col-sm-offset-4
+            .text-center
+
+              img.m-b-20(src="/assets/images/logo/hh-white.svg", alt="")
+
+              .slab-border.b-white.m-b-30.p-t-5.p-b-25
+                h2.slab.text-white.no-margin(data-slabtext)
+                  span.slabtext 404
+                  span.slabtext Oops. Sorry.
+                  span.slabtext This page isn't available.
+                  span.slabtext The link you followed may be broken.
+
+              a.btn.btn-lg.btn-primary.btn-rounded.block-title.text-white.margin-5(href='/')
+                i.pg-home
+                |  Back Home

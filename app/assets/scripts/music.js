@@ -1,5 +1,7 @@
 !function($) {
 
+  FastClick.attach(document.body);
+
   $(".music-isotope").each(function() {
     var $this = $(this);
 
@@ -13,7 +15,7 @@
         },
 
         getSortData: {
-          title: '.title',
+          title: '[data-title]',
           released: '[data-released]'
         },
         sortBy: 'released',
@@ -42,6 +44,7 @@
 
       $('.sort-button-group').on('click', 'button', function() {
         var sortValue = $(this).data('sortValue');
+        console.log(sortValue);
         $this.isotope({ sortBy: sortValue });
       });
 
@@ -67,130 +70,164 @@
       });
     }
 
-    function rgba(color, alpha) {
-      if (typeof alpha === "undefined") {
-        alpha = 1;
+    function applyColors() {
+      // convert 0..255 R,G,B values to a hexidecimal color string
+      var RGBToHex = function(r,g,b){
+        var bin = r << 16 | g << 8 | b;
+        return (function(h){
+          return new Array(7-h.length).join("0")+h
+        })(bin.toString(16).toUpperCase())
       }
 
-      return "rgba(" + color[0] + ", " + color[1] + ", " + color[2] + ", " + alpha + ")"
-    }
-
-    function yiq(color) {
-      var rgb = rgba(color).match(/\d+/g);
-      return ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
-    }
-
-    function getDarkestColor(palette) {
-      var darkestColor = palette[0], darkestLuma = 255, luma;
-      $.each(palette, function(index, color) {
-        luma = yiq(color);
-        if (luma < darkestLuma) {
-          darkestColor = color;
-          darkestLuma = luma;
-        }
-      });
-
-      return darkestColor;
-    }
-
-    function getLightestColor(palette) {
-      var lightestColor = palette[0], lightestLuma = 0, luma;
-      $.each(palette, function(index, color) {
-        luma = yiq(color);
-        if (luma > lightestLuma) {
-          lightestColor = color;
-          lightestLuma = luma;
-        }
-      });
-
-      return lightestColor;
-    }
-
-    function lightDarkClass(el, color) {
-      if (yiq(color) >= 128) {
-        el.removeClass('dark').addClass('light');
-      } else {
-        el.removeClass('light').addClass('dark');
+      // convert a hexidecimal color string to 0..255 R,G,B
+      var hexToRGB = function(hex){
+        hex = parseInt(hex, 16);
+        var r = hex >> 16;
+        var g = hex >> 8 & 0xFF;
+        var b = hex & 0xFF;
+        return [r,g,b];
       }
-    }
 
-    function isDark(color) {
-      return yiq(color) <= 128;
-    }
+      var rgba = function(color, alpha) {
+        alpha = parseFloat(alpha) || 1;
 
-    var colorThief = new ColorThief();
-    $this.waitForImages(true).done(function() {
-      applyIsotope();
-      $this.find(".grid").each(function () {
+        return "rgba(" + color[0] + ", " + color[1] + ", " + color[2] + ", " + alpha + ")"
+      }
+
+      var yiq = function(color) {
+        var rgb = rgba(color).match(/\d+/g);
+        return ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
+      }
+
+      var getDarkestColor = function(palette) {
+        var darkestColor = palette[0], darkestLuma = 255, luma;
+        $.each(palette, function(index, color) {
+          luma = yiq(color);
+          if (luma < darkestLuma) {
+            darkestColor = color;
+            darkestLuma = luma;
+          }
+        });
+
+        return darkestColor;
+      }
+
+      var getLightestColor = function(palette) {
+        var lightestColor = palette[0], lightestLuma = 0, luma;
+        $.each(palette, function(index, color) {
+          luma = yiq(color);
+          if (luma > lightestLuma) {
+            lightestColor = color;
+            lightestLuma = luma;
+          }
+        });
+
+        return lightestColor;
+      }
+
+      var isDark = function(color) {
+        return yiq(color) <= 128;
+      }
+
+      var colorThief = new ColorThief();
+
+      $this.find(".grid").each(function() {
+        var bgColor = $(this).data('bg-color');
+        var fgColor = $(this).data('fg-color');
+
+        if (typeof bgColor !== 'undefined') {
+          bgColor = hexToRGB(bgColor);
+        }
+        if (typeof fgColor !== 'undefined') {
+          fgColor = hexToRGB(fgColor);
+        }
+
         var $img = $(this).find("img");
 
         var $info = $(this).find(".info");
         var $infoBg = $(this).find(".info-bg");
         var $label = $info.find(".label");
 
-        var color = colorThief.getColor($img[0]);
+        if (typeof bgColor === 'undefined') {
+          bgColor = colorThief.getColor($img[0]);
+        }
+
         var palette = colorThief.getPalette($img[0]);
+        var p = $(this).data('palette');
 
-        $infoBg.css("background-color", rgba(color));
+        if (typeof p !== 'undefined') {
+          bgColor = palette[parseInt(p)];
+        }
 
-        var darkestColor = getDarkestColor(palette);
-        var lightestColor = getLightestColor(palette);
-        var contraColor = isDark(color) ? lightestColor : darkestColor;
+        if (typeof fgColor === 'undefined') {
+          fgColor = isDark(bgColor) ? getLightestColor(palette) : getDarkestColor(palette);
+        }
 
-        $info.css("color", rgba(contraColor));
-
+        $infoBg.css("background-color", rgba(bgColor));
+        $info.css("color", rgba(fgColor));
         $label.css({
-          "border-color": rgba(contraColor),
-          "color": rgba(contraColor)
+          "border-color": rgba(fgColor),
+          "color": rgba(fgColor)
         });
 
         var $links = $(this).find(".links");
         var $btn = $links.find(".btn");
 
         $btn.css({
-          "background-color": rgba(contraColor),
-          "color": rgba(color)
+          "background-color": rgba(fgColor),
+          "color": rgba(bgColor)
         });
 
       });
-    });
-  });
-
-  var $lightbox = $('.video-lightbox');
-  var $video = $lightbox.find('.video');
-
-  $lightbox._open = function() {
-    $lightbox.addClass('vlb-visible');
-  }
-  $lightbox._close = function() {
-    $lightbox.removeClass('vlb-visible');
-    setTimeout(function() { $video.empty(); }, 500);
-  }
-
-  $(document).on('keyup',function(evt) {
-    if (evt.keyCode == 27) {
-      $lightbox._close();
     }
+
+    $this.waitForImages(true).done(function() {
+      applyIsotope();
+      applyColors();
+    });
   });
 
-  $lightbox.click(function (ev) {
-    $lightbox._close();
-  });
+  var lightbox = function() {
+    var $lightbox = $('.video-lightbox');
+    var $video = $lightbox.find('.vlb-video');
+    var $close = $lightbox.find('.vlb-close');
 
-  $('[data-youtube-embed]').each(function () {
-    var url = $(this).data('youtubeEmbed');
+    $lightbox._open = function() {
+      $lightbox.addClass('vlb-visible');
+    }
+    $lightbox._close = function() {
+      $lightbox.removeClass('vlb-visible');
+      setTimeout(function() { $video.empty(); }, 500);
+    }
+    $close.click($lightbox._close);
 
-    $(this).click(function (ev) {
-      $lightbox._open();
-
-      setTimeout(function () {
-        $video.html('<iframe width="560" height="315" src="' + url + '" frameborder="0" allowfullscreen></iframe>').fitVids();
-      }, 500);
-
-      ev.preventDefault();
-      ev.stopPropagation();
+    $(document).on('keyup',function(evt) {
+      if (evt.keyCode == 27) {
+        $lightbox._close();
+      }
     });
 
-  });
+    $lightbox.click(function (ev) {
+      $lightbox._close();
+    });
+
+    $('[data-youtube-embed]').each(function () {
+      var url = $(this).data('youtubeEmbed');
+
+      $(this).click(function (ev) {
+        $lightbox._open();
+
+        setTimeout(function () {
+          $video.html('<iframe width="560" height="315" src="' + url + '" frameborder="0" allowfullscreen></iframe>').fitVids();
+        }, 500);
+
+        ev.preventDefault();
+        ev.stopPropagation();
+      });
+
+    });
+  }
+
+  lightbox();
 
 }(window.jQuery);

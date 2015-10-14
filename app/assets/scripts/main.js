@@ -7,20 +7,6 @@
   };
 
   SITE.prototype.initMisc = function() {
-    // // FADE OUT
-    // $(document).on('click', 'a', function(event) {
-    //   event.preventDefault();
-    //   var link = this.href;
-    //   $('body').one('webkitTransitionEnd mozTransitionEnd MSTransitionEnd oatransitionend atransitionend', function() {
-    //     document.location.href = link;
-    //   });
-    //   $('body').removeClass('pace-done');
-    //
-    //   // $('body').one('webkitTransitionEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-    //   //   document.location.href = link;
-    //   // })
-    //   // $('body').addClass('animated fadeOut');
-    // });
 
     // SET ACTIVE CLASS
     $('.menu a').each(function() {
@@ -35,11 +21,24 @@
     });
 
     // MOBILE MENU OVERLAY
-    $('<div class="menu-overlay"/>').appendTo($('.header'));
+    var $menuOverlay = $('<div class="menu-overlay"/>').appendTo($('.header'));
+    $menuOverlay.click(function(e) {
+      e.preventDefault();
+      $('body').toggleClass('menu-opened');
+      $('[data-pages="header-toggle"]').toggleClass('on');
+    });
 
     $('[data-fitvids]').fitVids();
 
-    $('body:not(.mobile)').find('h1, h2, h3, h4, h5, h6, p').filter(':not(.no-orphan)').unorphanize();
+    fontSpy('LeagueGothic', {
+      success: function () {
+        $('[data-slabtext]').slabText();
+      }
+    });
+
+    // $('body:not(.mobile)').find('h1, h2, h3, h4, h5, h6, p').filter(':not(.no-orphan)').unorphanize();
+    $('body:not(.mobile)').find('p').filter(':not(.no-orphan)').unorphanize();
+    $('body:not(.mobile) .orphan').unorphanize();
 
     $('[data-bullet]').each(function () {
       var bullet = $(this).data('bullet');
@@ -51,6 +50,7 @@
     $('.social-icon i[class^=icon-]').each(function() {
       $(this).clone().addClass($(this).attr('class') + '-cloned').appendTo($(this).parent());
     });
+
   };
 
   SITE.prototype.initSwiper = function() {
@@ -92,15 +92,6 @@
      $(".instagram-isotope").each(function () {
       var $this = $(this);
 
-      $this.isotope({
-        itemSelector: ".grid",
-        percentPosition: true,
-        masonry: {
-          columnWidth: ".grid-sizer",
-          gutter: 0
-        }
-      });
-
       $.getJSON('http://wms-api.herokuapp.com/hh/instagram/feed?callback=?', function(data) {
         $(data.data).each(function (index, feed) {
           if (index < 4) {
@@ -113,14 +104,19 @@
                 </a>\
               </div>');
             $this.append(item);
-            setTimeout(function () {
-              $this.isotope( 'appended', item );
-            }, 100);
           }
         });
-        setTimeout(function () {
-          $this.isotope( 'layout' );
-        }, 250);
+
+        $this.waitForImages(true).done(function() {
+          $this.isotope({
+            itemSelector: ".grid",
+            percentPosition: true,
+            masonry: {
+              columnWidth: ".grid-sizer",
+              gutter: 0
+            }
+          });
+        });
       });
     });
   };

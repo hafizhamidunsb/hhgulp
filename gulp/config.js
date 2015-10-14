@@ -156,6 +156,7 @@ module.exports.images = {
 
 // Modernizr task config
 module.exports.modernizr = {
+  enabled: true,
   src: [
     path.join(app, scripts,'**/*.js'),
     path.join(tmp, styles,'*.css')
@@ -272,7 +273,7 @@ module.exports.ghPages = {
 
 // Cdnify task config
 module.exports.cdnify = {
-  run: false,
+  enabled: false,
   src: path.join(dist, '/**/*.{css,html}'),
   cfg: {
     base: 'http://hafizhamidunsb.github.io',

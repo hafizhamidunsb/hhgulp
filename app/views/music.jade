@@ -8,18 +8,19 @@ block vars
   - var bodyClass = 'music';
 
 block content
-  +header(class="bg-header transparent-light", data-pages-header="autoresize", data-pages-resize-class="light-solid")
+  +header.transparent-light(data-pages-header="autoresize", data-pages-resize-class="light-solid")
 
-  section.hero.bg-primary(data-pages="parallax", data-pages-bg-image="/assets/images/hero/speaker.jpg", data-bg-overlay-class="bg-master-dark", data-overlay-opacity="0.5")
+  section.hero(data-pages-bg-image="/assets/images/hero/speaker.jpg", data-bg-overlay-class="bg-black", data-overlay-opacity="0.2")
     .container-xs-height.full-height
-      .col-xs-height.col-middle.text-center
-        .col-sm-12.inner
-          h1.inner
-            | Discover the 
-            b music
+      .col-xs-height.col-middle
+        .container.text-center.xs-text-left
+          .col-sm-12
+            h1.inner.text-white
+              | Discover the 
+              b music
 
-  section.filter.bg-master-darkest
-    .container.p-t-80.p-b-80.text-white.text-center
+  section.filter.bg-black
+    .container.p-t-20.p-b-20.text-white.text-center
       .row
         .col-sm-3
           h4.block-title.text-primary-light
@@ -40,48 +41,54 @@ block content
             button.btn(data-filter-value=".tag-soundtrack") Soundtracks
             button.btn(data-filter-value=".tag-produced") Produced
 
-  section.bg-white
-    .container-fluid.padding-10
+  section.bg-black
+    .container.p-t-70.p-b-70.xs-padding-10
       .music-isotope.text-white
         .grid-sizer
         
         each item in music
-          .grid(class=tagClasess(item.labels), data-released=item.released)
+          .grid(class=tagClasess(item.labels), data-title=item.title, data-released=item.released, data-palette=item.palette, data-bg-color=item.bgcolor, data-fg-color=item.fgcolor)
             .grid-wrapper
               img(src="/assets/images/works/#{item.img}", alt="")
               .info
                 .info-bg
                 .info-wrapper
-                  h2.title.no-margin
-                    | !{item.title}
-                  h4.released.hint-text.m-t-5.m-b-0
-                    = moment(item.released).format("MMMM YYYY")
-                  .labels.m-t-10
-                    each label in item.labels
-                      span.label= label
+
                   if item.links
-                    .links.m-t-10
+                    .links.btn-group.pull-right.m-l-10
                       if item.links.cdnasyid
                         a.btn(href=item.links.cdnasyid, target="_blank")
                           i.icon-cart
-                          | &nbsp;&nbsp;CDNasyid
                       if item.links.itunes
                         a.btn(href=item.links.itunes, target="_blank")
                           i.icon-itunes
-                          | &nbsp;&nbsp;iTunes
                       if item.links.youtube
                         a.btn(href=item.links.youtube, target="_blank", data-youtube-embed=item.links.youtube_embed)
                           i.icon-youtube-play
-                          | &nbsp;&nbsp;Youtube
                       if item.links.trailer
                         a.btn(href=item.links.trailer, target="_blank", data-youtube-embed=item.links.trailer_embed)
                           i.icon-youtube-play
-                          | &nbsp;&nbsp;Trailer
+
+                  h2.item-title.orphan= item.title
+                    //- != item.title.replace(/\{\{fa-(.*?)\}\}/g, '<i class="fa fa-$1"></i>')
+
+                  if item.artist
+                    h5.item-artist.orphan
+                      | By 
+                      span.hint-text= item.artist
+
+                  h4.item-released.block-title.muted.m-t-5
+                    = moment(item.released).format("MMMM YYYY")
+
+                  .labels.m-t-20
+                    each label in item.labels
+                      span.label= label
 
   +footer
 
   .video-lightbox.bg-black
-    .container-xs-height.full-vh
-      .col-xs-height.col-middle
-        .video
-          .progress-circle-indeterminate.progress-circle-white
+    .full-height
+      .vlb-close
+        i.ti-close
+      .vlb-progress.progress-circle-indeterminate.progress-circle-white
+      .vlb-video

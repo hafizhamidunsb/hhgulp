@@ -26,5 +26,6 @@ gulp.task('styles', 'Compile Sass to CSS', function () {
     ]))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(config.styles.dest))
-    .pipe(browserSync.reload({stream:true}));
+    .pipe(browserSync.stream());
+    // .pipe(browserSync.reload({stream:true}));
 });

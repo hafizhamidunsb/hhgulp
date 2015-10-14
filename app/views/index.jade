@@ -7,7 +7,7 @@ block vars
   - var bodyClass = 'index';
   
 block content
-  +header(class="bg-header transparent-light", data-pages-header="autoresize", data-pages-resize-class="light-solid")
+  +header.transparent-light(data-pages-header="autoresize", data-pages-resize-class="light-solid")
 
   section.jumbotron.full-vh(data-pages='parallax')
     .inner.full-vh
@@ -19,21 +19,22 @@ block content
             .slider-wrapper
               .background-wrapper(data-swiper-parallax='20%')
                 .background.bg-position-center.hidden-xs.hidden-sm(data-pages-bg-image='/assets/images/hero/hh1.jpg', data-bg-overlay-class='bg-master-darker', data-overlay-opacity='0.7', draggable='false')
-                .background.bg-position-left.visible-xs.visible-sm(data-pages-bg-image='/assets/images/hero/hh3.jpg', data-bg-overlay-class='bg-master-darker', data-overlay-opacity='0.7', draggable='false')
+                .background.bg-position-left.visible-xs.visible-sm(data-pages-bg-image='/assets/images/hero/hh2.jpg', data-bg-overlay-class='bg-master-darker', data-overlay-opacity='0.7', draggable='false')
 
             .content-layer
               .inner.full-height
                 .container-xs-height.full-height
                   .col-xs-height.col-middle
-                    .container.text-center.text-white
-                      h1.no-orphan(data-pages-animation='standard', data-delay='1100', data-type='transition.slideDownIn')
-                        | Discover the 
-                        b(data-pages-init='text-rotate', data-speed='3000', data-animation='flipUp') Insight,Music,Apparel,Work
-                        
-                      h3.m-t-20
-                        a.link.watchvid(href="#")
-                          | Newest music video "Penyelamat" 
-                          i.ti-arrow-right
+                    .container.text-center.xs-text-left.text-white.xs-p-t-100
+                      .col-sm-12
+                        h1.no-orphan(data-pages-animation='standard', data-delay='1000', data-type='transition.slideDownIn')
+                          | Discover the 
+                          b(data-pages-init='text-rotate', data-speed='3000', data-animation='flipUp') Insight, Music, Apparel, Work
+                          
+                        h3.m-t-20(data-pages-animation='standard', data-delay='1500', data-type='transition.slideDownIn')
+                          a.text-master-light.link.watchvid(href="#")
+                            | Newest music video "Penyelamat" 
+                            i.ti-arrow-right
 
           // data-pages-header="alternate"
           .swiper-slide.fit.bg-black
@@ -65,7 +66,8 @@ block content
           p.text-master-lightest
             | This is the home of Hafiz Hamidun in the world wide web; all information regarding albums, singles, shows, concerts and the fashion line can be found here.
 
-  section.p-t-60.p-b-60.bg-master(data-pages='parallax', data-pages-bg-image='/assets/images/hero/hh4-2.jpg', data-bg-overlay-class='bg-master-dark', data-overlay-opacity='0.8')
+  //- section.p-t-60.p-b-60.bg-master(data-pages='parallax', data-pages-bg-image='/assets/images/hero/hh4-2.jpg', data-bg-overlay-class='bg-master-dark', data-overlay-opacity='0.8')
+  section.p-t-60.p-b-60.bg-master-dark
     .container
       .row
         .col-sm-12
@@ -75,54 +77,63 @@ block content
                 .progress-circle-indeterminate.progress-circle-white
                 span.wrapper
                   i.icon-facebook
-                  h3.count
-                  p likes
+                  .count
+                  .block-title likes
             .col-sm-4
               a.margin-10.c-twitter(href='https://twitter.com/hafizhamidun', target='_blank')
                 .progress-circle-indeterminate.progress-circle-white
                 span.wrapper
                   i.icon-twitter
-                  h3.count
-                  p followers
+                  .count
+                  .block-title followers
             .col-sm-4
               a.margin-10.c-instagram(href='https://instagram.com/hafizhamidun', target='_blank')
                 .progress-circle-indeterminate.progress-circle-white
                 span.wrapper
                   i.icon-instagram
-                  h3.count
-                  p followers
+                  .count
+                  .block-title followers
             .col-sm-4
               a.margin-10.c-youtube(href='https://youtube.com/user/HafizHamidunVEVO', target='_blank')
                 .progress-circle-indeterminate.progress-circle-white
                 span.wrapper
                   i.icon-youtube
-                  h3.count
-                  p subscribers
+                  .count
+                  .block-title subscribers
             .col-sm-4
               a.margin-10.c-spotify(href='https://open.spotify.com/artist/6DgMaXR0c070BQWs9VyuNB', target='_blank')
                 .progress-circle-indeterminate.progress-circle-white
                 span.wrapper
                   i.icon-spotify
-                  h3.count
-                  p followers
+                  .count
+                  .block-title followers
             .col-sm-4
               a.margin-10.c-soundcloud(href='https://www.soundcloud.com/hafizhamidun', target='_blank')
                 .progress-circle-indeterminate.progress-circle-white
                 span.wrapper
                   i.icon-soundcloud
-                  h3.count
-                  p followers
+                  .count
+                  .block-title followers
 
-  section.p-b-50.p-t-50.bg-master-darkest.text-white
+  section.p-b-80.p-t-80.bg-master-darkest.text-white(data-pages-bg-image="/assets/images/hero/star2.jpg", data-bg-overlay-class="bg-black", data-overlay-opacity="0.7")
     .container.p-b-50.p-t-50
-      .col-md-8.col-md-offset-2
+      .col-sm-6.col-sm-offset-3
         .col-middle
           .text-center
-            h1.text-master-light.m-b-10.xs-m-b-20
-              b Sound is divine.
-              | 
-              i Music is man-made.
-            h6.margin-0.m-b-30.text-master-dark.block-title That's how art connects to our spirituality.
+            //- .text-center
+            //-   h1.text-master-light.m-b-10.xs-m-b-20
+            //-     b Sound is divine.
+            //-     | 
+            //-     i Music is man-made.
+            //-   h6.margin-0.m-b-30.text-master-dark.block-title That's how art connects to our spirituality.
+
+            h2.slab.text-master-light.no-margin(data-slabtext)
+              span.slabtext Sound is divine
+              span.slabtext Music is man-made
+            h3.slab.no-margin.text-white.m-b-30(data-slabtext)
+              span.slabtext That's how art connects to our
+              span.slabtext.text-primary spirituality
+
             a.btn.btn-lg.btn-info.btn-rounded.block-title.text-white.margin-5(href='/music') Explore Works
             a.btn.btn-lg.btn-primary.btn-rounded.block-title.text-white.margin-5(href='/profile') Hafiz's Profile
 

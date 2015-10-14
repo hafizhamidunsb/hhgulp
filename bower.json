@@ -16,7 +16,10 @@
     "bootstrap": "~3.3.5",
     "color-thief": "~2.0.1",
     "moment": "~2.10.6",
-    "vimeo-jquery-api": "~0.10.1"
+    "vimeo-jquery-api": "~0.10.1",
+    "slabText": "~2.2.0",
+    "fastclick": "~1.0.6",
+    "jQuery-FontSpy": "fontspy#~3.0.0"
   },
   "overrides": {
     "isotope": {
@@ -25,6 +28,13 @@
     },
     "vimeo-jquery-api": {
       "main": "dist/jquery.vimeo.api.js",
+      "dependencies": {}
+    },
+    "slabText": {
+      "main": [
+        "js/jquery.slabtext.js",
+        "css/slabtext.css"
+      ],
       "dependencies": {}
     }
   }

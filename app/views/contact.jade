@@ -8,19 +8,20 @@ block vars
   - var bodyClass = 'contact';
 
 block content
-  +header(class="bg-header transparent-light", data-pages-header="autoresize", data-pages-resize-class="light-solid")
+  +header.transparent-light(data-pages-header="autoresize", data-pages-resize-class="light-solid")
 
   // BEGIN HERO WITH PARALLAX
-  section.hero.bg-primary
+  section.hero(data-pages-bg-image="/assets/images/hero/desk.jpg", data-bg-overlay-class="bg-master-darkest", data-overlay-opacity="0.5")
     .container-xs-height.full-height
-      .col-xs-height.col-middle.text-center
-        .col-sm-12
-          h1.text-white.inner
-            | Let's 
-            b collaborate
+      .col-xs-height.col-middle
+        .container.text-center.xs-text-left
+          .col-sm-12
+            h1.inner.text-white
+              | Let's 
+              b collaborate
   // END HERO WITH PARALLAX
   // START CONTACT SECTION
-  section.p-t-70.p-b-100.sm-p-b-30.bg-primary-darker
+  section.p-t-70.p-b-100.sm-p-b-30.bg-primary-darkest
     .container
       .row
         .col-md-6

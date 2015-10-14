@@ -34,7 +34,7 @@ var file = require('gulp-file');
 // });
 
 gulp.task('cdnify', function () {
-  if (config.cdnify.run) {
+  if (config.cdnify.enabled) {
     return gulp.src(config.cdnify.src)
       .pipe(cdnify(config.cdnify.cfg))
       .pipe(gulp.dest(config.templates.destBuild));

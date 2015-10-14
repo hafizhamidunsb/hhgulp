@@ -40,7 +40,7 @@
       if (!this.$element.hasClass(this.options.minimizedClass))
         this.$element.addClass(this.options.minimizedClass);
   };
-  Header.prototype.removeMinized = function() {
+  Header.prototype.removeMinimized = function() {
     if (this.options.autoresize || this.$element.hasClass('affix-top'))
       this.$element.removeClass(this.options.minimizedClass);
   };
@@ -115,25 +115,27 @@
     })
   });
 
-  $('[data-pages="header-toggle"]').on('click touchstart', function(e) {
+  // $('[data-pages="header-toggle"]').on('click touchstart', function(e) {
+  $('[data-pages="header-toggle"]').on('click', function(e) {
     e.preventDefault();
     var el = $(this)
 
     var header = el.attr('data-pages-element');
     $('body').toggleClass('menu-opened');
     $('[data-pages="header-toggle"]').toggleClass('on');
-
   });
+
   $(window).on("resize", function() {
     $('[data-pages="header"]').header('updateAffix');
   })
+
   $(window).on("scroll", function() {
     var ScrollTop = parseInt($(window).scrollTop());
     if (ScrollTop > 1) {
       $('[data-pages="header"]').header('addMinimized');
     } else {
       if (ScrollTop < 10) {
-        $('[data-pages="header"]').header('removeMinized');
+        $('[data-pages="header"]').header('removeMinimized');
       }
     }
   });

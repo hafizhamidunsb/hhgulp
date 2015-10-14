@@ -30,7 +30,6 @@
   Parallax.VERSION = "1.0.0";
 
   Parallax.prototype.animate = function(translate) {
-
     var scrollPos;
     var pagecoverHeight = this.$element.height();
     //opactiy to text starts at 50% scroll length
@@ -55,22 +54,23 @@
   }
 
   Parallax.prototype.translateBgImage = function() {
-      var scrollPos = $(window).scrollTop();
-      var pagecoverHeight = this.$element.height();
-      if (this.$element.attr('data-pages-bg-image')) {
-        var relativePos = this.$element.offset().top - scrollPos;
+    var scrollPos = $(window).scrollTop();
+    var pagecoverHeight = this.$element.height();
+    if (this.$element.attr('data-pages-bg-image')) {
+      var relativePos = this.$element.offset().top - scrollPos;
 
-        // if element is in visible window's frame
-        if (relativePos > -pagecoverHeight && relativePos <= $(window).height()) {
-          var displacePerc = 100 - ($(window).height() - relativePos) / ($(window).height() + pagecoverHeight) * 100;
-          this.$element.css({
-            'background-position': 'center ' + displacePerc + '%'
-          });
-        }
+      // if element is in visible window's frame
+      if (relativePos > -pagecoverHeight && relativePos <= $(window).height()) {
+        var displacePerc = 100 - ($(window).height() - relativePos) / ($(window).height() + pagecoverHeight) * 100;
+        this.$element.css({
+          'background-position': 'center ' + displacePerc + '%'
+        });
       }
     }
-    // PARALLAX PLUGIN DEFINITION
-    // =======================
+  }
+
+  // PARALLAX PLUGIN DEFINITION
+  // =======================
   function Plugin(option) {
     return this.each(function() {
       var $this = $(this);
