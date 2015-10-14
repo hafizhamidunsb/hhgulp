@@ -48,6 +48,8 @@ head
   meta(name="apple-mobile-web-app-status-bar-style", content="default")
 
   //- PACE
+  script.
+    var paceOptions={elements:{selectors:['img']}}
   //- build:js /assets/scripts/pace.min.js -->
   script(type="text/javascript", src="/assets/scripts/plugins/pace.js")
   //- endbuild -->
@@ -56,10 +58,10 @@ head
   //- endbuild -->
 
   //- FONTS
-  link(href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300,700,800|Libre+Baskerville:400italic|Playfair+Display:400italic", rel="stylesheet")
+  link(href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300,700,800|Playfair+Display:400italic|Oswald", rel="stylesheet")
   link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css", rel="stylesheet")
   //- build:css /assets/styles/fonts.min.css -->
-  link(href="/assets/styles/fonts/helvetica-neue-lite.css", rel="stylesheet")
+  //- link(href="/assets/styles/fonts/helvetica-neue-lite.css", rel="stylesheet")
   link(href="/assets/styles/fonts/gotham-lite.css", rel="stylesheet")
   link(href="/assets/styles/fonts/league-gothic.css", rel="stylesheet")
   link(href="/assets/styles/fonts/pages-icons.css", rel="stylesheet")

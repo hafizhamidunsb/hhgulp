@@ -1,4 +1,4 @@
-@import '../modules/mdc-vars';
+// @import '../modules/mdc-vars';
 
 $assets-url: '/assets';
 $base-img-url: '/assets/images';
@@ -8,10 +8,8 @@ $base-img-url: '/assets/images';
 // Base Grey Guided Color * change only $base-light
 // --------------------------------------------------
 
-//Base Grey Color
-// $color-master: #5171b1;
-// $color-master: $clr-blue-grey;
-$color-master: $clr-blue-800;
+// Base Grey Color
+$color-master: #01579b;
 
 // Lighter Grey colors
 $color-master-light: mix($color-master, #fff, 70%);
@@ -27,11 +25,13 @@ $color-master-darkest: mix($color-master, #000, 20%);
 $font-helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-opensans: 'Open Sans', $font-helvetica;
 $font-myriad: 'Myriad Pro', $font-helvetica;
-$font-montserrat: 'Montserrat', $font-helvetica;
-$font-gotham: 'Gotham', $font-helvetica;
-$font-libre: 'Libre Baskerville', $font-helvetica;
-$font-playfair: 'Playfair Display', $font-helvetica;
-$base-font-family: $font-helvetica;
+$base-font-family: $font-opensans;
+
+$font-montserrat: 'Montserrat', $base-font-family;
+$font-gotham: 'Gotham', $base-font-family;
+$font-league: 'LeagueGothic', $base-font-family;
+$font-oswald: 'Oswald', $base-font-family;
+$font-playfair: 'Playfair Display', $base-font-family;
 
 // Menu Vars
 // --------------------------------------------------
@@ -92,13 +92,21 @@ $panel-condensed-heading-min-height: 48px;
 // Colors
 $color-white: #fff;
 $color-black: #000;
-$color-success: #36d7a8;
-$color-complete: #0091ff;
-// $color-primary: #6a71e5;
+$color-success: #1de9b6;
+$color-complete: #039be5;
 $color-primary: $color-master;
-$color-warning: #f7dc5f;
-$color-danger: #ed5565;
-$color-info: #394058;
+$color-warning: #ffeb3b;
+$color-danger: #f44336;
+$color-info: #37474f;
+
+// $color-white: #fff;
+// $color-black: #000;
+// $color-success: #36d7a8;
+// $color-complete: #0091ff;
+// $color-primary: #6a71e5;
+// $color-warning: #f7dc5f;
+// $color-danger: #ed5565;
+// $color-info: #394058;
 
 //Forms
 $form-group-height: 54px;

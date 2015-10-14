@@ -226,11 +226,13 @@ p {
 .jumbotron h1,
 .hero h1 {
   display: inline-block !important;
+  font-family: $font-league;
   font-size: 5rem;
   font-weight: 200;
   letter-spacing: -.02em;
   line-height: 1;
   color: inherit;
+  text-transform: uppercase;
 
   .lead {
     display: block;
@@ -241,14 +243,18 @@ p {
 
   b {
     display: inline-block;
-    font-family: $font-gotham;
-    font-size: .75em;
+    font-family: $font-league;
+    // font-size: .75em;
     text-transform: uppercase;
     font-weight: 900;
     line-height: inherit;
     margin-left: .1em;
-    padding: .25em .35em .15em;
-    border: 3px solid #fff;
+    // padding: .25em .35em .15em;
+    padding: .15em .25em .05em;
+    // border: 3px solid #fff;
+    background: $color-warning;
+    color: #000;
+    letter-spacing: 0;
   }
 
   @media (max-width: 991px) {
@@ -507,11 +513,23 @@ body.index {
       text-align: center;
       width: 180px;
       height: 180px;
-      // padding: 20px 10px 18px;
-      color: #fff;
-      border: 3px solid transparent;
       transition: all .3s !important;
+      color: inherit;
+      overflow: hidden;
 
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        background: $color-warning;
+        transform: rotate(-93deg);
+        transform-origin: bottom left;
+        transition: all .3s ease;
+      }
 
       .progress-circle-indeterminate,
       .wrapper {
@@ -519,7 +537,6 @@ body.index {
         top: 50%;
         left: 50%;
         transform: translate3d(-50%, -50%, 0);
-        transition: all .3s;
       }
 
       .wrapper {
@@ -531,16 +548,12 @@ body.index {
         font-size: 40px;
         margin-bottom: 10px;
         line-height: 40px;
-        // opacity: 0;
-        // transform: translateY(100%);
-        // transition: all .3s;
       }
 
       .count {
         margin: 0;
-        font-family: $font-gotham;
-        font-size: 35px;
-        // color: #fff;
+        font-family: $font-league;
+        font-size: 3em;
         font-weight: 900;
         line-height: 1;
         text-transform: uppercase;
@@ -557,7 +570,11 @@ body.index {
       }
 
       &:hover {
-        border-color: #fff;
+        color: #000;
+
+        &:before {
+          transform: rotate(0);
+        }
       }
     }
   }
@@ -579,7 +596,7 @@ body.index {
           img {
             position: relative;
             width: 100%;
-            transition: all .3s ease;
+            // transition: all .3s ease;
             z-index: 50;
           }
 
@@ -591,14 +608,14 @@ body.index {
             right: 0;
             margin: 10px;
             padding: 10px;
-            background: $color-master;
-            color: #fff;
+            background: $color-warning;
+            color: #000;
             font-family: $font-montserrat;
             font-size: .9em;
             line-height: 1;
             z-index: 80;;
             transition: all .3s ease;
-            transform: scale(.5);
+            transform: translateY(-100%);
             opacity: 0;
           }
 
@@ -607,9 +624,9 @@ body.index {
             position: absolute;
             bottom: 0;
             right: 0;
-            font-family: $font-montserrat;
-            font-size: .9em;
-            padding: 5px 10px;
+            font-family: $font-league;
+            font-size: 2em;
+            padding: .2em .5em;
             background: $color-primary-darker;
             color: #fff;
             z-index: 100;
@@ -617,18 +634,18 @@ body.index {
             transform: translateX(100%);
 
             i {
-              color: $clr-pink-300;
+              color: $color-danger;
             }
           }
 
           &:hover {
-            img {
-              opacity: .5;
-              transform: scale(1.2) rotate(2deg);
-            }
+            // img {
+            //   opacity: .8;
+            //   transform: scale(1.2) rotate(2deg);
+            // }
 
             .caption {
-              transform: scale(1);
+              transform: translateY(0);
               opacity: 1;
             }
 
@@ -640,6 +657,10 @@ body.index {
 
         @media all and (max-width: 767px) {
           width: 50%;
+        }
+
+        @media all and (max-width: 479px) {
+          width: 100%;
         }
       }
     }
