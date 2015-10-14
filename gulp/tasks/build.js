@@ -32,6 +32,19 @@ gulp.task('buildSize', 'Determine size of `dist/` folder', ['buildSize:css', 'bu
     .pipe(size(config.buildSize.cfgAll));
 });
 
+var sitemap = require('gulp-sitemap');
+
+gulp.task('sitemap', function () {
+  if (config.sitemap.enabled) {
+    gulp.src(config.sitemap.src)
+      .pipe(sitemap(config.sitemap.cfg))
+      .pipe(gulp.dest(config.templates.destBuild));
+  }
+  else {
+    return;
+  }
+});
+
 // run build in sequence - this shoud be implemented in Gulp 4 natively
 gulp.task('build', 'Build project (use with --force to force build)', function(cb) {
   build.setBuild(true);
@@ -40,6 +53,7 @@ gulp.task('build', 'Build project (use with --force to force build)', function(c
     ['styles', 'scripts'],
     ['images', 'copy', 'extras', 'modernizr'],
     'templates',
+    'sitemap',
     'buildSize',
     function() {
       notifier.notify({

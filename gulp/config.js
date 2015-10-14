@@ -10,6 +10,10 @@ module.exports.optimizeImages = process.env.OPTIMIZEIMAGES || true;
 module.exports.lintJs = process.env.LINTJS || false;
 module.exports.prettyUrl = false;
 
+// Deploy URLs
+var siteUrl = 'http://hafizhamidun.com';
+var githubCname = 'hafizhamidun.com';
+
 // Default paths
 var app = 'app';
 var tmp = '.tmp';
@@ -264,7 +268,7 @@ module.exports.wiredep = {
 // Github Pages task config
 module.exports.ghPages = {
   src: path.join(dist, '/**/*'),
-  cname: 'hafizhamidun.com',
+  cname: githubCname,
   cfg: {
     remoteUrl: 'https://github.com/hafizhamidunsb/hafizhamidunsb.github.io.git',
     branch: 'master'
@@ -276,7 +280,7 @@ module.exports.cdnify = {
   enabled: false,
   src: path.join(dist, '/**/*.{css,html}'),
   cfg: {
-    base: 'http://hafizhamidunsb.github.io',
+    base: siteUrl,
     html: {
       'link[rel="shortcut icon"]': 'href',
       'link[rel="apple-touch-icon"]': 'href',
@@ -286,5 +290,16 @@ module.exports.cdnify = {
       'meta[name="msapplication-TileImage"]': 'content',
       'meta[name="msapplication-config"]': 'content'
     }
+  }
+}
+
+// Sitemap task config
+module.exports.sitemap = {
+  enabled: true,
+  src: path.join(dist, '/**/*.html'),
+  cfg: {
+    siteUrl: siteUrl,
+    changefreq: 'hourly',
+    priority: 0.5,
   }
 }
