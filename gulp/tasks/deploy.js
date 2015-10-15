@@ -50,6 +50,6 @@ gulp.task('ghpages', 'Deploy to Github Pages', function() {
     .pipe(ghPages(config.ghPages.cfg));
 });
 
-gulp.task('divshot', 'Deploy to Divshot', shell.task(['divshot push']));
+gulp.task('divshot', 'Deploy to Divshot', shell.task(['divshot push production']));
 
 gulp.task('deploy', 'Deploy', ['cdnify', 'ghpages', 'divshot']);
