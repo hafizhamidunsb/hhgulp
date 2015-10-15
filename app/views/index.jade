@@ -18,8 +18,8 @@ block content
           .swiper-slide.fit.bg-master-darkest
             .slider-wrapper
               .background-wrapper(data-swiper-parallax='20%')
-                .background.bg-position-center.hidden-xs.hidden-sm(data-pages-bg-image='/assets/images/hero/hh1.jpg', data-bg-overlay-class='bg-master-darkest', data-overlay-opacity='0.6', draggable='false')
-                .background.bg-position-left.visible-xs.visible-sm(data-pages-bg-image='/assets/images/hero/hh2.jpg', data-bg-overlay-class='bg-master-darkest', data-overlay-opacity='0.6', draggable='false')
+                //- .background.hidden-xs.hidden-sm(data-pages-bg-image='/assets/images/hero/hh1.jpg', data-bg-overlay-class='bg-master-darkest', data-overlay-opacity='0.6', draggable='false')
+                .background(data-pages-bg-image='/assets/images/hero/hh2.jpg', data-bg-overlay-class='bg-master-darkest', data-overlay-opacity='0.6', draggable='false')
 
             .content-layer
               .inner.full-height
@@ -27,11 +27,11 @@ block content
                   .col-xs-height.col-middle
                     .container.text-center.xs-text-left.text-white.xs-p-t-100
                       .col-sm-12
-                        h1.no-orphan(data-pages-animation='standard', data-delay='1000', data-type='transition.slideDownIn')
+                        h1.no-orphan(data-pages-animation='standard', data-delay='1500', data-type='transition.slideDownIn')
                           | Discover the 
-                          b(data-pages-init='text-rotate', data-speed='3000', data-animation='flipUp') Insight, Music, Apparel, Work
+                          b(data-pages-init='text-rotate', data-speed='3000', data-animation='flipUp') Man, Music, Work
                           
-                        h3.m-t-20(data-pages-animation='standard', data-delay='1500', data-type='transition.slideDownIn')
+                        h3.m-t-20(data-pages-animation='standard', data-delay='2000', data-type='transition.slideDownIn')
                           a.text-white.link.watchvid(href="#")
                             | Newest music video "Penyelamat" 
                             i.icon-arrow-right
@@ -41,7 +41,7 @@ block content
             .slider-wrapper
 
             .content-layer
-              .inner.full-height
+              .full-height
                 .container-xs-height.full-height
                   .col-xs-height.col-middle
                     // VIDEO
@@ -56,21 +56,29 @@ block content
         .swiper-navigation.swiper-rounded.swiper-white-solid.swiper-button-next.auto-reveal
 
   section.bg-master-darkest.text-white
-    .container
+    .container.p-t-100.p-b-100.xs-padding-50.text-center
       .row
-        .col-sm-10.col-sm-offset-1.p-t-100.p-b-100.xs-padding-50.text-center
+        .col-sm-6.col-sm-offset-3
           h5.block-title.text-master Meet Hafiz Hamidun
-          h2.m-t-10.no-orphan.text-master-light
-            b Selamat datang. Welcome. 
-            i Ahlan Wasahlan. Bienvenue. Willkommen.
+          h2.slab.no-margin.divider.text-white(data-slabtext)
+            span.slabtext.text-master-light
+              | Selamat datang. Welcome. 
+            span.slabtext
+              | Ahlan Wasahlan. Bienvenue. Willkommen.
+
+          //- h5.block-title.text-master Meet Hafiz Hamidun
+          //- h2.m-t-10.no-orphan.text-master-light
+          //-   b Selamat datang. Welcome. 
+          //-   i Ahlan Wasahlan. Bienvenue. Willkommen.
+
           p.text-master-lightest
             | This is the home of Hafiz Hamidun in the world wide web; all information regarding albums, singles, shows, concerts and the fashion line can be found here.
 
-  section.p-t-60.p-b-60.bg-white
+  section.p-t-60.p-b-60.bg-master.text-white
     .container
       .row
         .col-sm-12
-          .social-count.text-master-dark
+          .social-count
             .col-sm-4
               a.margin-10.c-facebook(href='https://www.facebook.com/hafizhamidun', target='_blank')
                 .progress-circle-indeterminate.progress-circle-white
@@ -96,7 +104,7 @@ block content
               a.margin-10.c-youtube(href='https://youtube.com/user/HafizHamidunVEVO', target='_blank')
                 .progress-circle-indeterminate.progress-circle-white
                 span.wrapper
-                  i.icon-youtube
+                  i.soc-vevo
                   .count
                   .block-title.muted subscribers
             .col-sm-4
@@ -114,25 +122,23 @@ block content
                   .count
                   .block-title.muted followers
 
-  section.p-b-80.p-t-80.bg-master-darkest.text-white(data-pages-bg-image="/assets/images/hero/star2.jpg", data-bg-overlay-class="bg-black", data-overlay-opacity="0.7")
+  section.p-b-80.p-t-80.bg-master-darkest.text-white(data-pages-bg-image="/assets/images/hero/star2.jpg", data-bg-overlay-class="bg-black", data-overlay-opacity="0.5")
     .container.p-b-50.p-t-50
-      .col-sm-6.col-sm-offset-3
-        .col-middle
-          .text-center
-            h2.slab.no-margin(data-slabtext)
-              span.slabtext.text-white
-                | Sound is 
-                span.text-master-light divine
-              span.slabtext.text-white
-                | Music is 
-                span.text-master-lighter man-made
+      .row
+        .col-sm-6.col-sm-offset-3
+          .col-middle.text-center
+            h2.slab.no-margin.divider.text-white(data-slabtext)
+              span.slabtext
+                | Sound is divine
+              span.slabtext
+                | Music is man-made
             
-            img.margin-40(src="/assets/images/hip-arrow-cross-white.svg", alt="", style={width: '20%'})
+            //- img.margin-40(src="/assets/images/hip-arrow-cross-white.svg", alt="", style={width: '20%'})
             
-            h3.slab.no-margin.m-b-30(data-slabtext)
-              span.slabtext.text-white
+            h3.slab.no-margin.m-b-30.text-white(data-slabtext)
+              span.slabtext
                 | That's how art connects to our
-              span.slabtext.text-master
+              span.slabtext.text-complete
                 | spirituality
 
             a.btn.btn-lg.btn-rounded.btn-warning.text-black.block-title.margin-5(href='/music') Explore Works

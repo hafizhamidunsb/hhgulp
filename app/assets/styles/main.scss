@@ -97,9 +97,12 @@ em {
 }
 
 .slab {
-  font-family: 'LeagueGothic', $font-gotham;
+  font-family: 'LeagueGothic', $base-font-family;
+  // font-weight: 900;
   text-transform: uppercase;
-  line-height: 1;
+  .slabtext {
+    line-height: .85 !important;
+  }
 }
 
 // ======================================================
@@ -144,7 +147,7 @@ p {
 }
 
 // Mobile Menu
-@media all and (max-width: 991px) {
+@media screen and (max-width: $screen-sm-max) {
   .header.bg-header {
     .menu-toggler {
       padding: 27.5px 20px;
@@ -226,10 +229,10 @@ p {
 .jumbotron h1,
 .hero h1 {
   display: inline-block !important;
-  font-family: $font-league;
-  font-size: 5rem;
+  font-family: $font-gotham;
+  font-size: 4rem;
   font-weight: 200;
-  letter-spacing: -.02em;
+  letter-spacing: -.07em;
   line-height: 1;
   color: inherit;
   text-transform: uppercase;
@@ -243,26 +246,26 @@ p {
 
   b {
     display: inline-block;
-    font-family: $font-league;
-    // font-size: .75em;
     text-transform: uppercase;
     font-weight: 900;
     line-height: inherit;
     margin-left: .1em;
-    // padding: .25em .35em .15em;
     padding: .15em .25em .05em;
-    // border: 3px solid #fff;
     background: $color-warning;
     color: #000;
-    letter-spacing: 0;
+    text-align: left;
   }
 
-  @media (max-width: 991px) {
-    font-size: 4rem;
-  }
-
-  @media (max-width: 767px) {
+  @media screen and (max-width: $screen-sm-max) {
     font-size: 3rem;
+  }
+
+  @media screen and (max-width: $screen-xs-max) {
+    font-size: 2.5rem;
+
+    b {
+      display: block;
+    }
   }
 }
 
@@ -281,8 +284,8 @@ p {
     }
   }
 
-  @media (max-width: 767px) {
-    font-size: 1rem !important;
+  @media screen and (max-width: $screen-sm-max) {
+    font-size: .8rem !important;
   }
 }
 
@@ -296,7 +299,7 @@ p {
     padding: 200px 0;
   }
 
-  @media (max-width: 479px) {
+  @media screen and (max-width: $screen-xs-max) {
     height: auto;
     min-height: 0;
     padding: 180px 0 160px;
@@ -440,7 +443,7 @@ ol.ol {
     left: 0;
   }
 
-  @media all and (max-width: 990px) {
+  @media screen and (max-width: 990px) {
     height: auto;
     max-height: 100000px;
     margin: 60px 0;
@@ -470,7 +473,7 @@ ol.ol {
     }
   }
 
-  @media all and (max-width: 767px) {
+  @media screen and (max-width: $screen-sm-max) {
     > .image-square-content {
       padding: 0 15px;
     }
@@ -500,7 +503,7 @@ body.index {
     right: 0;
     text-align: center;
 
-    @media (min-width: 768px) {
+    @media screen and (min-width: 768px) {
       .social-col {
         float: left;
         width: 100/5 * 1%;
@@ -526,7 +529,7 @@ body.index {
         bottom: 0;
         z-index: 0;
         background: $color-warning;
-        transform: rotate(-93deg);
+        transform: rotate(-92deg);
         transform-origin: bottom left;
         transition: all .3s ease;
       }
@@ -548,6 +551,7 @@ body.index {
         font-size: 40px;
         margin-bottom: 10px;
         line-height: 40px;
+        color: inherit;
       }
 
       .count {
@@ -655,11 +659,11 @@ body.index {
           }
         }
 
-        @media all and (max-width: 767px) {
+        @media screen and (max-width: $screen-sm-max) {
           width: 50%;
         }
 
-        @media all and (max-width: 479px) {
+        @media screen and (max-width: $screen-xs-max) {
           width: 100%;
         }
       }
@@ -733,11 +737,11 @@ body.music {
       // width
       width: 33.33%;
 
-      @media all and (max-width: 991px) {
+      @media screen and (max-width: $screen-md-max) {
         width: 50%;
       }
 
-      @media all and (max-width: 599px) {
+      @media screen and (max-width: 599px) {
         width: 100%;
       }
     }

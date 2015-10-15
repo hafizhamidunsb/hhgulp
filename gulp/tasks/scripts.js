@@ -4,6 +4,7 @@ var gulp = require('gulp-help')(require('gulp'));
 var eslint = require('gulp-eslint');
 var babel = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
+var coffee = require('gulp-coffee');
 
 var config = require('./../config.js');
 var handleError = require('./../utils/handleError.js');
@@ -22,7 +23,16 @@ gulp.task('lintjs', 'Lint js files', function () {
   }
 });
 
-gulp.task('scripts', 'Compile ES6 to ES5', ['lintjs'],function () {
+gulp.task('coffee', 'Compile Coffeescript to JS', function () {
+  return gulp.src(config.coffee.src)
+    .pipe(sourcemaps.init())
+    .pipe(coffee())
+    .on('error', handleError)
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(config.scripts.dest));
+});
+
+gulp.task('scripts', 'Compile ES6 to ES5', ['lintjs', 'coffee'], function () {
   return gulp.src(config.scripts.src)
     .pipe(sourcemaps.init())
     // .pipe(babel())

@@ -112,7 +112,7 @@
 */
 
 $i: 0;
-@while $i <= 200 {
+@while $i <= 150 {
   .p-t-#{$i} {
     padding-top: ($i*1px) !important;
   }
@@ -137,7 +137,7 @@ $i: 0;
 }
 
 $i: 0;
-@while $i <= 200 {
+@while $i <= 150 {
   .m-t-#{$i} {
     margin-top: ($i*1px) !important;
   }
@@ -164,7 +164,7 @@ $i: 0;
 /* Margin Helps : MD : 1024 - 768 */
 @media (max-width: 1024px) {
   $i: 0;
-  @while $i <= 100 {
+  @while $i <= 150 {
     .md-p-t-#{$i} {
       padding-top: ($i*1px) !important;
     }
@@ -189,7 +189,7 @@ $i: 0;
   }
 
   $i: 0;
-  @while $i <= 100 {
+  @while $i <= 150 {
     .md-m-t-#{$i} {
       margin-top: ($i*1px) !important;
     }
@@ -453,7 +453,7 @@ $i: 0;
   }
 
   $i: 0;
-  @while $i <= 100 {
+  @while $i <= 150 {
     .sm-p-t-#{$i} {
       padding-top: ($i*1px) !important;
     }
@@ -478,7 +478,7 @@ $i: 0;
   }
 
   $i: 0;
-  @while $i <= 100 {
+  @while $i <= 150 {
     .sm-m-t-#{$i} {
       margin-top: ($i*1px) !important;
     }
@@ -717,7 +717,7 @@ $i: 0;
 @media (max-width: 480px) {
 
   $i: 0;
-  @while $i <= 100 {
+  @while $i <= 150 {
     .xs-p-t-#{$i} {
       padding-top: ($i*1px) !important;
     }
@@ -742,7 +742,7 @@ $i: 0;
   }
 
   $i: 0;
-  @while $i <= 100 {
+  @while $i <= 150 {
     .xs-m-t-#{$i} {
       margin-top: ($i*1px) !important;
     }

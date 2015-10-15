@@ -1,7 +1,5 @@
 !function($) {
 
-  FastClick.attach(document.body);
-
   $(".music-isotope").each(function() {
     var $this = $(this);
 

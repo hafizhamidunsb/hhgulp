@@ -193,6 +193,12 @@ module.exports.scripts = {
   dest: path.join(tmp, scripts)
 };
 
+// Coffeescript task
+module.exports.coffee = {
+  src: path.join(app, scripts, '**/*.coffee'),
+  dest: path.join(tmp, scripts)
+};
+
 // Styles task config
 module.exports.styles = {
   src: path.join(app, styles, '*.scss'),
@@ -240,7 +246,7 @@ module.exports.watch = {
     path.join(app, views, '/**/*.jade'),
     path.join(app, views, data, '/**/*.json')
   ],
-  scripts: path.join(app, scripts, '/**/*.js'),
+  scripts: path.join(app, scripts, '/**/*.{js,coffee}'),
   wiredep: 'bower.json'
 };
 

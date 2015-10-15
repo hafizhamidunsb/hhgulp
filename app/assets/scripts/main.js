@@ -6,6 +6,14 @@
     this.Pages = $.Pages;
   };
 
+  SITE.prototype.initSlabtext = function() {
+    fontSpy('LeagueGothic', {
+      success: function () {
+        $('[data-slabtext]').slabText();
+      }
+    });
+  }
+
   SITE.prototype.initMisc = function() {
 
     // SET ACTIVE CLASS
@@ -29,12 +37,6 @@
     });
 
     $('[data-fitvids]').fitVids();
-
-    fontSpy('LeagueGothic', {
-      success: function () {
-        $('[data-slabtext]').slabText();
-      }
-    });
 
     // $('body:not(.mobile)').find('h1, h2, h3, h4, h5, h6, p').filter(':not(.no-orphan)').unorphanize();
     $('body:not(.mobile)').find('p').filter(':not(.no-orphan)').unorphanize();
@@ -71,6 +73,19 @@
         else {
           $vimeo.vimeo('pause');
         }
+
+        $vimeo.appear();
+
+        $vimeo.on('appear', function() {
+          if (swiper.activeIndex == 1) {
+            $vimeo.vimeo('play');
+          }
+        });
+        $vimeo.on('disappear', function() {
+          if (swiper.activeIndex == 1) {
+            $vimeo.vimeo('pause');
+          }
+        });
       }
     });
 
@@ -78,14 +93,6 @@
       ev.preventDefault();
       swiper.slideTo(1);
     });
-
-    // $vimeo.appear();
-    // $vimeo.on('appear', function() {
-    //   $vimeo.vimeo('play');
-    // });
-    // $vimeo.on('disappear', function() {
-    //   $vimeo.vimeo('pause');
-    // });
   };
 
   SITE.prototype.initInstagramIsotope = function() {
@@ -213,6 +220,8 @@
   };
 
   SITE.prototype.init = function() {
+    FastClick.attach(document.body);
+    this.initSlabtext();
     this.initMisc();
     this.initSwiper();
     this.initSocial();
@@ -223,7 +232,8 @@
   $.Pages.SITE = new SITE();
   $.Pages.SITE.Constructor = SITE;
 
-  $.Pages.init();
-  $.Pages.SITE.init();
-
+  $(function() {
+    $.Pages.init();
+    $.Pages.SITE.init();
+  });
 }(window.jQuery);

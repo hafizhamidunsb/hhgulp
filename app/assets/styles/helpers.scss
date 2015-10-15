@@ -1,0 +1,53 @@
+@import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+$space-max: 150;
+$space-skip: 5;
+
+$space-prefixes : (
+  p  : padding,
+  pt : padding-top,
+  pr : padding-right,
+  pb : padding-bottom,
+  pl : padding-left,
+  m  : margin,
+  mt : margin-top,
+  mr : margin-right,
+  mb : margin-bottom,
+  ml : margin-left,
+);
+
+$max-breakpoints: (
+  lg: false,
+  md: $screen-md-max,
+  sm: $screen-sm-max,
+  xs: $screen-xs-max
+) !default;
+
+@each $breakpoint-name, $breakpoint-value in $max-breakpoints {
+  // if value = false, set it global without media queries
+  @if($breakpoint-value == false) {
+    @each $attr-short, $attr-long in $space-prefixes {
+      $value: 0;
+      @while $value <= $space-max {
+        .#{$attr-short}-#{$value} {
+          #{$attr-long}: $value * 1px;
+        }
+        $value: $value + $space-skip;
+      }
+    }
+  }
+  // breakpoint values that not equal to 0
+  @else {
+    @media screen and (max-width: $breakpoint-value - 1) {
+      @each $attr-short, $attr-long in $space-prefixes {
+        $value: 0;
+        @while $value <= $space-max {
+          .#{$attr-short}-#{$value} {
+            #{$attr-long}: $value * 1px;
+          }
+          $value: $value + $space-skip;
+        }
+      }
+    }
+  }
+}

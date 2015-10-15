@@ -24,13 +24,12 @@ $color-master-darkest: mix($color-master, #000, 20%);
 // Fonts
 $font-helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-opensans: 'Open Sans', $font-helvetica;
-$font-myriad: 'Myriad Pro', $font-helvetica;
 $base-font-family: $font-opensans;
 
 $font-montserrat: 'Montserrat', $base-font-family;
 $font-gotham: 'Gotham', $base-font-family;
 $font-league: 'LeagueGothic', $base-font-family;
-$font-oswald: 'Oswald', $base-font-family;
+$font-robotoc: 'Roboto Condensed', $base-font-family;
 $font-playfair: 'Playfair Display', $base-font-family;
 
 // Menu Vars
