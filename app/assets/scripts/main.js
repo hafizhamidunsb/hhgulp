@@ -7,10 +7,19 @@
   };
 
   SITE.prototype.initSlabtext = function() {
-    fontSpy('LeagueGothic', {
-      success: function () {
-        $('[data-slabtext]').slabText();
-      }
+    var fonts = [
+      'LeagueGothic',
+      'Playfair Display'
+    ];
+
+    $('[data-slabtext]').slabText();
+
+    $.each(fonts, function(index, font) {
+      fontSpy(font, {
+        success: function () {
+          $('[data-slabtext]').slabText();
+        }
+      });
     });
   }
 
