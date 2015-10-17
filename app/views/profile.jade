@@ -4,8 +4,8 @@ include modules/_footer
 extends layouts/_default
 
 block vars
+  - var pageId = 'profile';
   - var pageTitle = 'Profile'
-  - var bodyClass = 'profile';
 
 block content
   +header.transparent-light(data-pages-header="autoresize", data-pages-resize-class="light-solid")
@@ -86,7 +86,7 @@ block content
         
             p
               | Hafiz is currently listed as 
-              a(href="http://themuslim500.com/", target="_blank")
+              a.text-master(href="http://themuslim500.com/", target="_blank")
                 b The Top 500 World’s Most Influential Muslim
               |  for the year 2016.  
             

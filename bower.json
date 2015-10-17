@@ -19,8 +19,7 @@
     "vimeo-jquery-api": "~0.10.1",
     "slabText": "~2.2.0",
     "fastclick": "~1.0.6",
-    "jQuery-FontSpy": "fontspy#~3.0.0",
-    "youtubeBackground": "youtube-background-video#~1.0.4"
+    "jQuery-FontSpy": "fontspy#~3.0.0"
   },
   "overrides": {
     "isotope": {

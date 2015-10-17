@@ -24,8 +24,9 @@ body {
 
 // MENU ACTIVE
 $pages: 'index', 'music', 'profile', 'contact';
+
 @each $page in $pages {
-  body.#{$page} a[data-body="#{$page}"] {
+  #page-#{$page} a[data-body="#{$page}"] {
     @extend .active;
   }
 }
@@ -118,17 +119,13 @@ em {
   }
 }
 
-.ytplayer-container {
-  position: absolute;
-  top: 0;
-  z-index: -1;
-}
-
 // ======================================================
 // Links
 // ======================================================
 
-@mixin animBorder($thickness: 3px, $color: #fff) {
+@mixin linkAnim($thickness: 2px, $color: #fff) {
+  line-height: 1;
+
   &:after {
     content: "";
     display: block;
@@ -136,7 +133,7 @@ em {
     bottom: 0;
     width: 0;
     height: $thickness;
-    // margin-top: 5px;
+    margin-top: 3px;
     background: $color;
     transition: all .3s $easeOutExpo;
   }
@@ -169,28 +166,24 @@ a:active {
   }
 }
 
-section p {
-  line-height: 1.8;
+section {
+  p {
+    line-height: 1.8;
+  }
 
   a {
+    @include linkAnim;
+
     position: relative;
+    display: inline-block;
 
     &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background: $color-master;
-      width: 0;
-      transition: all .3s ease;
+      margin: 0;
     }
 
-    &:hover {
+    &.text-master {
       &:after {
-        width: 100%;
+        background: $color-master-dark;
       }
     }
   }
@@ -213,7 +206,7 @@ section p {
 @media screen and (min-width: $screen-md) {
   .header .menu-content {
     a {
-      @include animBorder;
+      @include linkAnim;
     }
   }
 
@@ -574,7 +567,7 @@ ol.ol {
 // INDEX
 // ======================================================
 
-body.index {
+#page-index {
   .social-count {
     bottom: 0;
     left: 0;
@@ -750,7 +743,7 @@ body.index {
 // MUSIC
 // ======================================================
 
-body.music {
+#page-music {
   .hero {
     @include gradient-after(#000, transparent);
   }
@@ -767,13 +760,14 @@ body.music {
     color: #fff;
     text-transform: uppercase;
     letter-spacing: -.05em;
+    font-style: italic;
     padding: 8px 15px;
     transition: all .3s ease !important;
 
-    @include animBorder;
+    @include linkAnim;
 
     &:hover,
-    &.is-checked {
+    &.active {
       border: 0;
     }
   }
@@ -931,7 +925,7 @@ body.music {
 // PROFILE
 // ======================================================
 
-body.profile {
+#page-profile {
   .hero {
     @include gradient-after($color-master-darkest, transparent);
   }
@@ -949,7 +943,7 @@ body.profile {
 // CONTACT
 // ======================================================
 
-body.contact {
+#page-contact {
   .hero {
     @include gradient-after($color-master-darkest, transparent);
   }

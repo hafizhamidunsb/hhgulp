@@ -1,5 +1,6 @@
 include ../helpers/_language
 
+- var pageId = 'index';
 - var bodyClass = '';
 - var pageTitle = '';
 block vars
@@ -88,7 +89,7 @@ head
   script(src="/assets/scripts/plugins/modernizr.js")
   //- endbuild -->
   
-body(class=bodyClass)
+body(class=bodyClass, id="page-#{pageId}")
 
   block content
   
