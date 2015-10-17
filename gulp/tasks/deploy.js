@@ -52,4 +52,5 @@ gulp.task('ghpages', 'Deploy to Github Pages', function() {
 
 // divshot is no more...
 // gulp.task('divshot', 'Deploy to Divshot', shell.task(['divshot push production']));
-gulp.task('deploy', 'Deploy', ['cdnify', 'ghpages', 'divshot']);
+
+gulp.task('deploy', 'Deploy', ['cdnify', 'ghpages']);
