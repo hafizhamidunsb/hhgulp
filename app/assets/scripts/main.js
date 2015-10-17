@@ -24,19 +24,6 @@
   }
 
   SITE.prototype.initMisc = function() {
-
-    // SET ACTIVE CLASS
-    $('.menu a').each(function() {
-      var link = $(this).attr('href').replace(/^\/+|\/+$/g, "").replace(/\//g, "_").replace(/\.html$/, '');
-      if ($(this).data('body')) {
-        link = $(this).data('body');
-      }
-
-      if ($('body').hasClass(link)) {
-        $(this).addClass('active');
-      }
-    });
-
     // MOBILE MENU OVERLAY
     var $menuOverlay = $('<div class="menu-overlay"/>').appendTo($('.header'));
     $menuOverlay.click(function(e) {

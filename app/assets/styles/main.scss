@@ -22,6 +22,14 @@ body {
   background: $color-master-darkest;
 }
 
+// MENU ACTIVE
+$pages: 'index', 'music', 'profile', 'contact';
+@each $page in $pages {
+  body.#{$page} a[data-body="#{$page}"] {
+    @extend .active;
+  }
+}
+
 // ======================================================
 // TYPOGRAPHY
 // ======================================================
@@ -110,9 +118,36 @@ em {
   }
 }
 
+.ytplayer-container {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
 // ======================================================
 // Links
 // ======================================================
+
+@mixin animBorder($thickness: 3px, $color: #fff) {
+  &:after {
+    content: "";
+    display: block;
+    // position: absolute;
+    bottom: 0;
+    width: 0;
+    height: $thickness;
+    // margin-top: 5px;
+    background: $color;
+    transition: all .3s $easeOutExpo;
+  }
+
+  &:hover,
+  &.active {
+    &:after {
+      width: 100%;
+    }
+  }
+}
 
 a {
   color: $color-primary;
@@ -171,6 +206,21 @@ section p {
   }
   .logo {
     display: none;
+  }
+}
+
+// Desktop & Tablet
+@media screen and (min-width: $screen-md) {
+  .header .menu-content {
+    a {
+      @include animBorder;
+    }
+  }
+
+  .header.minimized .menu-content {
+    a:after {
+      background: #000;
+    }
   }
 }
 
@@ -557,7 +607,8 @@ body.index {
         bottom: 0;
         z-index: 0;
         background: $color-warning;
-        transform: rotate(-92deg);
+        // transform: rotate(-92deg);
+        transform: translateY(100%);
         transform-origin: bottom left;
         transition: all .3s ease;
       }
@@ -605,7 +656,8 @@ body.index {
         color: #000;
 
         &:before {
-          transform: rotate(0);
+          // transform: rotate(0);
+          transform: translateY(0);
         }
       }
     }
@@ -671,11 +723,6 @@ body.index {
           }
 
           &:hover {
-            // img {
-            //   opacity: .8;
-            //   transform: scale(1.2) rotate(2deg);
-            // }
-
             .caption {
               transform: translateY(0);
               opacity: 1;
@@ -708,10 +755,6 @@ body.music {
     @include gradient-after(#000, transparent);
   }
 
-  .filter {
-    // transform: translateY(100px);
-  }
-
   .filter .btn {
     display: inline-block;
     position: relative;
@@ -727,25 +770,11 @@ body.music {
     padding: 8px 15px;
     transition: all .3s ease !important;
 
-    &:after {
-      content: "";
-      display: block;
-      // position: absolute;
-      bottom: 0;
-      width: 0;
-      height: 3px;
-      margin-top: 5px;
-      background: #fff;
-      transition: all .3s $easeOutExpo;
-    }
+    @include animBorder;
 
     &:hover,
     &.is-checked {
       border: 0;
-
-      &:after {
-        width: 100%;
-      }
     }
   }
 

@@ -28,13 +28,13 @@ block content
             |  Sort
           .sort-button-group
             button.btn(data-sort-value="title") Title
-            button.btn.is-checked(data-sort-value="released") Released
+            button.btn.active(data-sort-value="released") Released
         .col-sm-9.xs-p-t-40
           h4.block-title.text-primary-light
             i.fa.fa-filter
             |  Filter
           .filter-button-group
-            button.btn.is-checked(data-filter-value="*") All
+            button.btn.active(data-filter-value="*") All
             button.btn(data-filter-value=".tag-studio-album") Studio Albums
             button.btn(data-filter-value=".tag-single") Singles
             button.btn(data-filter-value=".tag-zikir-salawat") Zikir &amp; Salawat
