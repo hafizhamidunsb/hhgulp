@@ -101,39 +101,6 @@
     });
   };
 
-  SITE.prototype.initInstagramIsotope = function() {
-     $(".instagram-isotope").each(function () {
-      var $this = $(this);
-
-      $.getJSON('http://wms-api.herokuapp.com/hh/instagram/feed?callback=?', function(data) {
-        $(data.data).each(function (index, feed) {
-          if (index < 6) {
-            var item = $('\
-              <div class="grid">\
-                <a href="' + feed.link + '" target="_blank">\
-                  <img src="' + feed.images.standard_resolution.url + '" alt="">\
-                  <span class="likes"><i class="fa fa-heart"></i> ' + feed.likes.count + '</span>\
-                  <span class="caption">' + feed.caption.text + '</span>\
-                </a>\
-              </div>');
-            $this.append(item);
-          }
-        });
-
-        $this.waitForImages(true).done(function() {
-          $this.isotope({
-            itemSelector: ".grid",
-            percentPosition: true,
-            masonry: {
-              columnWidth: ".grid-sizer",
-              gutter: 0
-            }
-          });
-        });
-      });
-    });
-  };
-
   SITE.prototype.initForm = function() {
     var $contactForm = $('#contact-form');
     $contactForm.validate({
@@ -225,6 +192,27 @@
     });
   };
 
+  SITE.prototype.initInstagramFeed = function() {
+     $(".instagram-feed").each(function () {
+      var $this = $(this);
+
+      $.getJSON('http://wms-api.herokuapp.com/hh/instagram/feed?callback=?', function(data) {
+        $(data.data).each(function (index, feed) {
+          if (index < 6) {
+            var item = $('\
+              <div class="grid col-md-2 col-sm-4 col-xs-6">\
+                <a href="' + feed.link + '" target="_blank">\
+                  <img src="' + feed.images.standard_resolution.url + '" alt="">\
+                  <span class="likes"><i class="fa fa-heart"></i> ' + feed.likes.count + '</span>\
+                </a>\
+              </div>');
+            $this.append(item);
+          }
+        });
+      });
+    });
+  };
+
   SITE.prototype.init = function() {
     FastClick.attach(document.body);
     this.initMobileNav();
@@ -232,7 +220,7 @@
     this.initMisc();
     this.initSwiper();
     this.initSocial();
-    this.initInstagramIsotope();
+    this.initInstagramFeed();
     this.initForm();
   };
 

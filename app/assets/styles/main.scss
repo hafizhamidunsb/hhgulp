@@ -20,6 +20,7 @@ body:before {
 
 body {
   background: $color-master-darkest;
+  overflow-x: hidden;
 }
 
 // MENU ACTIVE
@@ -371,10 +372,6 @@ nav.mobile-nav {
   }
 
   body.menu-opened {
-    .hamburger {
-      // transform: translateX(300px);
-    }
-
     .mobile-overlay {
       opacity: .8;
       visibility: visible;
@@ -752,80 +749,51 @@ ol.ol {
   .instagram-feed {
     position: relative;
 
-    .instagram-isotope {
-      .grid-sizer, .grid {
-        width: 16.666%;
+    .grid {
+      padding: 0;
 
-        a {
-          display: block;
+      a {
+        display: block;
+        position: relative;
+        width: 100%;
+        transition: all .3s ease;
+        overflow: hidden;
+
+        img {
           position: relative;
           width: 100%;
+          // transition: all .3s ease;
+          z-index: 50;
+        }
+
+        .likes {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          font-family: $font-league;
+          font-size: 2em;
+          padding: .2em .5em;
+          background: $color-primary-darker;
+          color: #fff;
+          z-index: 100;
           transition: all .3s ease;
-          overflow: hidden;
+          transform: translateX(100%);
 
-          img {
-            position: relative;
-            width: 100%;
-            // transition: all .3s ease;
-            z-index: 50;
+          i {
+            color: $color-danger;
           }
+        }
 
+        &:hover {
           .caption {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            margin: 10px;
-            padding: 10px;
-            background: $color-warning;
-            color: #000;
-            font-family: $font-montserrat;
-            font-size: .9em;
-            line-height: 1;
-            z-index: 80;;
-            transition: all .3s ease;
-            transform: translateY(-100%);
-            opacity: 0;
+            transform: translateY(0);
+            opacity: 1;
           }
 
           .likes {
-            display: block;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            font-family: $font-league;
-            font-size: 2em;
-            padding: .2em .5em;
-            background: $color-primary-darker;
-            color: #fff;
-            z-index: 100;
-            transition: all .3s ease;
-            transform: translateX(100%);
-
-            i {
-              color: $color-danger;
-            }
+            transform: translateX(0);
           }
-
-          &:hover {
-            .caption {
-              transform: translateY(0);
-              opacity: 1;
-            }
-
-            .likes {
-              transform: translateX(0);
-            }
-          }
-        }
-
-        @media screen and (max-width: $screen-sm-max) {
-          width: 33.33%;
-        }
-
-        @media screen and (max-width: $screen-xs-max) {
-          width: 50%;
         }
       }
     }
