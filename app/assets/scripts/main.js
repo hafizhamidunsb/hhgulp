@@ -80,18 +80,20 @@
           $vimeo.vimeo('pause');
         }
 
-        $vimeo.appear();
+        if ($.Pages.getUserAgent() === 'desktop') {
+          $vimeo.appear();
 
-        $vimeo.on('appear', function() {
-          if (swiper.activeIndex == 1) {
-            $vimeo.vimeo('play');
-          }
-        });
-        $vimeo.on('disappear', function() {
-          if (swiper.activeIndex == 1) {
-            $vimeo.vimeo('pause');
-          }
-        });
+          $vimeo.on('appear', function() {
+            if (swiper.activeIndex == 1) {
+              $vimeo.vimeo('play');
+            }
+          });
+          $vimeo.on('disappear', function() {
+            if (swiper.activeIndex == 1) {
+              $vimeo.vimeo('pause');
+            }
+          });
+        }
       }
     });
 
