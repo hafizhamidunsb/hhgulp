@@ -7,9 +7,10 @@ block vars
   - var pageId = 'music';
   - var pageTitle = 'Music';
 
-block content
+block header
   +header.transparent-light(data-pages-header="autoresize", data-pages-resize-class="light-solid")
 
+block content
   section.hero(data-pages-bg-image="/assets/images/hero/speaker.jpg", data-bg-overlay-class="bg-black", data-overlay-opacity="0.2")
     .container-xs-height.full-height
       .col-xs-height.col-middle
@@ -83,8 +84,6 @@ block content
                   .labels.m-t-20
                     each label in item.labels
                       span.label= label
-
-  +footer
 
   .video-lightbox.bg-black
     .full-height

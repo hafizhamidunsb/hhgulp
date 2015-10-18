@@ -65,7 +65,7 @@ head
   //- rel="stylesheet", link(href="/assets/styles/fonts/helvetica-neue-lite.css")
   link(rel="stylesheet", href="/assets/styles/fonts/gotham-lite.css")
   link(rel="stylesheet", href="/assets/styles/fonts/league-gothic.css")
-  link(rel="stylesheet", href="/assets/styles/fonts/bebas.css")
+  //- link(rel="stylesheet", href="/assets/styles/fonts/bebas.css")
   //- Font icons
   link(rel="stylesheet", href="/assets/styles/fonts/pages-icons.css")
   link(rel="stylesheet", href="/assets/styles/fonts/font-icons.css")
@@ -91,8 +91,17 @@ head
   
 body(class=bodyClass, id="page-#{pageId}")
 
+  .mobile-overlay
+  nav.mobile-nav
+    button.hamburger(data-pages='header-toggle')
+      span toggle menu
+
+  block header
+
   block content
-  
+
+  +footer
+
   block scripts
 
   //- build:js(./app/) /assets/scripts/vendor.min.js -->
@@ -115,6 +124,7 @@ body(class=bodyClass, id="page-#{pageId}")
   script(src='../bower_components/slabText/js/jquery.slabtext.js')
   script(src='../bower_components/fastclick/lib/fastclick.js')
   script(src='../bower_components/jQuery-FontSpy/jQuery-FontSpy.js')
+  script(src='../bower_components/scotchPanels/dist/scotchPanels.min.js')
   // endbower
   
   script(src="/assets/scripts/plugins/swiper/js/swiper.jquery.js")

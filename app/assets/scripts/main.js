@@ -6,6 +6,24 @@
     this.Pages = $.Pages;
   };
 
+  SITE.prototype.initMobileNav = function() {
+    // MOBILE MENU CLONE
+    var menu = '';
+    $('.header ul.menu').each(function () {
+      menu += $(this).html();
+    });
+
+    var $mobilenav = $('nav.mobile-nav').prepend($('<ul/>').prepend(menu));
+
+    // MOBILE MENU OVERLAY
+    var $menuOverlay = $('.mobile-overlay');
+    $menuOverlay.click(function(e) {
+      e.preventDefault();
+      $('body').toggleClass('menu-opened');
+      $('[data-pages="header-toggle"]').toggleClass('on');
+    });
+  }
+
   SITE.prototype.initSlabtext = function() {
     var fonts = [
       'LeagueGothic',
@@ -24,14 +42,6 @@
   }
 
   SITE.prototype.initMisc = function() {
-    // MOBILE MENU OVERLAY
-    var $menuOverlay = $('<div class="menu-overlay"/>').appendTo($('.header'));
-    $menuOverlay.click(function(e) {
-      e.preventDefault();
-      $('body').toggleClass('menu-opened');
-      $('[data-pages="header-toggle"]').toggleClass('on');
-    });
-
     $('[data-fitvids]').fitVids();
 
     // $('body:not(.mobile)').find('h1, h2, h3, h4, h5, h6, p').filter(':not(.no-orphan)').unorphanize();
@@ -97,7 +107,7 @@
 
       $.getJSON('http://wms-api.herokuapp.com/hh/instagram/feed?callback=?', function(data) {
         $(data.data).each(function (index, feed) {
-          if (index < 4) {
+          if (index < 6) {
             var item = $('\
               <div class="grid">\
                 <a href="' + feed.link + '" target="_blank">\
@@ -217,6 +227,7 @@
 
   SITE.prototype.init = function() {
     FastClick.attach(document.body);
+    this.initMobileNav();
     this.initSlabtext();
     this.initMisc();
     this.initSwiper();

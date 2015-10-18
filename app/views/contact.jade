@@ -8,9 +8,10 @@ block vars
   - var pageTitle = 'Contact'
   - var bodyClass = 'contact';
 
-block content
+block header
   +header.transparent-light(data-pages-header="autoresize", data-pages-resize-class="light-solid")
 
+block content
   // BEGIN HERO WITH PARALLAX
   section.hero(data-pages-bg-image="/assets/images/hero/desk.jpg", data-bg-overlay-class="bg-master-darkest", data-overlay-opacity="0.5")
     .container-xs-height.full-height
@@ -67,7 +68,5 @@ block content
                   a(href="mailto:newmedia@hafizhamidun.com") newmedia@hafizhamidun.com
   // END CONTACT SECION
 
-  +footer
-  
 block scripts
   script(src="https://maps.googleapis.com/maps/api/js?v=3.exp")

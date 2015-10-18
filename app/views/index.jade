@@ -5,10 +5,11 @@ extends layouts/_default
 
 block vars
   - var pageId = 'index';
+
+block header
+  +header.transparent-light(data-pages-header="autoresize", data-pages-resize-class="light-solid")
   
 block content
-  +header.transparent-light(data-pages-header="autoresize", data-pages-resize-class="light-solid")
-
   section.jumbotron.full-vh(data-pages='parallax')
     .inner.full-vh
 
@@ -74,53 +75,52 @@ block content
           p.text-master-lightest
             | This is the home of Hafiz Hamidun in the world wide web; all information regarding albums, singles, shows, concerts and the fashion line can be found here.
 
-  section.p-t-60.p-b-60.bg-master.text-white
+  section.social-count.p-t-60.p-b-60.bg-master.text-white
     .container
       .row
         .col-sm-12
-          .social-count
-            .col-sm-4
-              a.margin-10.c-facebook(href='https://www.facebook.com/hafizhamidun', target='_blank')
-                .progress-circle-indeterminate.progress-circle-white
-                span.wrapper
-                  i.icon-facebook
-                  .count
-                  .block-title.muted likes
-            .col-sm-4
-              a.margin-10.c-twitter(href='https://twitter.com/hafizhamidun', target='_blank')
-                .progress-circle-indeterminate.progress-circle-white
-                span.wrapper
-                  i.icon-twitter
-                  .count
-                  .block-title.muted followers
-            .col-sm-4
-              a.margin-10.c-instagram(href='https://instagram.com/hafizhamidun', target='_blank')
-                .progress-circle-indeterminate.progress-circle-white
-                span.wrapper
-                  i.icon-instagram
-                  .count
-                  .block-title.muted followers
-            .col-sm-4
-              a.margin-10.c-youtube(href='https://youtube.com/user/HafizHamidunVEVO', target='_blank')
-                .progress-circle-indeterminate.progress-circle-white
-                span.wrapper
-                  i.soc-vevo
-                  .count
-                  .block-title.muted subscribers
-            .col-sm-4
-              a.margin-10.c-spotify(href='https://open.spotify.com/artist/6DgMaXR0c070BQWs9VyuNB', target='_blank')
-                .progress-circle-indeterminate.progress-circle-white
-                span.wrapper
-                  i.icon-spotify
-                  .count
-                  .block-title.muted followers
-            .col-sm-4
-              a.margin-10.c-soundcloud(href='https://www.soundcloud.com/hafizhamidun', target='_blank')
-                .progress-circle-indeterminate.progress-circle-white
-                span.wrapper
-                  i.icon-soundcloud
-                  .count
-                  .block-title.muted followers
+          .col-sm-4
+            a.margin-10.c-facebook(href='https://www.facebook.com/hafizhamidun', target='_blank')
+              .progress-circle-indeterminate.progress-circle-white
+              span.wrapper
+                i.icon-facebook
+                .count
+                .block-title.muted likes
+          .col-sm-4
+            a.margin-10.c-twitter(href='https://twitter.com/hafizhamidun', target='_blank')
+              .progress-circle-indeterminate.progress-circle-white
+              span.wrapper
+                i.icon-twitter
+                .count
+                .block-title.muted followers
+          .col-sm-4
+            a.margin-10.c-instagram(href='https://instagram.com/hafizhamidun', target='_blank')
+              .progress-circle-indeterminate.progress-circle-white
+              span.wrapper
+                i.icon-instagram
+                .count
+                .block-title.muted followers
+          .col-sm-4
+            a.margin-10.c-youtube(href='https://youtube.com/user/HafizHamidunVEVO', target='_blank')
+              .progress-circle-indeterminate.progress-circle-white
+              span.wrapper
+                i.soc-vevo
+                .count
+                .block-title.muted subscribers
+          .col-sm-4
+            a.margin-10.c-spotify(href='https://open.spotify.com/artist/6DgMaXR0c070BQWs9VyuNB', target='_blank')
+              .progress-circle-indeterminate.progress-circle-white
+              span.wrapper
+                i.icon-spotify
+                .count
+                .block-title.muted followers
+          .col-sm-4
+            a.margin-10.c-soundcloud(href='https://www.soundcloud.com/hafizhamidun', target='_blank')
+              .progress-circle-indeterminate.progress-circle-white
+              span.wrapper
+                i.icon-soundcloud
+                .count
+                .block-title.muted followers
 
   section.p-b-80.p-t-80.bg-master-darkest.text-white(data-pages-bg-image="/assets/images/hero/star2.jpg", data-bg-overlay-class="bg-master-darkest", data-overlay-opacity="0.8")
     .container.p-b-50.p-t-50
@@ -147,5 +147,3 @@ block content
   section.instagram-feed.bg-master
     .instagram-isotope
       .grid-sizer
-
-  +footer
