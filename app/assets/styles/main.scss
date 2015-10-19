@@ -20,9 +20,17 @@ body:before {
 }
 
 body {
-  overflow-x: hidden;
-
   background: $color-master-darkest;
+}
+
+.canvas-wrap {
+  overflow: hidden;
+
+  width: 100%;
+
+  .canvas {
+    transition: transform .3s ease;
+  }
 }
 
 // MENU ACTIVE
@@ -426,9 +434,13 @@ nav.mobile-nav {
       opacity: .8;
     }
 
-    nav.mobile-nav {
-      transform: translateX(0);
+    .canvas {
+      transform: translateX(300px);
     }
+
+    // nav.mobile-nav {
+    //   transform: translateX(0);
+    // }
   }
 }
 

@@ -91,16 +91,20 @@ head
   
 body(class=bodyClass, id="page-#{pageId}")
 
-  .mobile-overlay
-  nav.mobile-nav
-    button.hamburger(data-pages='header-toggle')
-      span toggle menu
+  .canvas-wrap
 
-  block header
+    .canvas
 
-  block content
+      .mobile-overlay
+      nav.mobile-nav
+        button.hamburger(data-pages='header-toggle')
+          span toggle menu
 
-  +footer
+      block header
+
+      block content
+
+      +footer
 
   block scripts
 
