@@ -57,6 +57,7 @@ module.exports.browserSync = {
     },
     notify: false,
     debugInfo: false,
+    online: true,
     host: 'localhost',
     middleware: [
       modRewrite(rewriteRules)

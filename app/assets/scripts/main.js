@@ -160,6 +160,7 @@
 
     $('.c-twitter').each(function () {
       $.getJSON('http://wms-api.herokuapp.com/hh/twitter?callback=?', function(data) {
+        console.log(data);
         $('.count', this).html(nFormatter(data.followers_count, 1));
         $(this).addClass('loaded');
       }.bind(this));

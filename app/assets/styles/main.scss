@@ -14,13 +14,15 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 // PRELOAD
 body:before {
-  content: url('#{$base-img-url}/black.svg') url('#{$base-img-url}/white.svg');
   display: none;
+
+  content: url('#{$base-img-url}/black.svg') url('#{$base-img-url}/white.svg');
 }
 
 body {
-  background: $color-master-darkest;
   overflow-x: hidden;
+
+  background: $color-master-darkest;
 }
 
 // MENU ACTIVE
@@ -43,22 +45,29 @@ h4,
 h5,
 h6 {
   &.big-heading {
-    font-family: $font-gotham;
     text-transform: uppercase;
+
+    font-family: $font-gotham;
     font-weight: 900;
   }
 
   &.divider {
     position: relative;
+
     margin-bottom: 40px !important;
+
     text-align: center;
 
     &:after {
-      content: '';
-      display: block;
       bottom: 0;
-      margin: 40px auto 0;
+
+      display: block;
+
       width: 60px;
+      margin: 40px auto 0;
+
+      content: '';
+
       border-top: 2px solid $color-master-dark;
     }
 
@@ -73,24 +82,28 @@ h6 {
 }
 
 .excerpt {
-  font-weight: 200;
   letter-spacing: -.02em;
+
+  font-weight: 200;
 }
 
 section p {
+  margin: 1.5em 0;
+
   font-size: 1.3rem;
   font-weight: 200;
   line-height: 1.6;
-  margin: 1.5em 0;
 
   &.dropcap:first-child:first-letter {
     float: left;
-    font-size: 75px;
-    line-height: 60px;
+
     padding-top: 4px;
     padding-right: 8px;
     padding-left: 3px;
+
     font-family: Georgia;
+    font-size: 75px;
+    line-height: 60px;
   }
 }
 
@@ -111,22 +124,24 @@ em {
 }
 
 .block-title {
+  letter-spacing: .25em;
+
   font-family: $font-montserrat;
+  font-size: .9em;
   // font-family: $font-montserrat;
   font-weight: 500;
-  font-size: .9em;
-  letter-spacing: .25em;
 }
 
 .slab-border {
-  border-style: solid;
   border-width: 4px 0;
+  border-style: solid;
 }
 
 .slab {
-  font-family: 'LeagueGothic', $base-font-family;
   // font-weight: 900;
   text-transform: uppercase;
+
+  font-family: 'LeagueGothic', $base-font-family;
   .slabtext {
     line-height: .85 !important;
   }
@@ -140,15 +155,19 @@ em {
   line-height: 1;
 
   &:after {
-    content: "";
-    display: block;
     // position: absolute;
     bottom: 0;
+
+    display: block;
+
     width: 0;
     height: $thickness;
     margin-top: 3px;
-    background: $color;
+
+    content: "";
     transition: all .3s $easeOutExpo;
+
+    background: $color;
   }
 
   &:hover,
@@ -160,9 +179,10 @@ em {
 }
 
 a {
+  transition: all .3s ease;
+
   color: $color-primary;
   text-shadow: none !important;
-  transition: all .3s ease;
 
   .text-white & {
     color: $color-master-lighter;
@@ -180,10 +200,11 @@ a:active {
 }
 
 section p a {
-  @include linkAnim;
-
   position: relative;
+
   display: inline-block;
+
+  @include linkAnim;
 
   &:after {
     margin: 0;
@@ -237,46 +258,58 @@ nav.mobile-nav {
   .mobile-overlay {
     position: fixed;
     z-index: 1500;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
-    background: #000;
-    opacity: 0;
+
     visibility: hidden;
-    cursor: url(/assets/images/close.png), auto;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABNUlEQVRYR7WXWxKDIAxFk5W1O6murLqT7oxOWnAUIdwE8ENnQD2Hd8IUrxDCQkQPZl5T2YxnCGEjog8zy5NYbhH+jsBtlkSEvyJnFQnO4KnRwyUyeOKsIiBdkazOvT5MQmHsaQimSahw5uUnEOfBcIkW/JiEMyQQ+E1gVE+g8KJAr4QFXhXwSljhqoBVwgNvCqASXjgk0JKIK0jOkfzamblUfnnv2AcKP7gUKa0sfQrB4R4A9omzBAw3CzSGQ6pN8BkC5gMMngNA69MwmCRgAeMkhCUgAW2dx2a744mmALLJ9AQ1qgACB5aoOhxVAQu8R6Io4IF7JW4CPXCPxEVgBNwqgQSl5u3VItEKy91wVEJLTLrhkEQlNRsGb0ispeR0OLwi8U9OT5USPj2RMKoVPWn1eXr+BWjtFiPxHtjyAAAAAElFTkSuQmCC), auto;
     transition: opacity .3s ease, visibility .3s 0s;
+
+    opacity: 0;
+    background: #000;
   }
 
   nav.mobile-nav {
-    display: block;
     position: fixed;
     z-index: 2000;
     top: 0;
     left: 0;
+
+    display: block;
+
     width: 300px;
     height: 100%;
-    background: $color-warning;
-    text-align: center;
-    transform: translateX(-100%);
+
     transition: transform .3s ease;
+    transform: translateX(-100%);
+    text-align: center;
+
+    background: $color-warning;
 
     ul, li {
-      list-style: none;
       margin: 0;
       padding: 0;
+
+      list-style: none;
     }
 
     ul li a {
       display: block;
-      opacity: 1 !important;
+
       padding: 10px 15px 8px;
 
-      font-family: $font-gotham;
-      font-weight: 900;
-      font-size: 2rem;
-      color: $color-black;
       letter-spacing: -.05em;
+
+      opacity: 1 !important;
+      color: $color-black;
+
+      font-family: $font-gotham;
+      font-size: 2rem;
+      font-weight: 900;
 
       &:hover,
       &.active {
@@ -285,34 +318,42 @@ nav.mobile-nav {
     }
 
     .hamburger {
-      display: block;
       position: absolute;
       z-index: 1000;
-      overflow: hidden;
       top: 0;
       right: 0;
-      margin: 0;
-      padding: 0;
+
+      display: block;
+      overflow: hidden;
+
       width: 60px;
       height: 60px;
-      background: $color-warning;
-      font-size: 0;
-      text-indent: -9999px;
-      border: none;
+      margin: 0;
+      padding: 0;
+
       cursor: pointer;
       transform: translateX(100%);
+      text-indent: -9999px;
+
+      border: none;
+      background: $color-warning;
+
+      font-size: 0;
 
       &:focus {
         outline: none;
       }
 
       span {
-        display: block;
         position: absolute;
         top: 28px;
-        left: 10px;
         right: 10px;
+        left: 10px;
+
+        display: block;
+
         height: 4px;
+
         transition: background 0s 0.3s;
       }
 
@@ -325,22 +366,27 @@ nav.mobile-nav {
       span:before,
       span:after {
         position: absolute;
-        display: block;
         left: 0;
+
+        display: block;
+
         width: 100%;
         height: 4px;
+
         content: "";
-        transition-duration: 0.3s, 0.3s;
         transition-delay: 0.3s, 0s;
+        transition-duration: 0.3s, 0.3s;
       }
 
       span:before {
         top: -10px;
+
         transition-property: top, transform;
       }
 
       span:after {
         bottom: -10px;
+
         transition-property: bottom, transform;
       }
 
@@ -351,11 +397,13 @@ nav.mobile-nav {
 
         span:before {
           top: 0;
+
           transform: rotate(45deg);
         }
 
         span:after {
           bottom: 0;
+
           transform: rotate(-45deg);
         }
 
@@ -373,8 +421,9 @@ nav.mobile-nav {
 
   body.menu-opened {
     .mobile-overlay {
-      opacity: .8;
       visibility: visible;
+
+      opacity: .8;
     }
 
     nav.mobile-nav {
@@ -390,31 +439,40 @@ nav.mobile-nav {
 .jumbotron h1,
 .hero h1 {
   display: inline-block !important;
+
+  letter-spacing: -.07em;
+  text-transform: uppercase;
+
+  color: inherit;
+
   font-family: $font-gotham;
   font-size: 4rem;
   font-weight: 200;
-  letter-spacing: -.07em;
   line-height: 1;
-  color: inherit;
-  text-transform: uppercase;
 
   .lead {
     display: block;
-    margin-left: .1em;
+
     margin-bottom: -.3em;
+    margin-left: .1em;
+
     font-size: .4em;
   }
 
   b {
     display: inline-block;
-    text-transform: uppercase;
-    font-weight: 900;
-    line-height: inherit;
+
     margin-left: .1em;
     padding: .15em .25em .05em;
-    background: $color-warning;
-    color: #000;
+
     text-align: left;
+    text-transform: uppercase;
+
+    color: #000;
+    background: $color-warning;
+
+    font-weight: 900;
+    line-height: inherit;
   }
 
   @media screen and (max-width: $screen-sm-max) {
@@ -431,17 +489,21 @@ nav.mobile-nav {
 }
 
 .jumbotron h3 {
-  display: inline-block;
   position: relative;
-  font-size: 1.1rem !important;
-  font-family: $font-montserrat;
-  text-transform: uppercase;
+
+  display: inline-block;
+
   letter-spacing: .2em;
+  text-transform: uppercase;
+
+  font-family: $font-montserrat;
+  font-size: 1.1rem !important;
 
   &:hover {
     &:after {
-      opacity: 1;
       transform: translateX(30px);
+
+      opacity: 1;
     }
   }
 
@@ -468,8 +530,8 @@ nav.mobile-nav {
 }
 
 [data-pages-bg-image] {
-  background-size: cover;
   background-position: center center;
+  background-size: cover;
   // box-shadow: inset 0 0 200px rgba(#000, .8);
 }
 
@@ -495,37 +557,45 @@ footer {
   }
 
   .links ul {
-    font-family: $font-montserrat;
-    font-size: .7rem;
-    text-transform: uppercase;
-
-    list-style: none;
     margin: 0 -5px 20px;
     padding: 0;
 
+    list-style: none;
+
+    text-transform: uppercase;
+
+    font-family: $font-montserrat;
+    font-size: .7rem;
+
     li {
       display: inline-block;
+
       padding: 0;
+
       line-height: 1;
     }
 
     li + li:before {
       content: " / ";
+
       opacity: .4;
     }
 
     li a {
       display: inline-block;
+
       padding: 2px 5px;
     }
   }
 
   .copyright p {
+    padding: 2px 0;
+
+    text-transform: uppercase;
+
     font-family: $font-montserrat;
     font-size: .7rem;
-    text-transform: uppercase;
     line-height: 1;
-    padding: 2px 0;
   }
 }
 
@@ -535,29 +605,34 @@ footer {
 // ======================================================
 
 ul[data-bullet] {
-  list-style: none;
-  padding: 0;
   margin-left: 2em;
+  padding: 0;
+
+  list-style: none;
 
   li {
     position: relative;
     // line-height: 1.5;
+
     margin-bottom: 1em;
   }
   li i:first-child {
     position: absolute;
+    top: 0.45em;
     // transform: scale(1.2);
     left: -2em;
+
     width: 2em;
-    top: 0.45em;
+
     text-align: center;
   }
 }
 
 ol.ol {
   li {
-    line-height: 1.8;
     padding-bottom: 1em;
+
+    line-height: 1.8;
   }
 }
 
@@ -567,14 +642,17 @@ ol.ol {
 
 .image-square {
   position: relative;
+
+  overflow: hidden;
+
   height: 50vh;
   min-height: 640px;
-  overflow: hidden;
   padding: 0;
 
   .image-square-image,
   > .image-square-content {
     position: absolute;
+
     padding: 0;
   }
 
@@ -583,8 +661,10 @@ ol.ol {
   }
 
   > .image-square-content {
-    padding: 0 8%;
     top: 50%;
+
+    padding: 0 8%;
+
     transform: translate3d(0, -50%, 0);
   }
 
@@ -629,8 +709,10 @@ ol.ol {
 
     > .image-square-content {
       top: 0;
-      transform: none;
+
       padding: 0 20%;
+
+      transform: none;
     }
   }
 
@@ -642,14 +724,16 @@ ol.ol {
 }
 
 .image-pull-left {
-  height: 640px;
   position: relative;
 
+  height: 640px;
+
   .inner {
-    height: 100%;
-    width: 1280px;
     position: absolute;
     right: 0;
+
+    width: 1280px;
+    height: 100%;
   }
 }
 
@@ -659,41 +743,49 @@ ol.ol {
 
 #page-index {
   .social-count {
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
+
     text-align: center;
 
     @media screen and (min-width: 768px) {
       .social-col {
         float: left;
+
         width: 100/5 * 1%;
       }
     }
 
     a {
-      display: inline-block;
       position: relative;
-      text-align: center;
-      width: 180px;
-      height: 180px;
-      transition: all .3s !important;
-      color: inherit;
+
+      display: inline-block;
       overflow: hidden;
 
+      width: 160px;
+      height: 160px;
+
+      transition: all .3s !important;
+      text-align: center;
+
+      color: inherit;
+
       &:before {
-        content: '';
         position: absolute;
+        z-index: 0;
         top: 0;
-        left: 0;
         right: 0;
         bottom: 0;
-        z-index: 0;
-        background: $color-warning;
+        left: 0;
+
+        content: '';
+        transition: all .3s ease;
         // transform: rotate(-92deg);
         transform: translateY(100%);
         transform-origin: bottom left;
-        transition: all .3s ease;
+
+        background: $color-warning;
       }
 
       .progress-circle-indeterminate,
@@ -701,6 +793,7 @@ ol.ol {
         position: absolute;
         top: 50%;
         left: 50%;
+
         transform: translate3d(-50%, -50%, 0);
       }
 
@@ -710,19 +803,24 @@ ol.ol {
 
       i {
         display: block;
-        font-size: 40px;
+
         margin-bottom: 10px;
-        line-height: 40px;
+
         color: inherit;
+
+        font-size: 30px;
+        line-height: 30px;
       }
 
       .count {
         margin: 0;
+
+        text-transform: uppercase;
+
         font-family: $font-league;
         font-size: 3em;
         font-weight: 900;
         line-height: 1;
-        text-transform: uppercase;
       }
 
       &.loaded {
@@ -753,32 +851,41 @@ ol.ol {
       padding: 0;
 
       a {
-        display: block;
         position: relative;
-        width: 100%;
-        transition: all .3s ease;
+
+        display: block;
         overflow: hidden;
+
+        width: 100%;
+
+        transition: all .3s ease;
 
         img {
           position: relative;
-          width: 100%;
           // transition: all .3s ease;
           z-index: 50;
+
+          width: 100%;
         }
 
         .likes {
-          display: block;
           position: absolute;
-          bottom: 0;
-          right: 0;
-          font-family: $font-league;
-          font-size: 2em;
-          padding: .2em .5em;
-          background: $color-primary-darker;
-          color: #fff;
           z-index: 100;
+          right: 0;
+          bottom: 0;
+
+          display: block;
+
+          padding: .2em .5em;
+
           transition: all .3s ease;
           transform: translateX(100%);
+
+          color: #fff;
+          background: $color-primary-darker;
+
+          font-family: $font-league;
+          font-size: 2em;
 
           i {
             color: $color-danger;
@@ -788,6 +895,7 @@ ol.ol {
         &:hover {
           .caption {
             transform: translateY(0);
+
             opacity: 1;
           }
 
@@ -810,20 +918,25 @@ ol.ol {
   }
 
   .filter .btn {
-    display: inline-block;
     position: relative;
-    font-family: $font-montserrat;
-    font-size: 1.2em;
-    border-radius: 0;
+
+    display: inline-block;
+    // font-style: italic;
+
+    padding: 8px 15px;
+
+    transition: all .3s ease !important;
+    letter-spacing: -.05em;
+    text-transform: uppercase;
+
+    color: #fff;
     border: 0;
+    border-radius: 0;
     // border-bottom: 3px solid transparent;
     background: none;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: -.05em;
-    // font-style: italic;
-    padding: 8px 15px;
-    transition: all .3s ease !important;
+
+    font-family: $font-montserrat;
+    font-size: 1.2em;
 
     @include linkAnim;
 
@@ -834,14 +947,17 @@ ol.ol {
   }
 
   .music-isotope {
-    opacity: 0;
     overflow: hidden;
+
     transition: all 1s $easeOutExpo;
     transform: translateY(100%);
 
+    opacity: 0;
+
     &.loaded {
-      opacity: 1;
       transform: translateY(0);
+
+      opacity: 1;
     }
 
     .grid-sizer,
@@ -861,35 +977,44 @@ ol.ol {
     .grid {
       .grid-wrapper {
         position: relative;
-        margin: 10px;
+
         overflow: hidden;
+
+        margin: 10px;
       }
 
       img {
         position: relative;
-        width: 100%;
+        z-index: 5;
         top: 0;
         left: 0;
-        z-index: 5;
+
+        width: 100%;
+
         transition: all .3s ease;
       }
 
       .info {
-        padding: 20px 20px 15px;
         z-index: 10;
+
+        padding: 20px 20px 15px;
+
         transition: all .3s ease;
 
         .info-bg {
           position: absolute;
-          width: 100%;
-          height: 100%;
+          z-index: 0;
           top: 0;
+          right: 0;
           bottom: 0;
           left: 0;
-          right: 0;
-          z-index: 0;
-          opacity: 1;
+
+          width: 100%;
+          height: 100%;
+
           transition: all .3s ease;
+
+          opacity: 1;
         }
 
         .info-wrapper {
@@ -901,37 +1026,44 @@ ol.ol {
         .item-artist,
         .item-released {
           margin: 0;
+
           line-height: 1;
         }
 
         .label {
           display: inline-block;
-          text-transform: uppercase;
-          background: none;
-          border: 1px solid #fff;
-          color: #fff;
+
           margin-right: 5px;
           margin-bottom: 5px;
+
           transition: all .3s ease;
+          text-transform: uppercase;
+
+          color: #fff;
+          border: 1px solid #fff;
+          background: none;
         }
       }
 
       .links {
         a.btn {
-          line-height: 1;
-          font-family: $font-montserrat;
+          padding: 8px 12px 7px;
+
+          transition: all .3s;
+          letter-spacing: -.05em;
+          text-transform: uppercase;
+
+          opacity: 1;
+          color: #fff;
           border: 0;
           background: #000;
-          color: #fff;
-          text-transform: uppercase;
-          letter-spacing: -.05em;
-          padding: 8px 12px 7px;
-          opacity: 1;
-          transition: all .3s;
+
+          font-family: $font-montserrat;
+          line-height: 1;
 
           &:hover {
-            border: 0;
             opacity: .8;
+            border: 0;
           }
         }
       }
@@ -942,11 +1074,12 @@ ol.ol {
     position: fixed;
     z-index: 10000;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
-    transform: translateX(100%);
+    left: 0;
+
     transition: all .5s ease;
+    transform: translateX(100%);
 
     &.vlb-visible {
       transform: translateX(0);
@@ -956,28 +1089,35 @@ ol.ol {
       position: absolute;
       top: 0;
       left: 0;
+
       padding: 20px;
-      font-size: 2em;
-      color: #fff;
+
       cursor: pointer;
+
+      color: #fff;
+
+      font-size: 2em;
     }
 
     .vlb-video {
       position: absolute;
+      z-index: 10;
       top: 50%;
       left: 50%;
-      transform: translate3d(-50%, -50%, 0);
-      z-index: 10;
+
       width: 100%;
       height: auto;
+
+      transform: translate3d(-50%, -50%, 0);
     }
 
     .vlb-progress {
       position: absolute;
+      z-index: 0;
       top: 50%;
       left: 50%;
+
       transform: translate3d(-50%, -50%, 0);
-      z-index: 0;
     }
   }
 }
@@ -1011,10 +1151,11 @@ ol.ol {
 
   .contact-info {
     h1 {
+      letter-spacing: -.07em;
+
       font-family: $font-gotham;
       font-size: 4em;
       font-weight: 700;
-      letter-spacing: -.07em;
       line-height: .8;
     }
 
@@ -1023,14 +1164,16 @@ ol.ol {
     }
 
     .contact-title {
-      font-weight: 500;
       margin: 40px 0 10px;
+
+      font-weight: 500;
     }
 
     .contact-details {
+      margin-top: 10px;
+
       font-size: 1.7em;
       line-height: 1;
-      margin-top: 10px;
 
       a {
         // font-weight: 500;
