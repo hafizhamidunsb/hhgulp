@@ -28,8 +28,14 @@ body {
 
   width: 100%;
 
-  .canvas {
+  .canvas-slide {
     transition: transform .3s ease;
+
+    &.canvas-content {
+      background: $color-master-darkest;
+      position: relative;
+      z-index: 300;
+    }
   }
 }
 
@@ -263,9 +269,105 @@ nav.mobile-nav {
     display: none;
   }
 
+  .hamburger {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+
+    display: block;
+    overflow: hidden;
+
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+
+    cursor: pointer;
+    text-indent: -9999px;
+
+    border: none;
+    background: $color-warning;
+
+    font-size: 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    span {
+      position: absolute;
+      top: 28px;
+      right: 10px;
+      left: 10px;
+
+      display: block;
+
+      height: 4px;
+
+      transition: background 0s 0.3s;
+    }
+
+    span,
+    span:before,
+    span:after {
+      background: #000;
+    }
+
+    span:before,
+    span:after {
+      position: absolute;
+      left: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 4px;
+
+      content: "";
+      transition-delay: 0.3s, 0s;
+      transition-duration: 0.3s, 0.3s;
+    }
+
+    span:before {
+      top: -10px;
+
+      transition-property: top, transform;
+    }
+
+    span:after {
+      bottom: -10px;
+
+      transition-property: bottom, transform;
+    }
+
+    body.menu-opened & {
+      span {
+        background: none;
+      }
+
+      span:before {
+        top: 0;
+
+        transform: rotate(45deg);
+      }
+
+      span:after {
+        bottom: 0;
+
+        transform: rotate(-45deg);
+      }
+
+      span:before,
+      span:after {
+        transition-delay: 0s, 0.3s;
+      }
+    }
+  }
+
   .mobile-overlay {
-    position: fixed;
-    z-index: 1500;
+    position: absolute;
+    z-index: 500;
     top: 0;
     left: 0;
 
@@ -283,7 +385,7 @@ nav.mobile-nav {
 
   nav.mobile-nav {
     position: fixed;
-    z-index: 2000;
+    z-index: 0;
     top: 0;
     left: 0;
 
@@ -292,8 +394,10 @@ nav.mobile-nav {
     width: 300px;
     height: 100%;
 
-    transition: transform .3s ease;
-    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity .3s ease, visibility .3s 0s;
     text-align: center;
 
     background: $color-warning;
@@ -324,103 +428,6 @@ nav.mobile-nav {
         background: #fff;
       }
     }
-
-    .hamburger {
-      position: absolute;
-      z-index: 1000;
-      top: 0;
-      right: 0;
-
-      display: block;
-      overflow: hidden;
-
-      width: 60px;
-      height: 60px;
-      margin: 0;
-      padding: 0;
-
-      cursor: pointer;
-      transform: translateX(100%);
-      text-indent: -9999px;
-
-      border: none;
-      background: $color-warning;
-
-      font-size: 0;
-
-      &:focus {
-        outline: none;
-      }
-
-      span {
-        position: absolute;
-        top: 28px;
-        right: 10px;
-        left: 10px;
-
-        display: block;
-
-        height: 4px;
-
-        transition: background 0s 0.3s;
-      }
-
-      span,
-      span:before,
-      span:after {
-        background: #000;
-      }
-
-      span:before,
-      span:after {
-        position: absolute;
-        left: 0;
-
-        display: block;
-
-        width: 100%;
-        height: 4px;
-
-        content: "";
-        transition-delay: 0.3s, 0s;
-        transition-duration: 0.3s, 0.3s;
-      }
-
-      span:before {
-        top: -10px;
-
-        transition-property: top, transform;
-      }
-
-      span:after {
-        bottom: -10px;
-
-        transition-property: bottom, transform;
-      }
-
-      body.menu-opened & {
-        span {
-          background: none;
-        }
-
-        span:before {
-          top: 0;
-
-          transform: rotate(45deg);
-        }
-
-        span:after {
-          bottom: 0;
-
-          transform: rotate(-45deg);
-        }
-
-        span:before,
-        span:after {
-          transition-delay: 0s, 0.3s;
-        }
-      }
-    }
   }
 
   .header:before {
@@ -434,13 +441,14 @@ nav.mobile-nav {
       opacity: .8;
     }
 
-    .canvas {
-      transform: translateX(300px);
+    nav.mobile-nav {
+      opacity: 1;
+      visibility: visible;
     }
 
-    // nav.mobile-nav {
-    //   transform: translateX(0);
-    // }
+    .canvas-slide {
+      transform: translateX(300px);
+    }
   }
 }
 

@@ -23,7 +23,7 @@ head
   meta(name="description", content="The official website of Hafiz Hamidun.")
   meta(name="keywords", content="Hafiz Hamidun, Hafiz, Hamidun, Arteffects International, Arteffects, International, Jubah, Jubah Lelaki, Jubah Islam")
   meta(name="author", content="@wansaleh")
-  meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+  meta(name="viewport", content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0")
 
   link(rel="apple-touch-icon", sizes="57x57", href="/assets/icons/apple-touch-icon-57x57.png")
   link(rel="apple-touch-icon", sizes="60x60", href="/assets/icons/apple-touch-icon-60x60.png")
@@ -92,18 +92,12 @@ head
 body(class=bodyClass, id="page-#{pageId}")
 
   .canvas-wrap
+    nav.mobile-nav
 
-    .canvas
-
+    block header
+    .canvas-slide.canvas-content
       .mobile-overlay
-      nav.mobile-nav
-        button.hamburger(data-pages='header-toggle')
-          span toggle menu
-
-      block header
-
       block content
-
       +footer
 
   block scripts
