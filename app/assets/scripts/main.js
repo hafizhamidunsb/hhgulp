@@ -58,7 +58,6 @@
     $('.social-icon i[class^=icon-]').each(function() {
       $(this).clone().addClass($(this).attr('class') + '-cloned').appendTo($(this).parent());
     });
-
   };
 
   SITE.prototype.initSwiper = function() {
@@ -152,42 +151,42 @@
     };
 
     $('.c-facebook').each(function () {
-      $.getJSON('http://wms-api.herokuapp.com/hh/facebook?callback=?', function(data) {
+      $.getJSON('//wms-api.herokuapp.com/hh/facebook?callback=?', function(data) {
         $('.count', this).html(nFormatter(data.likes, 1));
         $(this).addClass('loaded');
       }.bind(this));
     });
 
     $('.c-twitter').each(function () {
-      $.getJSON('http://wms-api.herokuapp.com/hh/twitter?callback=?', function(data) {
+      $.getJSON('//wms-api.herokuapp.com/hh/twitter?callback=?', function(data) {
         $('.count', this).html(nFormatter(data.followers_count, 1));
         $(this).addClass('loaded');
       }.bind(this));
     });
 
     $('.c-instagram').each(function () {
-      $.getJSON('http://wms-api.herokuapp.com/hh/instagram?callback=?', function(data) {
+      $.getJSON('//wms-api.herokuapp.com/hh/instagram?callback=?', function(data) {
         $('.count', this).html(nFormatter(data.data.counts.followed_by, 1));
         $(this).addClass('loaded');
       }.bind(this));
     });
 
     $('.c-youtube').each(function () {
-      $.getJSON('http://wms-api.herokuapp.com/hh/youtube?callback=?', function(data) {
+      $.getJSON('//wms-api.herokuapp.com/hh/youtube?callback=?', function(data) {
         $('.count', this).html(nFormatter(data.items[0].statistics.subscriberCount, 1));
         $(this).addClass('loaded');
       }.bind(this));
     });
 
     $('.c-spotify').each(function () {
-      $.getJSON('http://wms-api.herokuapp.com/hh/spotify?callback=?', function(data) {
+      $.getJSON('//wms-api.herokuapp.com/hh/spotify?callback=?', function(data) {
         $('.count', this).html(nFormatter(data.followers.total, 1));
         $(this).addClass('loaded');
       }.bind(this));
     });
 
     $('.c-soundcloud').each(function () {
-      $.getJSON('http://wms-api.herokuapp.com/hh/soundcloud?callback=?', function(data) {
+      $.getJSON('//wms-api.herokuapp.com/hh/soundcloud?callback=?', function(data) {
         $('.count', this).html(nFormatter(data.followers_count, 1));
         $(this).addClass('loaded');
       }.bind(this));
@@ -198,14 +197,17 @@
      $(".instagram-feed").each(function () {
       var $this = $(this);
 
-      $.getJSON('http://wms-api.herokuapp.com/hh/instagram/feed?callback=?', function(data) {
+      $.getJSON('//wms-api.herokuapp.com/hh/instagram/feed?callback=?', function(data) {
         $(data.data).each(function (index, feed) {
           if (index < 6) {
             var item = $('\
               <div class="grid col-md-2 col-sm-4 col-xs-6">\
                 <a href="' + feed.link + '" target="_blank">\
                   <img src="' + feed.images.standard_resolution.url + '" alt="">\
-                  <span class="likes"><i class="fa fa-heart"></i> ' + feed.likes.count + '</span>\
+                  <span class="counts">\
+                    <i class="ti-heart"></i> ' + feed.likes.count + '&nbsp;\
+                    <i class="ti-comment"></i> ' + feed.comments.count + '\
+                  </span>\
                 </a>\
               </div>');
             $this.append(item);

@@ -20,7 +20,7 @@ body:before {
 }
 
 body {
-  background: $color-master-darkest;
+  background: #fff;
 }
 
 .canvas-wrap {
@@ -29,7 +29,7 @@ body {
   width: 100%;
 
   .canvas-slide {
-    transition: transform .3s ease;
+    transition: all .3s ease;
 
     &.canvas-content {
       background: $color-master-darkest;
@@ -513,11 +513,15 @@ nav.mobile-nav {
 
   display: inline-block;
 
-  letter-spacing: .2em;
+  letter-spacing: .1em;
   text-transform: uppercase;
 
   font-family: $font-montserrat;
-  font-size: 1.1rem !important;
+  font-size: 1rem !important;
+
+  i {
+    text-transform: none;
+  }
 
   &:hover {
     &:after {
@@ -530,6 +534,10 @@ nav.mobile-nav {
   @media screen and (max-width: $screen-sm-max) {
     font-size: .8rem !important;
   }
+}
+
+.jumbotron br {
+  line-height: 1;
 }
 
 .hero {
@@ -758,6 +766,22 @@ ol.ol {
 }
 
 // ======================================================
+// SWIPER
+// ======================================================
+
+.swiper-container .background {
+  @include add-gradient(to bottom, rgba(#000, .5), transparent 40%);
+}
+
+// ======================================================
+// SECTIONS
+// ======================================================
+
+.gradient {
+  @include add-gradient(to right, transparent, rgba($color-warning, .2));
+}
+
+// ======================================================
 // INDEX
 // ======================================================
 
@@ -888,7 +912,7 @@ ol.ol {
           width: 100%;
         }
 
-        .likes {
+        .counts {
           position: absolute;
           z-index: 100;
           right: 0;
@@ -901,14 +925,14 @@ ol.ol {
           transition: all .3s ease;
           transform: translateX(100%);
 
-          color: #fff;
-          background: $color-primary-darker;
+          color: #000;
+          background: $color-warning;
 
           font-family: $font-league;
-          font-size: 2em;
+          font-size: 1.5em;
 
           i {
-            color: $color-danger;
+            // color: $color-danger;
           }
         }
 
@@ -919,7 +943,7 @@ ol.ol {
             opacity: 1;
           }
 
-          .likes {
+          .counts {
             transform: translateX(0);
           }
         }
@@ -934,7 +958,7 @@ ol.ol {
 
 #page-music {
   .hero {
-    @include gradient-after(#000, transparent);
+    @include add-gradient(to top, #000, transparent);
   }
 
   .filter .btn {
@@ -1148,7 +1172,7 @@ ol.ol {
 
 #page-profile {
   .hero {
-    @include gradient-after($color-master-darkest, transparent);
+    @include add-gradient(to top, $color-master-darkest, transparent);
   }
 
   section {
@@ -1166,7 +1190,7 @@ ol.ol {
 
 #page-contact {
   .hero {
-    @include gradient-after($color-master-darkest, transparent);
+    @include add-gradient(to top, $color-master-darkest, transparent);
   }
 
   .contact-info {
