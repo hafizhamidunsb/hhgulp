@@ -106,7 +106,10 @@ module.exports.clean = [tmp, dist, '.publish', '.divshot-cache'];
 
 // Copy fonts task config
 module.exports.copyFonts = {
-  src: path.join(app, fonts, '**/*'),
+  src: [
+    path.join(app, fonts, '**/*'),
+    'bower_components/bootstrap-sass/assets/fonts/bootstrap/*'
+  ],
   dest: path.join(dist, fonts)
 };
 

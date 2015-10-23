@@ -1,4 +1,4 @@
-$icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+$icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 // bower:scss
 @import "../../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
@@ -923,17 +923,13 @@ ol.ol {
           padding: .2em .5em;
 
           transition: all .3s ease;
-          transform: translateX(100%);
+          transform: translateX(105%);
 
           color: #000;
           background: $color-warning;
 
           font-family: $font-league;
           font-size: 1.5em;
-
-          i {
-            // color: $color-danger;
-          }
         }
 
         &:hover {
