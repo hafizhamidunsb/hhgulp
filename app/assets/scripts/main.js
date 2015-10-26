@@ -72,7 +72,7 @@
       parallax: true,
       speed: 1000,
       onSlideChangeStart: function(sw) {
-        if (sw.activeIndex === 1) {
+        if (sw.activeIndex == 2) {
           $vimeo.vimeo('play');
         }
         else {
@@ -83,12 +83,12 @@
           $vimeo.appear();
 
           $vimeo.on('appear', function() {
-            if (swiper.activeIndex == 1) {
+            if (sw.activeIndex == 2) {
               $vimeo.vimeo('play');
             }
           });
           $vimeo.on('disappear', function() {
-            if (swiper.activeIndex == 1) {
+            if (sw.activeIndex == 2) {
               $vimeo.vimeo('pause');
             }
           });
@@ -98,7 +98,7 @@
 
     $('.watchvid').click(function(ev) {
       ev.preventDefault();
-      swiper.slideTo(1);
+      swiper.slideTo(2);
     });
   };
 

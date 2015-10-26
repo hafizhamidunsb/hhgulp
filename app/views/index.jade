@@ -15,6 +15,26 @@ block content
 
       #hero.swiper-container
         .swiper-wrapper
+          .swiper-slide.fit.bg-master
+            .slider-wrapper
+              .background-wrapper(data-swiper-parallax='20%')
+                .background(data-pages-bg-image='/assets/images/ib/bg.jpg', data-bg-overlay-class='bg-black', data-overlay-opacity='0', draggable='false')
+
+            .content-layer
+              .inner.full-height
+                .container-xs-height.full-height
+                  .col-xs-height.col-middle
+                    .container.text-left.text-white.xs-p-t-100
+                      .row
+                        .col-sm-6.col-sm-offset-3.m-t-100.p-t-100(data-pages-animation='standard', data-delay='1000', data-type='transition.slideDownIn')
+                          img.img-responsive(src="/assets/images/ib/logo.png", alt="")
+                      .row
+                        .col-sm-4.col-sm-offset-4.m-t-50.text-center(data-pages-animation='standard', data-delay='1500', data-type='transition.slideUpIn')
+                          h4.block-title Dibawa oleh:
+                          img.img-responsive(src="/assets/images/ib/logos-white.svg", alt="")
+
+
+
           .swiper-slide.fit.bg-master-darkest
             .slider-wrapper
               .background-wrapper(data-swiper-parallax='20%')
@@ -41,7 +61,6 @@ block content
                             | Watch the music video 
                             i &ldquo;Penyelamat&rdquo; 
 
-          // data-pages-header="alternate"
           .swiper-slide.fit.bg-black
             .content-layer
               .full-height

@@ -5,12 +5,11 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 @import "../../../bower_components/lightingfly/_lighting_fly.scss";
 // endbower
 
+@import 'pages/pages';
 @import 'modules/easing';
 @import 'modules/gradients';
 @import 'modules/social';
 @import 'modules/mdc-class';
-
-@import 'pages/pages';
 
 // PRELOAD
 body:before {
