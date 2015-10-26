@@ -42,6 +42,13 @@
   }
 
   SITE.prototype.initMisc = function() {
+    $('#countdown').countdown('2015/10/31').on('update.countdown', function(event) {
+      var $this = $(this).html(event.strftime('in '
+        + '<span>%-d</span> day%!d '
+        + '<span>%H</span> hr '
+        + '<span>%M</span> min'));
+    });
+
     $('[data-fitvids]').fitVids();
 
     // $('body:not(.mobile)').find('h1, h2, h3, h4, h5, h6, p').filter(':not(.no-orphan)').unorphanize();

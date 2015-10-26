@@ -457,7 +457,7 @@ nav.mobile-nav {
 
 .jumbotron h1,
 .hero h1 {
-  display: inline-block !important;
+  // display: inline-block !important;
 
   letter-spacing: -.07em;
   text-transform: uppercase;
@@ -510,7 +510,7 @@ nav.mobile-nav {
 .jumbotron h3 {
   position: relative;
 
-  display: inline-block;
+  // display: inline-block;
 
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -785,6 +785,13 @@ ol.ol {
 // ======================================================
 
 #page-index {
+  #countdown {
+    span {
+      font-size: 2em;
+      font-family: $font-league;
+    }
+  }
+
   .social-count {
     right: 0;
     bottom: 0;
