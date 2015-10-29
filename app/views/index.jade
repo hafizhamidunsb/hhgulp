@@ -18,7 +18,7 @@ block content
           .swiper-slide.fit.bg-black
             .slider-wrapper
               .background-wrapper(data-swiper-parallax='20%')
-                .background(data-pages-bg-image='/assets/images/ib/poster2-left.jpg', data-bg-overlay-class='bg-black', data-overlay-opacity='0.3', draggable='false')
+                .background(data-pages-bg-image='/assets/images/ib/bg.jpg', data-bg-overlay-class='bg-black', data-overlay-opacity='0', draggable='false')
 
             .content-layer
               .inner.full-height
@@ -27,38 +27,17 @@ block content
                     .container.text-center.text-white.xs-p-t-100
                       .row
                         .col-sm-8.col-sm-offset-4
-                          img(src="/assets/images/ib/logo2.svg", alt="", style="width:300px")
+                          img(src="/assets/images/ib/logo.svg", alt="Hafiz Hamidun", style="max-width:250px;")
                       .row
-                        .col-sm-8.col-sm-offset-4.m-t-50
-                          .row
-                            .col-sm-12
-                              h1.no-orphan
-                                | Konsert Terapi Hati
-
-                              img(src="/assets/images/logo/hh-white.svg", alt="Hafiz Hamidun", style={height: '3em'})
-                          
-                          .row.m-t-150
-                            .col-sm-4
-                              h2.slab(data-slabtext)
-                                span.slabtext 24 &amp; 25
-                                span.slabtext December 2015
-                              
-                            .col-sm-5
+                        .col-sm-8.col-sm-offset-4
+                          .row.m-t-50
+                            .col-sm-6.col-sm-offset-3
                               h3.block-title.no-orphan
                                 | Tickets available at
 
                               a.btn.btn-lg.btn-rounded.bg-danger.text-white.block-title(href="http://redtix.airasia.com/", target="_blank", style="border:0")
                                 | AirAsia RedTix
-                              #countdown.m-t-10
-                        
-                            .col-sm-3
-                              img.img-responsive(src="/assets/images/ib/ib-white.svg", alt="Istana Budaya")
-                            
-                        //- .col-sm-4.col-sm-offset-4.m-t-50.text-center(data-pages-animation='standard', data-delay='1500', data-type='transition.slideUpIn')
-                        //-   h4.block-title Dibawa oleh:
-                        //-   img.img-responsive(src="/assets/images/ib/logos-white.svg", alt="")
-
-
+                              #countdown.m-t-5
 
           .swiper-slide.fit.bg-master-darkest
             .slider-wrapper

@@ -42,7 +42,7 @@
   }
 
   SITE.prototype.initMisc = function() {
-    $('#countdown').countdown('2015/10/31').on('update.countdown', function(event) {
+    $('#countdown').countdown('2015/10/30').on('update.countdown', function(event) {
       var $this = $(this).html(event.strftime('in '
         + '<span>%-d</span> day%!d '
         + '<span>%H</span> hr '
