@@ -772,6 +772,12 @@ ol.ol {
   @include add-gradient(to bottom, rgba(#000, .5), transparent 40%);
 }
 
+@media screen and (max-width: $screen-sm-max) {
+  .swiper-container .mouse-wrapper {
+    display: none;
+  }
+}
+
 // ======================================================
 // SECTIONS
 // ======================================================
