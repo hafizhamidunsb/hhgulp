@@ -18,7 +18,7 @@ block content
           .swiper-slide.fit.bg-black
             .slider-wrapper
               .background-wrapper(data-swiper-parallax='20%')
-                .background(data-pages-bg-image='/assets/images/ib/bg.jpg', data-bg-overlay-class='bg-black', data-overlay-opacity='0', draggable='false')
+                .background(data-pages-bg-image='/assets/images/ib/bg2.jpg', data-bg-overlay-class='bg-black', data-overlay-opacity='0.5', draggable='false')
 
             .content-layer
               .inner.full-height
@@ -26,18 +26,19 @@ block content
                   .col-xs-height.col-middle
                     .container.text-center.text-white.xs-p-t-100
                       .row
-                        .col-sm-8.col-sm-offset-4
-                          img(src="/assets/images/ib/logo.svg", alt="Hafiz Hamidun", style="max-width:250px;")
-                      .row
-                        .col-sm-8.col-sm-offset-4
-                          .row.m-t-50
-                            .col-sm-6.col-sm-offset-3
-                              h3.block-title.no-orphan
-                                | Tickets available at
+                        .col-sm-12
+                          img(src="/assets/images/ib/kth.svg", alt="Konsert Terapi Hati", style="max-width:500px;")
+                        .col-sm-12.m-t-50
+                          img(src="/assets/images/ib/kth-info-white.svg", alt="Malam Kalimah Cinta Hafiz hamidun", style="max-width:500px;")
+                        .col-sm-12.m-t-50
+                          img(src="/assets/images/ib/kth-partners.svg", alt="Malam Kalimah Cinta Hafiz hamidun", style="max-width:500px;")
+                        .col-sm-12.m-t-50
+                          h3.block-title.no-orphan
+                            | Tickets available at
 
-                              a(href="http://redtix.airasia.com/", target="_blank", style="border:0")
-                                img(src="/assets/images/ib/redtix_logo.png", alt="AirAsia Redtix", style="max-width:150px;")
-                              #countdown.m-t-5(style="color:#276780")
+                          a(href="http://redtix.airasia.com/Events/konsert_M_Kalimah_Cinta/", target="_blank", style="border:0")
+                            img(src="/assets/images/ib/redtix_logo.png", alt="AirAsia Redtix", style="max-width:150px;")
+                          //- #countdown.m-t-5(style="color:#276780")
 
           .swiper-slide.fit.bg-master-darkest
             .slider-wrapper
