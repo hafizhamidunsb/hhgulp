@@ -11,6 +11,12 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 @import 'modules/social';
 @import 'modules/mdc-class';
 
+$color-accent: #cfac67;
+
+.btn-accent {
+  background: $color-accent;
+}
+
 // PRELOAD
 body:before {
   display: none;
@@ -488,7 +494,7 @@ nav.mobile-nav {
     text-transform: uppercase;
 
     color: #000;
-    background: $color-warning;
+    background: $color-accent;//$color-warning;
 
     font-weight: 900;
     line-height: inherit;
@@ -501,9 +507,9 @@ nav.mobile-nav {
   @media screen and (max-width: $screen-xs-max) {
     font-size: 2.5rem;
 
-    b {
-      display: block;
-    }
+    // b {
+    //   display: block;
+    // }
   }
 }
 
@@ -841,7 +847,7 @@ ol.ol {
         transform: translateY(100%);
         transform-origin: bottom left;
 
-        background: $color-warning;
+        background: $color-accent;
       }
 
       .progress-circle-indeterminate,
@@ -938,7 +944,7 @@ ol.ol {
           transform: translateX(105%);
 
           color: #000;
-          background: $color-warning;
+          background: $color-accent;
 
           font-family: $font-league;
           font-size: 1.5em;
