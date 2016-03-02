@@ -79,33 +79,38 @@
       parallax: true,
       speed: 1000,
       onSlideChangeStart: function(sw) {
-        if (sw.activeIndex == 2) {
-          $vimeo.vimeo('play');
-        }
-        else {
-          $vimeo.vimeo('pause');
-        }
-
-        if ($.Pages.getUserAgent() === 'desktop') {
-          $vimeo.appear();
-
-          $vimeo.on('appear', function() {
-            if (sw.activeIndex == 2) {
-              $vimeo.vimeo('play');
-            }
-          });
-          $vimeo.on('disappear', function() {
-            if (sw.activeIndex == 2) {
-              $vimeo.vimeo('pause');
-            }
-          });
-        }
+        // if (sw.activeIndex == 2) {
+        //   $vimeo.vimeo('play');
+        // }
+        // else {
+        //   $vimeo.vimeo('pause');
+        // }
+        //
+        // if ($.Pages.getUserAgent() === 'desktop') {
+        //   $vimeo.appear();
+        //
+        //   $vimeo.on('appear', function() {
+        //     if (sw.activeIndex == 2) {
+        //       $vimeo.vimeo('play');
+        //     }
+        //   });
+        //   $vimeo.on('disappear', function() {
+        //     if (sw.activeIndex == 2) {
+        //       $vimeo.vimeo('pause');
+        //     }
+        //   });
+        // }
       }
     });
 
-    $('.watchvid').click(function(ev) {
+    $('.watchvid-janjiku').click(function(ev) {
       ev.preventDefault();
       swiper.slideTo(2);
+    });
+
+    $('.watchvid-penyelamat').click(function(ev) {
+      ev.preventDefault();
+      swiper.slideTo(3);
     });
   };
 

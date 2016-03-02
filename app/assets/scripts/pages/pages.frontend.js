@@ -116,16 +116,23 @@
       });
       _elem.append(overlay);
 
-      var img = new Image();
-      img.src = url;
-      img.onload = function() {
-        _elem.css({
-          'background-image': 'url(' + url + ')'
-        });
-        _elem.children('.bg-overlay').css({
-          'opacity': opacity
-        });
-      }
+      _elem.css({
+        'background-image': 'url(' + url + ')'
+      });
+      _elem.children('.bg-overlay').css({
+        'opacity': opacity
+      });
+      
+      // var img = new Image();
+      // img.src = url;
+      // img.onload = function() {
+      //   _elem.css({
+      //     'background-image': 'url(' + url + ')'
+      //   });
+      //   _elem.children('.bg-overlay').css({
+      //     'opacity': opacity
+      //   });
+      // }
 
     })
   }

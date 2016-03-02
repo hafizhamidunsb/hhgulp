@@ -75,10 +75,10 @@
     return this.each(function() {
       var $this = $(this);
       var data = $this.data('pg.parallax');
-      var options = typeof option == 'object' && option;
+      var options = typeof option === 'object' && option;
 
       if (!data) $this.data('pg.parallax', (data = new Parallax(this, options)));
-      if (typeof option == 'string') data[option]();
+      if (typeof option === 'string') data[option]();
     })
   }
 
@@ -90,8 +90,8 @@
 
   $.fn.parallax.defaults = {
     speed: {
-      coverPhoto: 0.3,
-      content: 0.17
+      coverPhoto: 0.5,
+      content: 0.2
       // coverPhoto: 0.5,
       // content: 0.3
     }

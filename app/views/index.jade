@@ -10,11 +10,51 @@ block header
   +header.transparent-light(data-pages-header="autoresize", data-pages-resize-class="light-solid")
   
 block content
+
+  //- JUMBOTRON
   section.jumbotron.full-vh(data-pages='parallax')
     .inner.full-vh
 
       #hero.swiper-container
         .swiper-wrapper
+
+          //- SLIDE 0
+          .swiper-slide.fit.bg-master-darkest
+            .slider-wrapper
+              .background-wrapper(data-swiper-parallax='20%')
+                .background.hidden-xs(data-pages-bg-image='/assets/images/hero/hh-chhh.jpg', data-bg-overlay-class='bg-master-darkest', data-overlay-opacity='0.3', draggable='false')
+                .background.hidden-sm.hidden-md.hidden-lg(data-pages-bg-image='/assets/images/hero/hh-chhh-sq.jpg', data-bg-overlay-class='bg-master-darkest', data-overlay-opacity='0.3', draggable='false')
+
+            .content-layer
+              .inner.full-height
+                .container-xs-height.full-height
+                  .col-xs-height.col-middle
+                    .container.text-left.text-white.xs-p-t-100
+                      .col-sm-8
+                        h1.no-orphan(data-pages-animation='standard', data-delay='1500', data-type='transition.slideDownIn')
+                          | Cerita Hati
+                          br
+                          b Hafiz Hamidun
+
+                        h3.m-t-60(data-pages-animation='standard', data-delay='1500', data-type='transition.slideUpIn')
+                          | First book from Hafiz Hamidun featuring quotes from his 
+                          a.text-white.link(target="_blank", href="https://www.facebook.com/hafizhamidun") Facebook
+                          | , 
+                          a.text-white.link(target="_blank", href="https://www.twitter.com/hafizhamidun") Twitter
+                          |  and 
+                          a.text-white.link(target="_blank", href="https://www.instagram.com/hafizhamidun") Instagram
+                          |  posts.
+
+                        h4(data-pages-animation='standard', data-delay='2000', data-type='transition.slideUpIn')
+                          | Published by 
+                          strong Nubook Press 
+                          a.text-white.link(target="_blank", href="https://www.twitter.com/HaiNuBook") @HauNuBook
+
+                        a.m-t-50.btn.btn-lg.btn-accent.text-black.block-title.margin-5(data-pages-animation='standard', data-delay='2500', data-type='transition.slideLeftIn', target="_blank", href='http://www.cdnasyid.com/shop/cerita-hati-hafiz-hamidun/')
+                          i.ti-shopping-cart
+                          |  Buy Now
+
+          //- SLIDE 1
           .swiper-slide.fit.bg-master-darkest
             .slider-wrapper
               .background-wrapper(data-swiper-parallax='20%')
@@ -32,15 +72,35 @@ block content
                           br
                           b(data-pages-init='text-rotate', data-speed='3000', data-animation='flipUp') Man, Music, Work
                           
-                        h3.m-t-20(data-pages-animation='standard', data-delay='1500', data-type='transition.slideUpIn')
+                        h3.m-t-60(data-pages-animation='standard', data-delay='1500', data-type='transition.slideUpIn')
+                          a.text-white.link.watchvid-janjiku(href="#")
+                            | Watch the latest lyric video 
+                            i &ldquo;Janjiku&rdquo;
+
+                          br
+                          br
+
                           a.text-white.link(href="https://itunes.apple.com/my/album/i-love-rasulullah/id978251972", target="_blank")
                             | Get The Latest album 
                             i &ldquo;I Love Rasulullah&rdquo;
+
                           br
-                          a.text-white.link.watchvid(href="#")
+
+                          a.text-white.link.watchvid-penyelamat(href="#")
                             | Watch the music video 
                             i &ldquo;Penyelamat&rdquo; 
 
+          //- SLIDE 2
+          .swiper-slide.fit.bg-black
+            .content-layer
+              .full-height
+                .container-xs-height.full-height
+                  .col-xs-height.col-middle
+                    // VIDEO
+                    div(data-fitvids).
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/Q8N-O8uUjqI?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+          //- SLIDE 2
           .swiper-slide.fit.bg-black
             .content-layer
               .full-height
@@ -57,25 +117,30 @@ block content
         .swiper-navigation.swiper-rounded.swiper-white-solid.swiper-button-prev.auto-reveal
         .swiper-navigation.swiper-rounded.swiper-white-solid.swiper-button-next.auto-reveal
 
-  section.bg-master-darkest.text-white
-    .container-fluid
-      div(data-fitvids)
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/Q8N-O8uUjqI" frameborder="0" allowfullscreen></iframe>
-    
-
-  section.bg-master-darkest.text-white
-    .container.p-t-100.p-b-100.xs-padding-50.text-center
+  //- WELCOME TEXT
+  section.bg-white.text-master-darkest(data-pages="parallax", data-speed={coverPhoto: 0.7}, data-pages-bg-image="/assets/images/hero/hh-sketch-1.png", data-bg-overlay-class="bg-white", data-overlay-opacity="0")
+    .container.p-t-150.p-b-150.xs-padding-50
       .row
-        .col-sm-6.col-sm-offset-3
-          h5.block-title.text-master Meet Hafiz Hamidun
-          h2.slab.no-margin.divider.text-white(data-slabtext)
+        .col-sm-7.col-sm-offset-5
+          h5.block-title.text-master-lighter Meet Hafiz Hamidun
+          h2.slab.no-margin.text-white(data-slabtext)
             span.slabtext.text-master-light
               | Selamat datang. Welcome. 
-            span.slabtext
+            span.slabtext.text-master-dark
               | Ahlan Wasahlan. Bienvenue. Willkommen.
-          p.text-master-lightest
+
+          p.text-master-darker.m-t-50.m-b-50
             | This is the home of Hafiz Hamidun in the world wide web; all information regarding albums, singles, shows, concerts and the fashion line can be found here.
 
+          a.btn.btn-lg.btn-accent.text-black.block-title.margin-5(href='/music')
+            i.ti-music-alt
+            |  Explore Works
+          a.btn.btn-lg.btn-primary.text-white.block-title.margin-5(href='/profile')
+            i.ti-book
+            |  Hafiz's Profile
+
+
+  //- SOCIAL COUNTS
   section.social-count.p-t-60.p-b-60.bg-master.text-white
     .container
       .row
@@ -122,27 +187,29 @@ block content
               .count
               .block-title.muted followers
 
-  section.p-b-80.p-t-80.bg-master-darkest.text-white(data-pages-bg-image="/assets/images/hero/star2.jpg", data-bg-overlay-class="bg-master-darkest", data-overlay-opacity="0.8")
-    .container.p-b-50.p-t-50
-      .row
-        .col-sm-6.col-sm-offset-3
-          .col-middle.text-center
-            h2.slab.no-margin.divider.text-white(data-slabtext)
-              span.slabtext.text-master-light
-                | Sound is divine
-              span.slabtext
-                | Music is man-made
-            h3.slab.no-margin.m-b-30.text-white(data-slabtext)
-              span.slabtext
-                | That's how art connects to our
-              span.slabtext.text-master-light
-                | spirituality
-            a.btn.btn-lg.btn-rounded.btn-accent.text-black.block-title.margin-5(href='/music')
-              i.ti-music-alt
-              |  Explore Works
-            a.btn.btn-lg.btn-rounded.btn-primary.text-white.block-title.margin-5(href='/profile')
-              i.ti-book
-              |  Hafiz's Profile
+  //- CTA
+  //- section.p-b-80.p-t-80.bg-master-darkest.text-white(data-pages-bg-image="/assets/images/hero/star2.jpg", data-bg-overlay-class="bg-master-darkest", data-overlay-opacity="0.8")
+  //-   .container.p-b-50.p-t-50
+  //-     .row
+  //-       .col-sm-6.col-sm-offset-3
+  //-         .col-middle.text-center
+  //-           h2.slab.no-margin.divider.text-white(data-slabtext)
+  //-             span.slabtext.text-master-light
+  //-               | Sound is divine
+  //-             span.slabtext
+  //-               | Music is man-made
+  //-           h3.slab.no-margin.m-b-30.text-white(data-slabtext)
+  //-             span.slabtext
+  //-               | That's how art connects to our
+  //-             span.slabtext.text-master-light
+  //-               | spirituality
+  //- 
+  //-           a.btn.btn-lg.btn-rounded.btn-accent.text-black.block-title.margin-5(href='/music')
+  //-             i.ti-music-alt
+  //-             |  Explore Works
+  //-           a.btn.btn-lg.btn-rounded.btn-primary.text-white.block-title.margin-5(href='/profile')
+  //-             i.ti-book
+  //-             |  Hafiz's Profile
 
   section.instagram-feed.bg-master
   

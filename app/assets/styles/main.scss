@@ -11,10 +11,18 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 @import 'modules/social';
 @import 'modules/mdc-class';
 
-$color-accent: #cfac67;
+$color-accent: #FFEE58;
+
+.btn {
+  border: 0 !important;
+}
 
 .btn-accent {
   background: $color-accent;
+
+  &:hover {
+    background: darken($color-accent, 20);
+  }
 }
 
 // PRELOAD
@@ -50,6 +58,18 @@ $pages: 'index', 'music', 'profile', 'contact';
 @each $page in $pages {
   #page-#{$page} a[data-body="#{$page}"] {
     @extend .active;
+  }
+}
+
+.overlay-diag {
+  position: relative;
+
+  &:after {
+    position: absolute;
+    content: "";
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAGklEQVQIW2NkQID/jFD2fwYGBkYQB8wACQIANlIDA2WzhHMAAAAASUVORK5CYII=);
+    background-repeat: repeat;
+    z-index: -1;
   }
 }
 
@@ -292,7 +312,7 @@ nav.mobile-nav {
     text-indent: -9999px;
 
     border: none;
-    background: $color-warning;
+    background: $color-accent;
 
     font-size: 0;
 
@@ -405,7 +425,7 @@ nav.mobile-nav {
     transition: opacity .3s ease, visibility .3s 0s;
     text-align: center;
 
-    background: $color-warning;
+    background: $color-accent;
 
     ul, li {
       margin: 0;
@@ -494,7 +514,7 @@ nav.mobile-nav {
     text-transform: uppercase;
 
     color: #000;
-    background: $color-accent;//$color-warning;
+    background: $color-accent;//$color-accent;
 
     font-weight: 900;
     line-height: inherit;
@@ -634,6 +654,13 @@ footer {
     font-family: $font-montserrat;
     font-size: .7rem;
     line-height: 1;
+  }
+
+  a.social-icon {
+    i:first-child {
+      color: $color-master-lighter;
+
+    }
   }
 }
 
@@ -780,7 +807,18 @@ ol.ol {
 // ======================================================
 
 .swiper-container .background {
-  @include add-gradient(to bottom, rgba(#000, .5), transparent 40%);
+  &:after {
+    position: absolute;
+    content: "";
+    background-image: url(/assets/images/vo_diagonal_lines_dark.png);
+    background-repeat: repeat;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  // @include add-gradient(to bottom, rgba(#000, .5), transparent 40%);
 }
 
 @media screen and (max-width: $screen-sm-max) {
@@ -794,7 +832,7 @@ ol.ol {
 // ======================================================
 
 .gradient {
-  @include add-gradient(to right, transparent, rgba($color-warning, .2));
+  @include add-gradient(to right, transparent, rgba($color-accent, .2));
 }
 
 // ======================================================

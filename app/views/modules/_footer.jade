@@ -1,12 +1,12 @@
 mixin footer
   // START FOOTER
-  footer.p-b-50.p-t-50.bg-master.text-white()&attributes(attributes)
+  footer.p-b-100.p-t-100.bg-white.text-master()&attributes(attributes)
     .container
       .row
         .col-sm-4.text-center.links.sm-p-b-20
-          h5.text-white.muted.block-title Quicklinks
+          h5.text-master.block-title Quicklinks
           .m-t-20.m-b-20
-            ul
+            ul.muted
               li
                 a(href='/') Home
               li
@@ -16,11 +16,13 @@ mixin footer
               li
                 a(href='/contact') Contact
               li
-                a(href='http://arteffects.international', target='_blank') Arteffects International
+                a(href='https://arteffects.international', target='_blank') Arteffects International
+              li
+                a(href='http://www,cdnasyid.com', target='_blank') CD Nasyid
 
         .col-sm-4.text-center.b-l.b-r.sm-p-b-10
-          h5.text-white.muted.block-title Get Social
-          .m-t-20.m-b-20
+          h5.text-master.block-title Get Social
+          .m-t-20.m-b-20.text-master
             ul.social-links.no-margin
               li
                 a.social-icon.si-borderless.si-small.si-facebook(href="https://www.facebook.com/hafizhamidun", target="_blank", title="Facebook")
@@ -36,7 +38,7 @@ mixin footer
                   i.icon-youtube
                   
         .col-sm-4.text-center.copyright
-          h5.text-white.muted.block-title HafizHamidun.com
+          h5.text-master.block-title HafizHamidun.com
           .m-t-20.m-b-20
             p.margin-0.hint-text Copyright &#169; 2015.
             p.margin-0.muted All Rights Reserved.
